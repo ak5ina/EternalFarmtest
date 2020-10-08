@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_inspiration">
+
+    <fragment
+        android:id="@+id/navigation_inspiration"
+        android:name="com.example.myeatup.ui.inspiration.InsipirationFragment"
+        android:label="@string/title_inspiration"
+        tools:layout="@layout/fragment_inspiration" />
+
+    <fragment
+        android:id="@+id/navigation_recipe"
+        android:name="com.example.myeatup.ui.recipes.RecipeFragment"
+        android:label="@string/title_recipe"
+        tools:layout="@layout/fragment_recipe" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.myeatup.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
