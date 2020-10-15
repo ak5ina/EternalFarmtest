@@ -58,6 +58,11 @@ public class InsipirationFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                //OPEN POP UP
+
+                //RETURN A INGREDIENT
+
+                //ADD INGREDIENT TO ADAPTER
                 adaptor.add(new DataModel("ITS WORKING ", 420));
                 adaptor.notifyDataSetChanged();
             }
