@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundpic">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Add Recipe"
+                    android:textSize="40sp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/line"
+                    android:layout_margin="15dp"
+                    android:layout_weight="1"
+                    >
+                </ImageView>
+
+                <EditText
+                    android:id="@+id/edit_recipe_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:hint="@string/RecipeName"
+                    android:imeOptions="actionDone"
+                    android:inputType="textImeMultiLine"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    >
+                </EditText>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/line"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0.5"
+                    >
+                </ImageView>
+
+                <ImageButton
+                    android:id="@+id/btn_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="30dp"
+                    android:background="@drawable/btn_image"
+                    android:tooltipText="Add image"
+                    >
+                </ImageButton>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                >
+                <Space
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    >
+                </Space>
+
+                <TextView
+                    android:id="@+id/text_add_ingridient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ingredients"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+
+                <Button
+                    android:id="@+id/btn_add_ingrident"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/icon_plus_sign"
+                    >
+                </Button>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <ListView
+                    android:id="@+id/list_add_ingridient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="true"
+                    >
+                </ListView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                >
+                <Space
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    >
+                </Space>
+
+                <TextView
+                    android:id="@+id/text_add_steps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Steps to Preform"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+
+                <Button
+                    android:id="@+id/btn_add_step"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/icon_plus_sign"
+                    >
+                </Button>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <ListView
+                    android:id="@+id/list_steps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    >
+                </ListView>
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    >
+                </Space>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+
+                <Button
+                    android:id="@+id/btn_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:text="Upload recipe"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/btn_upload"
+                    >
+                </Button>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
