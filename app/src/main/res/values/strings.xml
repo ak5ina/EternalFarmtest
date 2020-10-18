@@ -4,4 +4,6 @@
     <string name="title_recipe">Recipes</string>
     <string name="title_add_recipe">Add recipe</string>
     <string name="title_profile">Profile</string>
+    <string name="Todo">Todo</string>
+    <string name="RecipeName">Recipe Name</string>
 </resources>
