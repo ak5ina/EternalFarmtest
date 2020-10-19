@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        >
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            >
+
+            <ImageButton
+                android:id="@+id/image_adapt_ingredient"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/icon_ingredient"
+                >
+            </ImageButton>
+
+            <TextView
+                android:id="@+id/text_adapt_ingredient_name"
+                android:layout_width="wrap_content"
+                android:text="Ingredient"
+                android:minWidth="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="right"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:id="@+id/text_adapt_ingredient_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Amount:"
+                android:gravity="center"
+                >
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/edit_adapt_ingredient_amount"
+                android:layout_width="wrap_content"
+                android:hint="Amount"
+                android:minWidth="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:layout_marginRight="10dp"
+                android:imeOptions="actionDone"
+                android:digits="0123456789,"
+                android:inputType="number"
+                >
+            </EditText>
+
+            <TextView
+                android:id="@+id/text_adapt_ingredient_unit"
+                android:layout_width="wrap_content"
+                android:text="Unit"
+                android:minWidth="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                >
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spin_adapt_ingredient_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                >
+            </Spinner>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
