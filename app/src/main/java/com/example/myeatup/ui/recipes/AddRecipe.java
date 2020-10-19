@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.example.myeatup.R;
 import com.example.myeatup.ui.AddIngredientAdapter;
@@ -35,28 +37,36 @@ public class AddRecipe extends AppCompatActivity {
 
 
         Button add_step = findViewById(R.id.btn_add_step);
-
         final ArrayList stepObjects = new ArrayList();
-
-        //itemsAdapter = new ArrayAdapter<>(this, R.layout.adapter_steps, R.id.text_adapt_step_text, stepObjects);
-
         final StepAdapter stepAdapter = new StepAdapter(this, R.layout.adapter_steps, stepObjects);
-
         final ListView list_step = findViewById(R.id.list_steps);
-        //list_step.setAdapter(itemsAdapter);
         list_step.setAdapter(stepAdapter);
 
 
 
         Button add_ingredient = findViewById(R.id.btn_add_ingrident);
-
         final ArrayList ingredientObjects = new ArrayList();
-
         final AddIngredientAdapter ingredientAdapter = new AddIngredientAdapter(this, R.layout.adapter_ingrediens, ingredientObjects);
-
         final ListView list_ingredint = findViewById(R.id.list_add_ingridient);
-
         list_ingredint.setAdapter(ingredientAdapter);
+
+
+        Spinner spinner;
+        spinner = findViewById(R.id.spin_adapt_ingredient_unit);
+        ArrayAdapter<CharSequence> spinAdapter = ArrayAdapter.createFromResource(this, R.array.unit_array, android.R.layout.simple_spinner_item);
+        spinAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 
 

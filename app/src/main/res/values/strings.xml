@@ -6,4 +6,9 @@
     <string name="title_profile">Profile</string>
     <string name="Todo">Todo</string>
     <string name="RecipeName">Recipe Name</string>
+    <string-array name="unit_array">
+        <item>Liter</item>
+        <item>Kilogram</item>
+        <item>Styk</item>
+    </string-array>
 </resources>

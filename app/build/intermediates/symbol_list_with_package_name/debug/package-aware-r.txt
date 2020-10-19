@@ -56,6 +56,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array unit_array
 attr action
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1625,6 +1626,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
 drawable icon_cooking
+drawable icon_ingredient
 drawable icon_lightbulb
 drawable icon_plus
 drawable icon_plus_sign
@@ -1822,6 +1824,7 @@ id dropdown_menu
 id easeIn
 id easeInOut
 id easeOut
+id edit_adapt_ingredient_amount
 id edit_query
 id edit_recipe_name
 id end
@@ -1859,6 +1862,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id image_adapt_ingredient
 id info
 id inspiration_btn_add_ingridiant
 id inspiration_header_line
@@ -2001,6 +2005,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spin_adapt_ingredient_unit
 id spline
 id split_action_bar
 id spread
@@ -2038,6 +2043,9 @@ id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id text_adapt_ingredient_amount
+id text_adapt_ingredient_name
+id text_adapt_ingredient_unit
 id text_adapt_step_num
 id text_adapt_step_text
 id text_add_ingridient
@@ -2146,6 +2154,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_recipe
 layout activity_main
+layout adapter_ingrediens
 layout adapter_steps
 layout custom_dialog
 layout design_bottom_navigation_item
