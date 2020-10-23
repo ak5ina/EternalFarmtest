@@ -1589,6 +1589,8 @@ drawable icon_lightbulb
 drawable icon_plus_sign
 drawable icon_profile
 drawable icons8_plus_48
+drawable layout_bg
+drawable layout_bg1
 drawable line
 drawable lort
 drawable material_ic_calendar_black_24dp
@@ -1628,6 +1630,7 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
+id Header
 id META
 id NO_DEBUG
 id SHIFT
@@ -1788,6 +1791,9 @@ id ghost_view_holder
 id gone
 id graph
 id graph_wrap
+id gridview
+id gridview_name
+id gridview_wholeobject
 id group_divider
 id groups
 id hideable
@@ -2092,6 +2098,8 @@ layout design_text_input_start_icon
 layout fragment_inspiration
 layout fragment_profile
 layout fragment_recipe
+layout gridview_single_object
+layout gridviewobjekt
 layout inpiration_listview_object
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
@@ -2470,6 +2478,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style CustomDialog
 style EmptyTheme
 style MaterialAlertDialog_MaterialComponents
 style MaterialAlertDialog_MaterialComponents_Body_Text

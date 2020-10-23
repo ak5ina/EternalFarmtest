@@ -1,11 +1,17 @@
 package com.example.myeatup.ui.inspiration;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -19,7 +25,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myeatup.R;
+import com.example.myeatup.firebasedata.IngredientDTO;
 import com.example.myeatup.ui.DataModel;
+import com.example.myeatup.ui.GridviewAdapter;
 import com.example.myeatup.ui.IngredientAdaptor;
 
 import java.util.ArrayList;
@@ -37,10 +45,11 @@ public class InsipirationFragment extends Fragment {
     private EditText dialogSearchBar;
     private Button btnCancel;
     private GridView dialogGridview;
+    private GridviewAdapter gvAdapter;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+                             final ViewGroup container, Bundle savedInstanceState) {
         inspirationViewModel =
                 ViewModelProviders.of(this).get(InspirationViewModel.class);
         View root = inflater.inflate(R.layout.fragment_inspiration, container, false);
@@ -69,8 +78,22 @@ public class InsipirationFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //OPEN POP UP
+                LayoutInflater inflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View view234 = inflater.inflate(R.layout.gridview_single_object,null);
 
+                //OPEN POP UP
+                dialogBuilder = new AlertDialog.Builder(getActivity(), R.style.CustomDialog);
+                dialogBuilder.setView(getLayoutInflater().inflate(R.layout.gridviewobjekt,null));
+                dialog = dialogBuilder.create();
+
+
+                dialog.show();
+                //OPEN GRIDVIEW
+                dialogGridview = (GridView) view234.findViewById(R.id.gridview);
+                gvAdapter = new GridviewAdapter(getActivity().getApplicationContext(),R.layout.gridview_single_object, getIngredientListFromDataBase());
+
+
+                dialogGridview.setAdapter(gvAdapter);
 
 
                 //RETURN A INGREDIENT
@@ -79,6 +102,16 @@ public class InsipirationFragment extends Fragment {
                 adaptor.add(new DataModel("ITS WORKING ", 420));
                 adaptor.notifyDataSetChanged();
             }
+
+            private ArrayList<IngredientDTO> getIngredientListFromDataBase() {
+
+                ArrayList<IngredientDTO> listToReturn = new ArrayList<>();
+                listToReturn.add(new IngredientDTO("1","tester1"));
+                listToReturn.add(new IngredientDTO("2","tester2"));
+
+                return listToReturn;
+            }
+
         });
 
         return root;
@@ -87,4 +120,7 @@ public class InsipirationFragment extends Fragment {
     private void UpdateIngredientList() {
 
     }
+
+
+
 }

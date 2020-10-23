@@ -12,6 +12,10 @@
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_home_black_24dp.png"
     },
     {
+        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\layout_gridviewobjekt.xml.flat",
+        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\layout\\gridviewobjekt.xml"
+    },
+    {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_notifications_black_24dp.xml.flat",
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_notifications_black_24dp.xml"
     },
@@ -54,6 +58,10 @@
     {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_add_ingridient.xml.flat",
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable\\btn_add_ingridient.xml"
+    },
+    {
+        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable_layout_bg1.xml.flat",
+        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable\\layout_bg1.xml"
     },
     {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\layout_inpiration_listview_object.xml.flat",
@@ -180,8 +188,16 @@
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\layout_gridview_single_object.xml.flat",
+        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\layout\\gridview_single_object.xml"
+    },
+    {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable_layout_bg.xml.flat",
+        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable\\layout_bg.xml"
     },
     {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
