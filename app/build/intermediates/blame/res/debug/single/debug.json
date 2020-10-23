@@ -20,12 +20,12 @@
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\drawable-v24\\icon_plus_sign.png"
     },
     {
-        "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_line.xml.flat",
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\line.xml"
+    },
+    {
+        "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",

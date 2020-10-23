@@ -58,23 +58,29 @@ public class AddRecipe extends AppCompatActivity {
 
         LayoutInflater inflater = (LayoutInflater)getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.adapter_ingrediens,null);
-
         final TextView unitText = findViewById(R.id.text_adapt_ingredient_unit);
-
         final ArrayList<String> units = new ArrayList<String>(){};
-        units.add("Kilogram");
-        units.add("Liter");
-        units.add("Styk");
+        units.add("dL");
+        units.add("g");
+        units.add("Stk");
+        units.add("spsk");
+        units.add("tsk");
         UnitSpinnerAdapter spinAdapter = new UnitSpinnerAdapter(this, android.R.layout.simple_spinner_item, units);
         spinAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         Spinner spinner;
         spinner = view.findViewById(R.id.spin_adapt_ingredient_unit);
         spinner.setAdapter(spinAdapter);
+
+
+
+
+
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 unitText.setText(units.get(i - 1));
+                //ingredientAdapter.notifyDataSetChanged();
             }
 
             @Override

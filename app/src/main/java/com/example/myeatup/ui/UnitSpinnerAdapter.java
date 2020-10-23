@@ -20,7 +20,7 @@ public class UnitSpinnerAdapter extends ArrayAdapter {
     ArrayList<String> unit;
 
     public UnitSpinnerAdapter(@NonNull Context context, int resource, ArrayList<String> unit) {
-        super(context, resource, unit);
+        super(context, resource);
         this.unit = unit;
     }
 
