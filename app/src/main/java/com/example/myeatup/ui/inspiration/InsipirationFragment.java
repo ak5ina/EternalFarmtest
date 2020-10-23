@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,6 +30,14 @@ public class InsipirationFragment extends Fragment {
     private ArrayList<DataModel> test;
     private ListView listView;
     private IngredientAdaptor adaptor;
+
+    //alertBuilder For Adding Ingredient
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    private EditText dialogSearchBar;
+    private Button btnCancel;
+    private GridView dialogGridview;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -53,12 +63,15 @@ public class InsipirationFragment extends Fragment {
         listView.setAdapter(adaptor);
 
 
+        //ADD TO LIST VIEW BTN
         Button btn_add_ingre = root.findViewById(R.id.inspiration_btn_add_ingridiant);
         btn_add_ingre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 //OPEN POP UP
+
+
 
                 //RETURN A INGREDIENT
 
@@ -68,16 +81,10 @@ public class InsipirationFragment extends Fragment {
             }
         });
 
-
-
         return root;
     }
 
     private void UpdateIngredientList() {
-
-        test.add(new DataModel("HEJ", 0));
-        test.add(new DataModel("MED", 1));
-        test.add(new DataModel("DIG", 2));
 
     }
 }
