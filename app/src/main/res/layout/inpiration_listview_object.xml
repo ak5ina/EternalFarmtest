@@ -13,18 +13,18 @@
         android:layout_height="75dp"
         android:background="@drawable/ic_launcher_foreground"
         android:padding="10dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
          />
 
     <TextView
         android:id="@+id/inspiration_listview_object_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NAME OF PRODUCT"
+        android:text="Det er En TESTER"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:textSize="24sp"
-        android:layout_weight="7"
+        android:layout_weight="100"
         />
 
     <ImageButton
