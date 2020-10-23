@@ -2,7 +2,9 @@ package com.example.myeatup.ui.recipes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -10,8 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.myeatup.R;
+import com.example.myeatup.ui.UnitSpinnerAdapter;
 import com.example.myeatup.ui.AddIngredientAdapter;
 import com.example.myeatup.ui.RecipeIngredient;
 import com.example.myeatup.ui.StepAdapter;
@@ -51,15 +55,26 @@ public class AddRecipe extends AppCompatActivity {
         list_ingredint.setAdapter(ingredientAdapter);
 
 
+
+        LayoutInflater inflater = (LayoutInflater)getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.adapter_ingrediens,null);
+
+        final TextView unitText = findViewById(R.id.text_adapt_ingredient_unit);
+
+        final ArrayList<String> units = new ArrayList<String>(){};
+        units.add("Kilogram");
+        units.add("Liter");
+        units.add("Styk");
+        UnitSpinnerAdapter spinAdapter = new UnitSpinnerAdapter(this, android.R.layout.simple_spinner_item, units);
+        spinAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         Spinner spinner;
-        spinner = findViewById(R.id.spin_adapt_ingredient_unit);
-        ArrayAdapter<CharSequence> spinAdapter = ArrayAdapter.createFromResource(this, R.array.unit_array, android.R.layout.simple_spinner_item);
-        /*spinAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner = view.findViewById(R.id.spin_adapt_ingredient_unit);
         spinner.setAdapter(spinAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+                unitText.setText(units.get(i - 1));
             }
 
             @Override
@@ -67,7 +82,7 @@ public class AddRecipe extends AppCompatActivity {
 
             }
         });
-*/
+
 
 
         add_step.setOnClickListener(new View.OnClickListener() {

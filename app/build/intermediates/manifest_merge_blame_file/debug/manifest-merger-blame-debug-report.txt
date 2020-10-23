@@ -26,160 +26,164 @@
 16-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:26:22-107
 17
 18    <application
-18-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:5:5-22:19
+18-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:5:5-24:19
 19        android:allowBackup="true"
 19-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:6:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 20-->[androidx.core:core:1.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6f3f6e691d7c032ec1401b85ea2d3f55\core-1.3.1\AndroidManifest.xml:24:18-86
 21        android:debuggable="true"
-22        android:icon="@mipmap/ic_launcher"
-22-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:7:9-43
-23        android:label="@string/app_name"
-23-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:8:9-41
-24        android:roundIcon="@mipmap/ic_launcher_round"
-24-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:9:9-54
-25        android:supportsRtl="true"
-25-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:10:9-35
-26        android:testOnly="true"
-27        android:theme="@style/AppTheme" >
-27-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:11:9-40
-28        <activity android:name="com.example.myeatup.ui.recipes.AddRecipe" />
-28-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:12:9-67
-28-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:12:19-55
-29        <activity
-29-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:13:9-21:20
-30            android:name="com.example.myeatup.MainActivity"
-30-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:14:13-41
-31            android:label="@string/app_name" >
-31-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:15:13-45
-32            <intent-filter>
-32-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:16:13-20:29
-33                <action android:name="android.intent.action.MAIN" />
-33-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:17:17-69
-33-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:17:25-66
-34
-35                <category android:name="android.intent.category.LAUNCHER" />
-35-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:19:17-77
-35-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:19:27-74
-36            </intent-filter>
-37        </activity>
-38
-39        <service
-39-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:30:9-36:19
-40            android:name="com.google.firebase.components.ComponentDiscoveryService"
-40-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:31:13-84
-41            android:directBootAware="true"
-41-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:35:13-43
-42            android:exported="false" >
-42-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:32:13-37
-43            <meta-data
-43-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:33:13-35:85
-44                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
-44-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:34:17-107
-45                android:value="com.google.firebase.components.ComponentRegistrar" />
-45-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:35:17-82
-46            <meta-data
-46-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:36:13-38:85
-47                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-47-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:37:17-109
-48                android:value="com.google.firebase.components.ComponentRegistrar" />
-48-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:38:17-82
-49            <meta-data
-49-->[com.google.android.gms:play-services-measurement-api:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f7b943f37bad2f52847cf671cacabd00\jetified-play-services-measurement-api-17.6.0\AndroidManifest.xml:30:13-32:85
-50                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-50-->[com.google.android.gms:play-services-measurement-api:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f7b943f37bad2f52847cf671cacabd00\jetified-play-services-measurement-api-17.6.0\AndroidManifest.xml:31:17-139
-51                android:value="com.google.firebase.components.ComponentRegistrar" />
-51-->[com.google.android.gms:play-services-measurement-api:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f7b943f37bad2f52847cf671cacabd00\jetified-play-services-measurement-api-17.6.0\AndroidManifest.xml:32:17-82
-52            <meta-data
-52-->[com.google.firebase:firebase-installations:16.3.2] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\0b99af98d65c06d78b12445dac2a854f\jetified-firebase-installations-16.3.2\AndroidManifest.xml:17:13-19:85
-53                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-53-->[com.google.firebase:firebase-installations:16.3.2] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\0b99af98d65c06d78b12445dac2a854f\jetified-firebase-installations-16.3.2\AndroidManifest.xml:18:17-127
-54                android:value="com.google.firebase.components.ComponentRegistrar" />
-54-->[com.google.firebase:firebase-installations:16.3.2] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\0b99af98d65c06d78b12445dac2a854f\jetified-firebase-installations-16.3.2\AndroidManifest.xml:19:17-82
-55        </service>
-56
-57        <activity
-57-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:24:9-31:50
-58            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
-58-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:25:13-85
-59            android:excludeFromRecents="true"
-59-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:26:13-46
-60            android:exported="true"
-60-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:27:13-36
-61            android:launchMode="singleTask"
-61-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:28:13-44
-62            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
-62-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:29:13-102
-63            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-63-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:30:13-72
-64        <activity
-64-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4083aac5df0934ad8f0eaede6fb54cf4\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
-65            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-65-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4083aac5df0934ad8f0eaede6fb54cf4\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
-66            android:exported="false"
-66-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4083aac5df0934ad8f0eaede6fb54cf4\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
-67            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-67-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4083aac5df0934ad8f0eaede6fb54cf4\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
-68
-69        <receiver
-69-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:29:9-33:20
-70            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-70-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:30:13-85
-71            android:enabled="true"
-71-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:31:13-35
-72            android:exported="false" >
-72-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:32:13-37
-73        </receiver>
-74
-75        <service
-75-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:35:9-38:40
-76            android:name="com.google.android.gms.measurement.AppMeasurementService"
-76-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:36:13-84
-77            android:enabled="true"
-77-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:37:13-35
-78            android:exported="false" />
-78-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:38:13-37
-79        <service
-79-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:39:9-43:72
-80            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-80-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:40:13-87
-81            android:enabled="true"
-81-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:41:13-35
-82            android:exported="false"
-82-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:42:13-37
-83            android:permission="android.permission.BIND_JOB_SERVICE" />
-83-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:43:13-69
-84
-85        <provider
-85-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:26:9-31:39
-86            android:name="com.google.firebase.provider.FirebaseInitProvider"
-86-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:27:13-77
-87            android:authorities="com.example.myeatup.firebaseinitprovider"
-87-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:28:13-72
-88            android:directBootAware="true"
-88-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:29:13-43
-89            android:exported="false"
-89-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:30:13-37
-90            android:initOrder="100" />
-90-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:31:13-36
-91
-92        <meta-data
-92-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\3d7290016734c4a1bc2d256e5221be66\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-93            android:name="com.google.android.gms.version"
-93-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\3d7290016734c4a1bc2d256e5221be66\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-94            android:value="@integer/google_play_services_version" />
-94-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\3d7290016734c4a1bc2d256e5221be66\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-95
-96        <provider
-96-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\c5ba378492c919f1b5a49a53f91bf724\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
-97            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-97-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\c5ba378492c919f1b5a49a53f91bf724\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
-98            android:authorities="com.example.myeatup.lifecycle-process"
-98-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\c5ba378492c919f1b5a49a53f91bf724\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
-99            android:exported="false"
-99-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\c5ba378492c919f1b5a49a53f91bf724\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
-100            android:multiprocess="true" />
-100-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\c5ba378492c919f1b5a49a53f91bf724\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
-101    </application>
-102
-103</manifest>
+22        android:hardwareAccelerated="false"
+22-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:12:9-44
+23        android:icon="@mipmap/ic_launcher"
+23-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:7:9-43
+24        android:label="@string/app_name"
+24-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:8:9-41
+25        android:largeHeap="true"
+25-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:13:9-33
+26        android:roundIcon="@mipmap/ic_launcher_round"
+26-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:9:9-54
+27        android:supportsRtl="true"
+27-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:10:9-35
+28        android:testOnly="true"
+29        android:theme="@style/AppTheme" >
+29-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:11:9-40
+30        <activity android:name="com.example.myeatup.ui.recipes.AddRecipe" />
+30-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:14:9-67
+30-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:14:19-55
+31        <activity
+31-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:15:9-23:20
+32            android:name="com.example.myeatup.MainActivity"
+32-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:16:13-41
+33            android:label="@string/app_name" >
+33-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:17:13-45
+34            <intent-filter>
+34-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:18:13-22:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:19:17-69
+35-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:19:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:21:17-77
+37-->C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:21:27-74
+38            </intent-filter>
+39        </activity>
+40
+41        <service
+41-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:30:9-36:19
+42            android:name="com.google.firebase.components.ComponentDiscoveryService"
+42-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:31:13-84
+43            android:directBootAware="true"
+43-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:35:13-43
+44            android:exported="false" >
+44-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:32:13-37
+45            <meta-data
+45-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:33:13-35:85
+46                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+46-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:34:17-107
+47                android:value="com.google.firebase.components.ComponentRegistrar" />
+47-->[com.google.firebase:firebase-storage:19.2.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\6c9a332686d7a2cb6fc5fbee341010d4\jetified-firebase-storage-19.2.0\AndroidManifest.xml:35:17-82
+48            <meta-data
+48-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:36:13-38:85
+49                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+49-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:37:17-109
+50                android:value="com.google.firebase.components.ComponentRegistrar" />
+50-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:38:17-82
+51            <meta-data
+51-->[com.google.android.gms:play-services-measurement-api:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f7b943f37bad2f52847cf671cacabd00\jetified-play-services-measurement-api-17.6.0\AndroidManifest.xml:30:13-32:85
+52                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+52-->[com.google.android.gms:play-services-measurement-api:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f7b943f37bad2f52847cf671cacabd00\jetified-play-services-measurement-api-17.6.0\AndroidManifest.xml:31:17-139
+53                android:value="com.google.firebase.components.ComponentRegistrar" />
+53-->[com.google.android.gms:play-services-measurement-api:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f7b943f37bad2f52847cf671cacabd00\jetified-play-services-measurement-api-17.6.0\AndroidManifest.xml:32:17-82
+54            <meta-data
+54-->[com.google.firebase:firebase-installations:16.3.2] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\0b99af98d65c06d78b12445dac2a854f\jetified-firebase-installations-16.3.2\AndroidManifest.xml:17:13-19:85
+55                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+55-->[com.google.firebase:firebase-installations:16.3.2] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\0b99af98d65c06d78b12445dac2a854f\jetified-firebase-installations-16.3.2\AndroidManifest.xml:18:17-127
+56                android:value="com.google.firebase.components.ComponentRegistrar" />
+56-->[com.google.firebase:firebase-installations:16.3.2] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\0b99af98d65c06d78b12445dac2a854f\jetified-firebase-installations-16.3.2\AndroidManifest.xml:19:17-82
+57        </service>
+58
+59        <activity
+59-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:24:9-31:50
+60            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+60-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:25:13-85
+61            android:excludeFromRecents="true"
+61-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:26:13-46
+62            android:exported="true"
+62-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:27:13-36
+63            android:launchMode="singleTask"
+63-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:28:13-44
+64            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+64-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:29:13-102
+65            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+65-->[com.google.firebase:firebase-auth:19.4.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\79b2001ada5b24ea2623c970ae60a760\jetified-firebase-auth-19.4.0\AndroidManifest.xml:30:13-72
+66        <activity
+66-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4083aac5df0934ad8f0eaede6fb54cf4\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+67            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+67-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4083aac5df0934ad8f0eaede6fb54cf4\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+68            android:exported="false"
+68-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4083aac5df0934ad8f0eaede6fb54cf4\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+69            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+69-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4083aac5df0934ad8f0eaede6fb54cf4\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+70
+71        <receiver
+71-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:29:9-33:20
+72            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+72-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:30:13-85
+73            android:enabled="true"
+73-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:31:13-35
+74            android:exported="false" >
+74-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:32:13-37
+75        </receiver>
+76
+77        <service
+77-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:35:9-38:40
+78            android:name="com.google.android.gms.measurement.AppMeasurementService"
+78-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:36:13-84
+79            android:enabled="true"
+79-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:37:13-35
+80            android:exported="false" />
+80-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:38:13-37
+81        <service
+81-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:39:9-43:72
+82            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+82-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:40:13-87
+83            android:enabled="true"
+83-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:41:13-35
+84            android:exported="false"
+84-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:42:13-37
+85            android:permission="android.permission.BIND_JOB_SERVICE" />
+85-->[com.google.android.gms:play-services-measurement:17.6.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f3a3368963b82dbf78add1bbe12229e9\jetified-play-services-measurement-17.6.0\AndroidManifest.xml:43:13-69
+86
+87        <provider
+87-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:26:9-31:39
+88            android:name="com.google.firebase.provider.FirebaseInitProvider"
+88-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:27:13-77
+89            android:authorities="com.example.myeatup.firebaseinitprovider"
+89-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:28:13-72
+90            android:directBootAware="true"
+90-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:29:13-43
+91            android:exported="false"
+91-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:30:13-37
+92            android:initOrder="100" />
+92-->[com.google.firebase:firebase-common:19.3.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\4f6bb88b2a70c5cd2bc81204d1b69d9f\jetified-firebase-common-19.3.1\AndroidManifest.xml:31:13-36
+93
+94        <meta-data
+94-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\3d7290016734c4a1bc2d256e5221be66\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+95            android:name="com.google.android.gms.version"
+95-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\3d7290016734c4a1bc2d256e5221be66\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+96            android:value="@integer/google_play_services_version" />
+96-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\3d7290016734c4a1bc2d256e5221be66\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+97
+98        <provider
+98-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\c5ba378492c919f1b5a49a53f91bf724\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
+99            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+99-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\c5ba378492c919f1b5a49a53f91bf724\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
+100            android:authorities="com.example.myeatup.lifecycle-process"
+100-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\c5ba378492c919f1b5a49a53f91bf724\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
+101            android:exported="false"
+101-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\c5ba378492c919f1b5a49a53f91bf724\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
+102            android:multiprocess="true" />
+102-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\c5ba378492c919f1b5a49a53f91bf724\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
+103    </application>
+104
+105</manifest>

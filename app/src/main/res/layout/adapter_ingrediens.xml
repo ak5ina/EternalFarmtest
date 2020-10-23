@@ -85,6 +85,7 @@
                 android:id="@+id/spin_adapt_ingredient_unit"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
+                android:entries="@array/unit_array"
                 >
             </Spinner>
 

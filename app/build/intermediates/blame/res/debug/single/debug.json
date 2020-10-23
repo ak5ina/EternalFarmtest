@@ -8,12 +8,12 @@
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_home_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
-    },
-    {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_dashboard_black_24dp.png.flat",
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_dashboard_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
     },
     {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_plus_sign.png.flat",
@@ -82,6 +82,10 @@
     {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_ingrediens.xml.flat",
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\layout\\adapter_ingrediens.xml"
+    },
+    {
+        "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_unit_spinner.xml.flat",
+        "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\layout\\adapter_unit_spinner.xml"
     },
     {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_add_ingridient.xml.flat",
@@ -238,6 +242,10 @@
     {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable_backgroundpic.PNG.flat",
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\drawable\\backgroundpic.PNG"
+    },
+    {
+        "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_dropdown.xml.flat",
+        "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\layout\\spinner_dropdown.xml"
     },
     {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",

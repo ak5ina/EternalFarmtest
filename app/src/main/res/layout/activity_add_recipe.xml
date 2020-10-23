@@ -99,7 +99,7 @@
 
                 <TextView
                     android:id="@+id/text_add_ingridient"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Ingredients"
                     android:gravity="center"
@@ -130,7 +130,7 @@
                     android:id="@+id/list_add_ingridient"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="true"
+
                     >
                 </ListView>
 
@@ -151,7 +151,7 @@
 
                 <TextView
                     android:id="@+id/text_add_steps"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Steps to Preform"
                     android:gravity="center"
@@ -183,7 +183,6 @@
                     android:id="@+id/list_steps"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
                     >
                 </ListView>
 
