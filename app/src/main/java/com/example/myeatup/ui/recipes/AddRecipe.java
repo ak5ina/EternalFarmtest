@@ -54,7 +54,7 @@ public class AddRecipe extends AppCompatActivity {
         Spinner spinner;
         spinner = findViewById(R.id.spin_adapt_ingredient_unit);
         ArrayAdapter<CharSequence> spinAdapter = ArrayAdapter.createFromResource(this, R.array.unit_array, android.R.layout.simple_spinner_item);
-        spinAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        /*spinAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -67,7 +67,7 @@ public class AddRecipe extends AppCompatActivity {
 
             }
         });
-
+*/
 
 
         add_step.setOnClickListener(new View.OnClickListener() {
