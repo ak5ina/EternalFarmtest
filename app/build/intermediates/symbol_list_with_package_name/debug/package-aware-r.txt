@@ -2043,9 +2043,7 @@ id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id text_adapt_ingredient_amount
 id text_adapt_ingredient_name
-id text_adapt_ingredient_unit
 id text_adapt_step_num
 id text_adapt_step_text
 id text_add_ingridient

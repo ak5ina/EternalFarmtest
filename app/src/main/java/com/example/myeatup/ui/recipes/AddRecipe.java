@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.myeatup.R;
+import com.example.myeatup.firebasedata.RecipieDTO;
 import com.example.myeatup.ui.UnitSpinnerAdapter;
 import com.example.myeatup.ui.AddIngredientAdapter;
 import com.example.myeatup.ui.RecipeIngredient;
@@ -39,6 +40,8 @@ public class AddRecipe extends AppCompatActivity {
         getSupportActionBar().hide();
 
 
+        final TextView recipeName = findViewById(R.id.edit_recipe_name);
+
 
         Button add_step = findViewById(R.id.btn_add_step);
         final ArrayList stepObjects = new ArrayList();
@@ -58,7 +61,7 @@ public class AddRecipe extends AppCompatActivity {
 
         LayoutInflater inflater = (LayoutInflater)getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.adapter_ingrediens,null);
-        final TextView unitText = findViewById(R.id.text_adapt_ingredient_unit);
+//        final TextView unitText = findViewById(R.id.text_adapt_ingredient_unit);
         final ArrayList<String> units = new ArrayList<String>(){};
         units.add("dL");
         units.add("g");
@@ -72,6 +75,21 @@ public class AddRecipe extends AppCompatActivity {
         spinner.setAdapter(spinAdapter);
 
 
+        Button upload = findViewById(R.id.btn_upload);
+
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                RecipieDTO recipe = new RecipieDTO();
+                recipe.setID("3");
+                recipe.setName(recipeName.toString());
+                recipe.setSteps(stepObjects);
+
+            }
+        });
+
+
 
 
 
@@ -79,7 +97,7 @@ public class AddRecipe extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                unitText.setText(units.get(i - 1));
+                //unitText.setText(units.get(i - 1));
                 //ingredientAdapter.notifyDataSetChanged();
             }
 

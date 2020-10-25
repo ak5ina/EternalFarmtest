@@ -32,9 +32,9 @@ public class AddIngredientAdapter extends ArrayAdapter<RecipeIngredient> {
 
         ImageButton ingredientImage = convertView.findViewById(R.id.image_adapt_ingredient);
         TextView ingredientName = convertView.findViewById(R.id.text_adapt_ingredient_name);
-        TextView ingredientAmountText = convertView.findViewById(R.id.text_adapt_ingredient_amount);
+        //TextView ingredientAmountText = convertView.findViewById(R.id.text_adapt_ingredient_amount);
         EditText ingredientAmount = convertView.findViewById(R.id.edit_adapt_ingredient_amount);
-        TextView ingredientUnit = convertView.findViewById(R.id.text_adapt_ingredient_unit);
+        //TextView ingredientUnit = convertView.findViewById(R.id.text_adapt_ingredient_unit);
         Spinner unitSpin = convertView.findViewById(R.id.spin_adapt_ingredient_unit);
 
         position = position + 1;
