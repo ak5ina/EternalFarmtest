@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,6 +22,9 @@ import com.example.myeatup.ui.AddIngredientAdapter;
 import com.example.myeatup.ui.RecipeIngredient;
 import com.example.myeatup.ui.StepAdapter;
 import com.example.myeatup.ui.Steps;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 import java.util.ArrayList;
 
@@ -29,6 +33,8 @@ public class AddRecipe extends AppCompatActivity {
     private ArrayAdapter<Steps> itemsAdapter;
     private int counterSteps;
     private int counterIngredients;
+    private DatabaseReference mDatabase;
+
 
 
 
@@ -40,7 +46,7 @@ public class AddRecipe extends AppCompatActivity {
         getSupportActionBar().hide();
 
 
-        final TextView recipeName = findViewById(R.id.edit_recipe_name);
+        final EditText recipeName = findViewById(R.id.edit_recipe_name);
 
 
         Button add_step = findViewById(R.id.btn_add_step);
@@ -77,14 +83,21 @@ public class AddRecipe extends AppCompatActivity {
 
         Button upload = findViewById(R.id.btn_upload);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 RecipieDTO recipe = new RecipieDTO();
                 recipe.setID("3");
-                recipe.setName(recipeName.toString());
+                recipe.setName(recipeName.getText().toString());
+                stepAdapter.notifyDataSetChanged();
                 recipe.setSteps(stepObjects);
+
+
+                mDatabase.child("recipies").child("3").setValue(recipe);
 
             }
         });
@@ -118,7 +131,7 @@ public class AddRecipe extends AppCompatActivity {
                 params.height = 130 * counterSteps;
                 list_step.setLayoutParams(params);
 
-                stepAdapter.add(new Steps("Step: " + counterSteps, "test"));
+                stepAdapter.add(new Steps("test"));
                 stepAdapter.notifyDataSetChanged();
             }
         });

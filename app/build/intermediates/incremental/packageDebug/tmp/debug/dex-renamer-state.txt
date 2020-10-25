@@ -1,4 +1,4 @@
-#Sun Oct 25 14:39:11 CET 2020
+#Sun Oct 25 16:02:05 CET 2020
 base.0=C\:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

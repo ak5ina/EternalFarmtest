@@ -38,7 +38,7 @@ public class StepAdapter extends ArrayAdapter<Steps> {
 
         stepNum.setText("Step: " + position);
         stepText.setText(stepText.getEditableText());
-        listSteps.set(position - 1, new Steps(stepNum.getText().toString(), stepText.getText().toString()));
+        listSteps.set(position - 1, new Steps(stepText.getText().toString()));
 
 
         return convertView;

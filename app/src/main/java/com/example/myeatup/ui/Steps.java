@@ -5,9 +5,9 @@ public class Steps {
     private String stepNum;
     private String stepText;
 
-    public Steps(String stepNum, String stepText){
+    public Steps( String stepText){
 
-        this.stepNum = stepNum;
+        //this.stepNum = stepNum;
         this.stepText = stepText;
 
     }
