@@ -63,6 +63,7 @@ public class InsipirationFragment extends Fragment {
         gridView.setAdapter(adaptor);
 
 
+        adaptor.add(new IngredientDTO("fake", "Add Ingredient"));
 
         //Gridview for recipies
 //        gridView = (GridView) root.findViewById(R.id.gridview_inspiration_results);
@@ -103,6 +104,7 @@ public class InsipirationFragment extends Fragment {
             if(resultCode == getActivity().RESULT_OK){
 
                 String t = data.getStringExtra("ingredientID");
+                System.out.println(t);
                 //ADD INGREDIENT TO ADAPTER
                 if (t != null) {
                     adaptor.add(new IngredientDTO(t, getIngredientFromDataBase(Integer.parseInt(t)).getName()));
