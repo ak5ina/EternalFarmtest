@@ -1,17 +1,11 @@
 package com.example.myeatup.ui.inspiration;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -26,7 +20,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myeatup.R;
 import com.example.myeatup.firebasedata.IngredientDTO;
-import com.example.myeatup.ui.DataModel;
+import com.example.myeatup.firebasedata.RecipieDTO;
+import com.example.myeatup.ui.AddIngredient;
 import com.example.myeatup.ui.GridviewAdapter;
 import com.example.myeatup.ui.IngredientAdaptor;
 
@@ -35,17 +30,13 @@ import java.util.ArrayList;
 public class InsipirationFragment extends Fragment {
 
     private InspirationViewModel inspirationViewModel;
-    private ArrayList<DataModel> test;
+    private ArrayList<IngredientDTO> arraylistForGridviewIngredient;
+    private ArrayList<RecipieDTO> arraylistForGridviewRecipe;
     private ListView listView;
+    private GridView gridView;
     private IngredientAdaptor adaptor;
+    private ArrayList<IngredientDTO> ingredientListFromDatabase;
 
-    //alertBuilder For Adding Ingredient
-    private AlertDialog.Builder dialogBuilder;
-    private AlertDialog dialog;
-    private EditText dialogSearchBar;
-    private Button btnCancel;
-    private GridView dialogGridview;
-    private GridviewAdapter gvAdapter;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -61,15 +52,29 @@ public class InsipirationFragment extends Fragment {
             }
         });
 
-        //Listview
-        listView = (ListView) root.findViewById(R.id.listview_inspiration);
-        //Array med ingrediens objekter (SKIFT NAVN)
-        test = new ArrayList<>();
-        //Metoder som opdater ingredient listen.
-        UpdateIngredientList();
 
-        adaptor = new IngredientAdaptor(getActivity().getApplicationContext(), R.layout.inpiration_listview_object, test);
-        listView.setAdapter(adaptor);
+
+        //Gridview for ingredienser
+        gridView = (GridView) root.findViewById(R.id.gridview_inspiration);
+        //Array med ingrediens objekter (SKIFT NAVN)
+        arraylistForGridviewIngredient = new ArrayList<>();
+
+        adaptor = new IngredientAdaptor(getActivity().getApplicationContext(), R.layout.gridview_single_object2, arraylistForGridviewIngredient);
+        gridView.setAdapter(adaptor);
+
+
+
+        //Gridview for recipies
+//        gridView = (GridView) root.findViewById(R.id.gridview_inspiration_results);
+//        //Array med ingrediens objekter (SKIFT NAVN)
+//        arraylistForGridviewRecipe = new ArrayList<>();
+//
+//        adaptor = new IngredientAdaptor(getActivity().getApplicationContext(), R.layout.gridview_single_object2, arraylistForGridviewRecipe);
+//        gridView.setAdapter(adaptor);
+
+
+
+
 
 
         //ADD TO LIST VIEW BTN
@@ -78,38 +83,11 @@ public class InsipirationFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                LayoutInflater inflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View view234 = inflater.inflate(R.layout.gridview_single_object,null);
-
-                //OPEN POP UP
-                dialogBuilder = new AlertDialog.Builder(getActivity(), R.style.CustomDialog);
-                dialogBuilder.setView(getLayoutInflater().inflate(R.layout.gridviewobjekt,null));
-                dialog = dialogBuilder.create();
+                Intent intent = new Intent(getActivity(), AddIngredient.class);
+                startActivityForResult(intent,1);
 
 
-                dialog.show();
-                //OPEN GRIDVIEW
-                dialogGridview = (GridView) view234.findViewById(R.id.gridview);
-                gvAdapter = new GridviewAdapter(getActivity().getApplicationContext(),R.layout.gridview_single_object, getIngredientListFromDataBase());
 
-
-                dialogGridview.setAdapter(gvAdapter);
-
-
-                //RETURN A INGREDIENT
-
-                //ADD INGREDIENT TO ADAPTER
-                adaptor.add(new DataModel("ITS WORKING ", 420));
-                adaptor.notifyDataSetChanged();
-            }
-
-            private ArrayList<IngredientDTO> getIngredientListFromDataBase() {
-
-                ArrayList<IngredientDTO> listToReturn = new ArrayList<>();
-                listToReturn.add(new IngredientDTO("1","tester1"));
-                listToReturn.add(new IngredientDTO("2","tester2"));
-
-                return listToReturn;
             }
 
         });
@@ -117,10 +95,56 @@ public class InsipirationFragment extends Fragment {
         return root;
     }
 
-    private void UpdateIngredientList() {
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            if(resultCode == getActivity().RESULT_OK){
+
+                String t = data.getStringExtra("ingredientID");
+                //ADD INGREDIENT TO ADAPTER
+                if (t != null) {
+                    adaptor.add(new IngredientDTO(t, getIngredientFromDataBase(Integer.parseInt(t)).getName()));
+                    adaptor.notifyDataSetChanged();
+                }
+            }
+        }
     }
 
+    private ArrayList<IngredientDTO> getIngredientListFromDataBase() {
+        ArrayList<IngredientDTO> listToReturn = new ArrayList<>();
 
 
+        //TEST OBJEKTER.
+        listToReturn.add(new IngredientDTO("1","Appel"));
+        listToReturn.add(new IngredientDTO("2","Orange"));
+        listToReturn.add(new IngredientDTO("3","Pineappel"));
+
+        return listToReturn;
+    }
+
+    private IngredientDTO getIngredientFromDataBase(int ingredientID) {
+        IngredientDTO ingredientToReturn = null;
+
+        //GETTING THE INGREDIENT ONLINE!
+
+
+
+        //FAKING DATA
+        if (ingredientID == 0) {
+            ingredientToReturn = new IngredientDTO("0", "Appel");
+        } else if (ingredientID == 1) {
+            ingredientToReturn = new IngredientDTO("1", "Orange");
+        } else if (ingredientID == 2) {
+            ingredientToReturn = new IngredientDTO("2", "Pineappel");
+        }
+
+        //Returning the object
+        if (ingredientToReturn != null) {
+            return ingredientToReturn;
+        } else {
+            return null;
+        }
+    }
 }

@@ -1,12 +1,13 @@
 package com.example.myeatup.ui;
 
+        import android.app.Activity;
+        import android.app.AppOpsManager;
         import android.content.Context;
-        import android.text.style.UpdateAppearance;
+        import android.content.Intent;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.ArrayAdapter;
-        import android.widget.ImageView;
         import android.widget.TextView;
 
         import androidx.annotation.NonNull;
@@ -19,17 +20,33 @@ package com.example.myeatup.ui;
 
 public class GridviewAdapter extends ArrayAdapter<IngredientDTO> {
     private  ArrayList<IngredientDTO> ingredientList;
+    private Context con;
 
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.gridviewobjekt, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.gridview_single_object, parent, false);
+            final TextView ingredientName = convertView.findViewById(R.id.gridview_name);
+            System.out.println(ingredientList.get(position).getName());
+            ingredientName.setText(ingredientList.get(position).getName());
+
+            convertView.isClickable();
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    System.out.println(ingredientList.get(position).getID());
+                    intent.putExtra("ingredientID", ingredientList.get(position).getID());
+                    ((Activity)getContext()).setResult(Activity.RESULT_OK, intent);
+                    ((Activity)getContext()).finish();
+
+                }
+            });
         }
 
 //        ImageView ingredientImage = convertView.findViewById(R.id.inspiration_listview_object_pic);
-        TextView ingredientName = convertView.findViewById(R.id.gridview_name);
 //        ImageView closeBtn = convertView.findViewById(R.id.inspiration_listview_object_closebtn);
 //        closeBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -40,8 +57,6 @@ public class GridviewAdapter extends ArrayAdapter<IngredientDTO> {
 //        });
 
 //        ingredientImage.setImageResource(ingredientList.get(position).getImageID());
-        System.out.println(ingredientList.get(position).getName());
-        ingredientName.setText(ingredientList.get(position).getName());
 
 
         return convertView;
@@ -49,6 +64,7 @@ public class GridviewAdapter extends ArrayAdapter<IngredientDTO> {
 
     public GridviewAdapter(@NonNull Context context, int resource, ArrayList<IngredientDTO> ingredientList) {
         super(context, resource, ingredientList);
+        this.con = context;
         this.ingredientList = ingredientList;
 
     }

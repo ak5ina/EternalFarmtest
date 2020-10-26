@@ -13,22 +13,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.myeatup.R;
+import com.example.myeatup.firebasedata.IngredientDTO;
 
 import java.util.ArrayList;
 
-public class IngredientAdaptor extends ArrayAdapter<DataModel> {
-    private  ArrayList<DataModel> ingredientList;
+public class IngredientAdaptor extends ArrayAdapter<IngredientDTO> {
+    private  ArrayList<IngredientDTO> ingredientList;
 
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.inpiration_listview_object, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.gridview_single_object2, parent, false);
         }
 
 //        ImageView ingredientImage = convertView.findViewById(R.id.inspiration_listview_object_pic);
-        TextView ingredientName = convertView.findViewById(R.id.inspiration_listview_object_name);
+        TextView ingredientName = convertView.findViewById(R.id.gridview_name);
         ImageView closeBtn = convertView.findViewById(R.id.inspiration_listview_object_closebtn);
         closeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +46,7 @@ public class IngredientAdaptor extends ArrayAdapter<DataModel> {
         return convertView;
     }
 
-    public IngredientAdaptor(@NonNull Context context, int resource, ArrayList<DataModel> ingredientList) {
+    public IngredientAdaptor(@NonNull Context context, int resource, ArrayList<IngredientDTO> ingredientList) {
         super(context, resource, ingredientList);
         this.ingredientList = ingredientList;
 

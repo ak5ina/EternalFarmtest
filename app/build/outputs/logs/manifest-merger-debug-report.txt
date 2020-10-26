@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-24:12
 MERGED from [androidx.navigation:navigation-ui:2.3.0] C:\Users\spoul\.gradle\caches\transforms-2\files-2.1\12c3ae384a8de2484709228873cd2fcd\navigation-ui-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\spoul\.gradle\caches\transforms-2\files-2.1\56cd1674d1ba042c3ed5b8d93134fc80\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\spoul\.gradle\caches\transforms-2\files-2.1\3fb084916beca5dd31dcf33bed719b10\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
@@ -40,25 +40,25 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\spoul\.gradle\
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\spoul\.gradle\caches\transforms-2\files-2.1\4f5d76a0bab1f8f190523edd3e5489e3\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\spoul\.gradle\caches\transforms-2\files-2.1\3e5d045fdd42de39d437ce94a2ff87c7\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\spoul\.gradle\caches\transforms-2\files-2.1\092f4390277122706e821c5ccddc7546\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-24:12
 	package
 		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-23:12
+		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-24:12
 		INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-23:12
+		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:1-24:12
 		INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:5:5-21:19
+ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:5:5-22:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\spoul\.gradle\caches\transforms-2\files-2.1\56cd1674d1ba042c3ed5b8d93134fc80\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\spoul\.gradle\caches\transforms-2\files-2.1\56cd1674d1ba042c3ed5b8d93134fc80\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\spoul\.gradle\caches\transforms-2\files-2.1\3fb084916beca5dd31dcf33bed719b10\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
@@ -85,22 +85,26 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\spoul\.gradle\
 		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:11:9-40
+activity#com.example.myeatup.ui.AddIngredient
+ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:12:9-63
+	android:name
+		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:12:19-51
 activity#com.example.myeatup.MainActivity
-ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:12:9-20:20
+ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:13:9-21:20
 	android:label
-		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:14:13-45
+		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:15:13-45
 	android:name
-		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:13:13-41
+		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:14:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:15:13-19:29
+ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:16:13-20:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:16:17-69
+ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:17:17-69
 	android:name
-		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:16:25-66
+		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:17:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:18:17-77
+ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:19:17-77
 	android:name
-		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:18:27-74
+		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:19:27-74
 uses-sdk
 INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml

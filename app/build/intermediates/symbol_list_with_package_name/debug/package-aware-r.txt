@@ -1589,8 +1589,6 @@ drawable icon_lightbulb
 drawable icon_plus_sign
 drawable icon_profile
 drawable icons8_plus_48
-drawable layout_bg
-drawable layout_bg1
 drawable line
 drawable lort
 drawable material_ic_calendar_black_24dp
@@ -1630,7 +1628,6 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
-id Header
 id META
 id NO_DEBUG
 id SHIFT
@@ -1792,7 +1789,10 @@ id gone
 id graph
 id graph_wrap
 id gridview
+id gridview_inspiration
+id gridview_inspiration_results
 id gridview_name
+id gridview_pic
 id gridview_wholeobject
 id group_divider
 id groups
@@ -1811,8 +1811,7 @@ id inspiration_btn_add_ingridiant
 id inspiration_header_line
 id inspiration_header_text
 id inspiration_listview_object_closebtn
-id inspiration_listview_object_name
-id inspiration_listview_object_pic
+id inspiration_result_header
 id invisible
 id italic
 id item_touch_helper_previous_elevation
@@ -1827,7 +1826,6 @@ id line3
 id linear
 id listMode
 id list_item
-id listview_inspiration
 id masked
 id message
 id middle
@@ -2078,6 +2076,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_add_ingredient
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -2099,8 +2098,7 @@ layout fragment_inspiration
 layout fragment_profile
 layout fragment_recipe
 layout gridview_single_object
-layout gridviewobjekt
-layout inpiration_listview_object
+layout gridview_single_object2
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
