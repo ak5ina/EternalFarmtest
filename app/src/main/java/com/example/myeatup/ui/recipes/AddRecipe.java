@@ -38,10 +38,18 @@ public class AddRecipe extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_recipe);
+
+        final ViewGroup viewGroup = new ViewGroup(getBaseContext()) {
+            @Override
+            protected void onLayout(boolean b, int i, int i1, int i2, int i3) {
+
+            }
+        };
 
         getSupportActionBar().hide();
 
@@ -50,7 +58,7 @@ public class AddRecipe extends AppCompatActivity {
 
 
         Button add_step = findViewById(R.id.btn_add_step);
-        final ArrayList stepObjects = new ArrayList();
+        final ArrayList<Steps> stepObjects = new ArrayList();
         final StepAdapter stepAdapter = new StepAdapter(this, R.layout.adapter_steps, stepObjects);
         final ListView list_step = findViewById(R.id.list_steps);
         list_step.setAdapter(stepAdapter);
@@ -83,6 +91,7 @@ public class AddRecipe extends AppCompatActivity {
 
         Button upload = findViewById(R.id.btn_upload);
 
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
@@ -93,9 +102,15 @@ public class AddRecipe extends AppCompatActivity {
                 RecipieDTO recipe = new RecipieDTO();
                 recipe.setID("3");
                 recipe.setName(recipeName.getText().toString());
-                stepAdapter.notifyDataSetChanged();
-                recipe.setSteps(stepObjects);
+                //stepAdapter.notifyDataSetChanged();
+                ArrayList<String> stepStrings = new ArrayList<>();
+                for (int i = 0;i < stepObjects.size();i++) {
+                    stepStrings.add(stepAdapter.getItem(i).getStepText());
 
+                }
+
+                recipe.setSteps(stepStrings);
+                //stepAdapter.getStepText();
 
                 mDatabase.child("recipies").child("3").setValue(recipe);
 
@@ -131,7 +146,14 @@ public class AddRecipe extends AppCompatActivity {
                 params.height = 130 * counterSteps;
                 list_step.setLayoutParams(params);
 
-                stepAdapter.add(new Steps("test"));
+                Steps step = new Steps();
+
+                stepObjects.add(step);
+
+
+
+                stepAdapter.add(stepObjects.get(counterSteps - 1));
+                //step.setStepText(stepAdapter.setEditView(view, viewGroup));
                 stepAdapter.notifyDataSetChanged();
             }
         });

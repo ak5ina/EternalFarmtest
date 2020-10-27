@@ -1,14 +1,21 @@
 package com.example.myeatup.ui;
 
+import android.text.Editable;
+import android.widget.EditText;
+
 public class Steps {
 
     private String stepNum;
-    private String stepText;
+    private Editable stepText;
 
-    public Steps( String stepText){
+    public Steps(Editable stepText){
 
         //this.stepNum = stepNum;
         this.stepText = stepText;
+
+    }
+
+    public Steps(){
 
     }
 
@@ -22,10 +29,10 @@ public class Steps {
     }
 
     public String getStepText() {
-        return stepText;
+        return stepText.toString();
     }
 
-    public void setStepText(String stepText) {
+    public void setStepText(Editable stepText) {
         this.stepText = stepText;
     }
 

@@ -1,6 +1,7 @@
 package com.example.myeatup.ui;
 
 import android.content.Context;
+import android.text.Editable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +31,6 @@ public class StepAdapter extends ArrayAdapter<Steps> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.adapter_steps, parent, false);
         }
 
-
         TextView stepNum = convertView.findViewById(R.id.text_adapt_step_num);
         stepText = convertView.findViewById(R.id.text_adapt_step_text);
 
@@ -38,7 +38,8 @@ public class StepAdapter extends ArrayAdapter<Steps> {
 
         stepNum.setText("Step: " + position);
         stepText.setText(stepText.getEditableText());
-        listSteps.set(position - 1, new Steps(stepText.getText().toString()));
+        listSteps.set(position - 1, new Steps(stepText.getEditableText()));
+
 
 
         return convertView;
@@ -50,5 +51,34 @@ public class StepAdapter extends ArrayAdapter<Steps> {
 
     }
 
+    /*
+    public Editable getStepText() {
+        return stepText.getEditableText();
+    }
+*/
 
+    public Editable setEditView (@Nullable View convertView, @NonNull final ViewGroup parent){
+
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.adapter_steps, parent, false);
+        }
+
+        //TextView stepNum = convertView.findViewById(R.id.text_adapt_step_num);
+        stepText = convertView.findViewById(R.id.text_adapt_step_text);
+
+        //position = position + 1;
+
+        //stepNum.setText("Step: " + position);
+//        stepText.setText(stepText.getEditableText());
+        //listSteps.set(position - 1, new Steps(stepText.getText().toString()));
+
+        return stepText.getEditableText();
+
+    }
+/*
+    public getArrayList (){
+        return listSteps;
+    }
+*/
 }
