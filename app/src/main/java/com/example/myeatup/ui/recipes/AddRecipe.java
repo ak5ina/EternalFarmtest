@@ -89,7 +89,7 @@ public class AddRecipe extends AppCompatActivity {
         spinner.setAdapter(spinAdapter);
 
 
-        Button upload = findViewById(R.id.btn_upload);
+        final Button upload = findViewById(R.id.btn_upload);
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -99,32 +99,52 @@ public class AddRecipe extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                stepAdapter.notifyDataSetChanged();
-
                 RecipieDTO recipe = new RecipieDTO();
-                stepAdapter.notifyDataSetChanged();
-
                 recipe.setID("3");
-                stepAdapter.notifyDataSetChanged();
-
                 recipe.setName(recipeName.getText().toString());
-                stepAdapter.notifyDataSetChanged();
 
-                ArrayList<String> stepStrings = new ArrayList<>();
-                stepAdapter.notifyDataSetChanged();
+                if (upload.getText().equals("Finished")){
 
-                for (int i = 0;i < stepObjects.size();i++) {
-                    stepStrings.add(stepObjects.get(i).getStepText());
+                    upload.setText("Upload");
+
+                    stepAdapter.notifyDataSetChanged();
+
+
+                    ArrayList<String> overWrite = new ArrayList<>();
+                    for (int i = 0; i < stepObjects.size();i++) {
+                        overWrite.add(stepObjects.get(i).getStepText());
+
+                    }
+                    stepAdapter.notifyDataSetChanged();
+
+                    recipe.setSteps(overWrite);
+
+                    stepAdapter.notifyDataSetChanged();
+
+                    mDatabase.child("recipies").child("3").setValue(recipe);
 
                 }
-                stepAdapter.notifyDataSetChanged();
+                else{
+                    stepAdapter.notifyDataSetChanged();
 
 
-                recipe.setSteps(stepStrings);
-                stepAdapter.notifyDataSetChanged();
+                    ArrayList<String> stepStrings = new ArrayList<>();
+
+                    recipe.setSteps(stepStrings);
+                    stepAdapter.notifyDataSetChanged();
 
 
-                mDatabase.child("recipies").child("3").setValue(recipe);
+                    for (int i = 0;i < stepObjects.size();i++) {
+                        //stepStrings.add(stepObjects.get(i).getStepText());
+                        stepAdapter.notifyDataSetChanged();
+                        stepStrings.add(stepAdapter.getList().get(i).getStepText());
+
+                    }
+
+                    recipe.setSteps(stepStrings);
+
+                    mDatabase.child("recipies").child("3").setValue(recipe);
+                }
 
             }
         });
@@ -160,13 +180,13 @@ public class AddRecipe extends AppCompatActivity {
 
                 Steps step = new Steps("test");
 
-                stepObjects.add(step);
+                //stepObjects.add(step);
 
-
-
-                //stepAdapter.add(stepObjects.get(counterSteps - 1));
-                //step.setStepText(stepAdapter.setEditView(view, viewGroup));
                 stepAdapter.notifyDataSetChanged();
+                stepAdapter.add(step);
+                stepAdapter.notifyDataSetChanged();
+                //step.setStepText(stepAdapter.setEditView(view, viewGroup));
+                //stepAdapter.notifyDataSetChanged();
             }
         });
 

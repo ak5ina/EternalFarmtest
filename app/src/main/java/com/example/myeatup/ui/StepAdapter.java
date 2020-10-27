@@ -33,12 +33,13 @@ public class StepAdapter extends ArrayAdapter<Steps> {
 
         TextView stepNum = convertView.findViewById(R.id.text_adapt_step_num);
         stepText = convertView.findViewById(R.id.text_adapt_step_text);
+        listSteps.set(position, new Steps(stepText.getEditableText().toString()));
 
-        position = position + 1;
 
-        stepNum.setText("Step: " + position);
-        stepText.setText(stepText.getEditableText());
-        listSteps.set(position - 1, new Steps(stepText.getEditableText().toString()));
+
+        stepNum.setText("Step: " + (position + 1));
+
+        //stepText.setText(stepText.getEditableText());
 
 
 
@@ -51,13 +52,17 @@ public class StepAdapter extends ArrayAdapter<Steps> {
 
     }
 
+    public ArrayList<Steps> getList(){
+        return this.listSteps;
+    }
+
     /*
     public Editable getStepText() {
         return stepText.getEditableText();
     }
 */
 
-    public void update (int position, @Nullable View convertView, @NonNull final ViewGroup parent){
+    public View update (int position, @Nullable View convertView, @NonNull final ViewGroup parent){
 
 
         if (convertView == null) {
@@ -68,13 +73,13 @@ public class StepAdapter extends ArrayAdapter<Steps> {
         stepText = convertView.findViewById(R.id.text_adapt_step_text);
 
         //position = position + 1;
-
+        //-------------------------------------------------------------------------------------
         //stepNum.setText("Step: " + position);
-        stepText.setText(stepText.getEditableText());
-        listSteps.set(position - 1, new Steps(stepText.getEditableText().toString()));
+        listSteps.set(position, new Steps(stepText.getEditableText().toString()));
+        //listSteps.set(position - 1, new Steps(stepText.getEditableText().toString()));
 
 
-
+        return convertView;
     }
 /*
     public getArrayList (){

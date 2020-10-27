@@ -29,7 +29,7 @@ public class Steps {
     }
 
     public String getStepText() {
-        return stepText.toString() + "";
+        return stepText;
     }
 
     public void setStepText(String stepText) {
