@@ -57,7 +57,7 @@ public class AddRecipe extends AppCompatActivity {
         final EditText recipeName = findViewById(R.id.edit_recipe_name);
 
 
-        Button add_step = findViewById(R.id.btn_add_step);
+        final Button add_step = findViewById(R.id.btn_add_step);
         final ArrayList<Steps> stepObjects = new ArrayList();
         final StepAdapter stepAdapter = new StepAdapter(this, R.layout.adapter_steps, stepObjects);
         final ListView list_step = findViewById(R.id.list_steps);
@@ -99,18 +99,30 @@ public class AddRecipe extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                stepAdapter.notifyDataSetChanged();
+
                 RecipieDTO recipe = new RecipieDTO();
+                stepAdapter.notifyDataSetChanged();
+
                 recipe.setID("3");
+                stepAdapter.notifyDataSetChanged();
+
                 recipe.setName(recipeName.getText().toString());
-                //stepAdapter.notifyDataSetChanged();
+                stepAdapter.notifyDataSetChanged();
+
                 ArrayList<String> stepStrings = new ArrayList<>();
+                stepAdapter.notifyDataSetChanged();
+
                 for (int i = 0;i < stepObjects.size();i++) {
-                    stepStrings.add(stepAdapter.getItem(i).getStepText());
+                    stepStrings.add(stepObjects.get(i).getStepText());
 
                 }
+                stepAdapter.notifyDataSetChanged();
+
 
                 recipe.setSteps(stepStrings);
-                //stepAdapter.getStepText();
+                stepAdapter.notifyDataSetChanged();
+
 
                 mDatabase.child("recipies").child("3").setValue(recipe);
 
@@ -146,13 +158,13 @@ public class AddRecipe extends AppCompatActivity {
                 params.height = 130 * counterSteps;
                 list_step.setLayoutParams(params);
 
-                Steps step = new Steps();
+                Steps step = new Steps("test");
 
                 stepObjects.add(step);
 
 
 
-                stepAdapter.add(stepObjects.get(counterSteps - 1));
+                //stepAdapter.add(stepObjects.get(counterSteps - 1));
                 //step.setStepText(stepAdapter.setEditView(view, viewGroup));
                 stepAdapter.notifyDataSetChanged();
             }
