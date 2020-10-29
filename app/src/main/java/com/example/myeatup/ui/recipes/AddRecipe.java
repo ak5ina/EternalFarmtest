@@ -103,9 +103,9 @@ public class AddRecipe extends AppCompatActivity {
                 recipe.setID("3");
                 recipe.setName(recipeName.getText().toString());
 
-                if (upload.getText().equals("Finished")){
+                if (upload.getText().equals("Upload")){
 
-                    upload.setText("Upload");
+                    upload.setText("Confirm");
 
                     stepAdapter.notifyDataSetChanged();
 
