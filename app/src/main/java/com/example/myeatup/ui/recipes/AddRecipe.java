@@ -42,6 +42,7 @@ public class AddRecipe extends AppCompatActivity {
     private ArrayList<RecipeIngredient> ingredientObjects = new ArrayList();
     private AddIngredientAdapter ingredientAdapter;
     private int btn_id;
+    private String key = "";
 
 
 
@@ -109,12 +110,41 @@ public class AddRecipe extends AppCompatActivity {
             public void onClick(View view) {
 
                 RecipieDTO recipe = new RecipieDTO();
-                recipe.setID("3");
+
+
                 recipe.setName(recipeName.getText().toString());
+
+
+                ArrayList<String> ingreUp = new ArrayList<>();
+                for (int i = 0;i < ingredientObjects.size();i++) {
+                    ingreUp.add(ingredientObjects.get(i).getId());
+                }
+                recipe.setIngredientList(ingreUp);
+
+
+                ingredientAdapter.notifyDataSetChanged();
+                ArrayList<String> amount = new ArrayList<>();
+                for (int i = 0;i < ingredientObjects.size();i++){
+                    amount.add(ingredientObjects.get(i).getAmount());
+                }
+                recipe.setUnitAmount(amount);
+
+
+
+                ArrayList<String> units = new ArrayList<>();
+                for (int i = 0;i < ingredientObjects.size();i++){
+                    units.add(ingredientObjects.get(i).getUnit());
+                }
+                recipe.setUnitList(units);
+
+
 
                 if (upload.getText().equals("Upload")){
                     upload.setText("Confirm");
                     stepAdapter.notifyDataSetChanged();
+
+                    key = mDatabase.child("recipies").push().getKey();
+
 
                     ArrayList<String> overWrite = new ArrayList<>();
                     for (int i = 0; i < stepObjects.size();i++) {
@@ -137,7 +167,8 @@ public class AddRecipe extends AppCompatActivity {
                         stepStrings.add(stepAdapter.getList().get(i).getStepText());
                     }
                     recipe.setSteps(stepStrings);
-                    mDatabase.child("recipies").child("3").setValue(recipe);
+                    recipe.setID(key);
+                    mDatabase.child("recipies").child(key).setValue(recipe);
                 }
             }
         });
@@ -193,7 +224,7 @@ public class AddRecipe extends AppCompatActivity {
                 params.height = 130 * counterIngredients;
                 list_ingredint.setLayoutParams(params);
 
-                ingredientAdapter.add(new RecipeIngredient("0","Ingredient", 0, "unit"));
+                ingredientAdapter.add(new RecipeIngredient("0","Ingredient", "0", "unit"));
                 ingredientAdapter.notifyDataSetChanged();
 
             }
@@ -231,6 +262,7 @@ public class AddRecipe extends AppCompatActivity {
                 if (t != null) {
                     IngredientDTO ingredientDTO = new IngredientDTO(t, getIngredientFromDataBase(Integer.parseInt(t)).getName());
                     ingredientObjects.get(btn_id).setIngredient(ingredientDTO.getName());
+                    ingredientObjects.get(btn_id).setId(ingredientDTO.getID());
                     ingredientAdapter.notifyDataSetChanged();
 
 

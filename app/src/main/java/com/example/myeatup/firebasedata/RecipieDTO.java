@@ -18,7 +18,7 @@ public class RecipieDTO implements IRecipieDTO {
     private ArrayList<Integer> voteList;
     private ArrayList<String> unknownIngredients;
     private ArrayList<String> unitList;
-    private ArrayList<Double> unitAmount;
+    private ArrayList<String> unitAmount;
 
     public RecipieDTO(){
 
@@ -130,11 +130,11 @@ public class RecipieDTO implements IRecipieDTO {
         this.unknownIngredients = unknownIngredients;
     }
 
-    public ArrayList<Double> getUnitAmount() {
+    public ArrayList<String> getUnitAmount() {
         return unitAmount;
     }
 
-    public void setUnitAmount(ArrayList<Double> unitAmount) {
+    public void setUnitAmount(ArrayList<String> unitAmount) {
         this.unitAmount = unitAmount;
     }
 }
