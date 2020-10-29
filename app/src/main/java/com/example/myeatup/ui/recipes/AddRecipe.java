@@ -140,7 +140,7 @@ public class AddRecipe extends AppCompatActivity {
 
 
                 if (upload.getText().equals("Upload")){
-                    upload.setText("Confirm");
+
                     stepAdapter.notifyDataSetChanged();
 
                     key = mDatabase.child("recipies").push().getKey();
@@ -170,10 +170,14 @@ public class AddRecipe extends AppCompatActivity {
                     recipe.setID(key);
                     mDatabase.child("recipies").child(key).setValue(recipe);
                 }
+                if (upload.getText().equals("Confirm")) {
+                    finish();
+                }
+                else {
+                    upload.setText("Confirm");
+                }
             }
         });
-
-
 
 
 
@@ -239,8 +243,6 @@ public class AddRecipe extends AppCompatActivity {
                 btn_id = Integer.parseInt(btn_add_ingre.getText().toString());
                 Intent intent = new Intent(AddRecipe.this, AddIngredient.class);
                 startActivityForResult(intent,1);
-
-
 
             }
 
