@@ -5,13 +5,28 @@ public class RecipeIngredient {
     String ingredient;
     int amount;
     String unit;
+    String id;
 
-    public RecipeIngredient(String ingredient, int amount, String unit){
 
+    public RecipeIngredient(){
+
+    }
+
+    public RecipeIngredient(String id,  String ingredient, int amount, String unit){
+
+        this.id = id;
         this.ingredient = ingredient;
         this.amount = amount;
         this.unit = unit;
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setAmount(int amount) {
