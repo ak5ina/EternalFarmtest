@@ -1588,7 +1588,11 @@ drawable icon_cooking
 drawable icon_lightbulb
 drawable icon_plus_sign
 drawable icon_profile
+drawable icons8_edit_user_48
 drawable icons8_plus_48
+drawable icons8_pocket_watch_30
+drawable icons8_star_24
+drawable icons8_us_dollar_24
 drawable line
 drawable lort
 drawable material_ic_calendar_black_24dp
@@ -1792,7 +1796,12 @@ id gridview
 id gridview_inspiration
 id gridview_inspiration_results
 id gridview_name
+id gridview_name_recipy
 id gridview_pic
+id gridview_pic_recipy
+id gridview_price_recipy
+id gridview_rating_recipy
+id gridview_time_recipy
 id gridview_wholeobject
 id group_divider
 id groups
@@ -1892,6 +1901,14 @@ id percent
 id pin
 id position
 id postLayout
+id profile_btn_editprofile
+id profile_btn_saved_recipes
+id profile_btn_your_recipes
+id profile_header_line
+id profile_header_text
+id profile_recipy_upload_amount
+id profile_reviews_amount
+id profile_user_email
 id progress_circular
 id progress_horizontal
 id radio
@@ -2097,6 +2114,7 @@ layout design_text_input_start_icon
 layout fragment_inspiration
 layout fragment_profile
 layout fragment_recipe
+layout gridview_recipe_object
 layout gridview_single_object
 layout gridview_single_object2
 layout mtrl_alert_dialog
