@@ -2,6 +2,7 @@ package com.example.myeatup.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.GridView;
@@ -23,33 +24,25 @@ public class AddIngredient extends AppCompatActivity {
     private DatabaseReference mDatabase;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ingredient);
 
-
         getSupportActionBar().hide();
 
-                //OPEN GRIDVIEW
-                dialogGridview = (GridView) findViewById(R.id.gridview);
-                gvAdapter = new GridviewAdapter(this ,R.layout.gridview_single_object, getIngredientListFromDataBase());
-
-
-                dialogGridview.setAdapter(gvAdapter);
-                gvAdapter.notifyDataSetChanged();
-    }
-
-    private ArrayList<IngredientDTO> getIngredientListFromDataBase() {
 
         final ArrayList<IngredientDTO> listToReturn = new ArrayList<>();
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("ingredients");
 
+        //OPEN GRIDVIEW
+        dialogGridview = (GridView) findViewById(R.id.gridview);
+        gvAdapter = new GridviewAdapter(this,R.layout.gridview_single_object, listToReturn);
+        dialogGridview.setAdapter(gvAdapter);
 
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                int i = 0;
 
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
 
@@ -57,11 +50,8 @@ public class AddIngredient extends AppCompatActivity {
                     String id = ingre.getID();
                     String name = ingre.getName();
                     listToReturn.add(new IngredientDTO(id, name));
-                    System.out.println(listToReturn.get(i).getName() + i + "inder");
-                    i++;
                 }
-
-
+                gvAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -70,20 +60,5 @@ public class AddIngredient extends AppCompatActivity {
             }
         };
         mDatabase.addListenerForSingleValueEvent(postListener);
-
-
-
-        //listToReturn.add(new IngredientDTO("0","Appel"));
-        //listToReturn.add(new IngredientDTO("1","Orange"));
-        //listToReturn.add(new IngredientDTO("2","Pineappel"));
-        //for(int i = 0; i < listToReturn.size();i++){
-        //    System.out.println(listToReturn.get(i).getName() + i + "ydre");
-
-       // }
-
-
-
-
-        return listToReturn;
     }
 }
