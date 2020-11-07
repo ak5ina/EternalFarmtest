@@ -27,8 +27,11 @@ import com.example.myeatup.ui.AddIngredientAdapter;
 import com.example.myeatup.ui.RecipeIngredient;
 import com.example.myeatup.ui.StepAdapter;
 import com.example.myeatup.ui.Steps;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.ArrayList;
@@ -43,6 +46,7 @@ public class AddRecipe extends AppCompatActivity {
     private AddIngredientAdapter ingredientAdapter;
     private int btn_id;
     private String key = "";
+    private IngredientDTO ingredientToReturn = null;
 
 
 
@@ -108,6 +112,7 @@ public class AddRecipe extends AppCompatActivity {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mDatabase = FirebaseDatabase.getInstance().getReference();
 
                 RecipieDTO recipe = new RecipieDTO();
 
@@ -262,10 +267,9 @@ public class AddRecipe extends AppCompatActivity {
                 System.out.println(t);
                 //ADD INGREDIENT TO ADAPTER
                 if (t != null) {
-                    IngredientDTO ingredientDTO = new IngredientDTO(t, getIngredientFromDataBase(Integer.parseInt(t)).getName());
-                    ingredientObjects.get(btn_id).setIngredient(ingredientDTO.getName());
-                    ingredientObjects.get(btn_id).setId(ingredientDTO.getID());
-                    ingredientAdapter.notifyDataSetChanged();
+                    //IngredientDTO ingredientDTO = new IngredientDTO(t, getIngredientFromDataBase(t).getName());
+                    getIngredientFromDataBase(t);
+
 
 
                 }
@@ -273,27 +277,30 @@ public class AddRecipe extends AppCompatActivity {
         }
     }
 
-    private IngredientDTO getIngredientFromDataBase(int ingredientID) {
-        IngredientDTO ingredientToReturn = null;
+    private void getIngredientFromDataBase(final String ingredientID) {
+
 
         //GETTING THE INGREDIENT ONLINE!
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("ingredients");
+
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                ingredientToReturn = dataSnapshot.child(ingredientID).getValue(IngredientDTO.class);
+                //adaptor.add(ingredientToReturn);
+                ingredientObjects.get(btn_id).setIngredient(ingredientToReturn.getName());
+                ingredientObjects.get(btn_id).setId(ingredientToReturn.getID());
+                ingredientAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        mDatabase.addListenerForSingleValueEvent(postListener);
 
 
-
-        //FAKING DATA
-        if (ingredientID == 0) {
-            ingredientToReturn = new IngredientDTO("0", "Appel");
-        } else if (ingredientID == 1) {
-            ingredientToReturn = new IngredientDTO("1", "Orange");
-        } else if (ingredientID == 2) {
-            ingredientToReturn = new IngredientDTO("2", "Pineappel");
-        }
-
-        //Returning the object
-        if (ingredientToReturn != null) {
-            return ingredientToReturn;
-        } else {
-            return null;
-        }
     }
 }

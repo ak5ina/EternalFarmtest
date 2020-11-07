@@ -24,6 +24,11 @@ import com.example.myeatup.firebasedata.RecipieDTO;
 import com.example.myeatup.ui.AddIngredient;
 import com.example.myeatup.ui.GridviewAdapter;
 import com.example.myeatup.ui.IngredientAdaptor;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -36,6 +41,8 @@ public class InsipirationFragment extends Fragment {
     private GridView gridView;
     private IngredientAdaptor adaptor;
     private ArrayList<IngredientDTO> ingredientListFromDatabase;
+    private DatabaseReference mDatabase;
+    private IngredientDTO ingredientToReturn = null;
 
 
 
@@ -107,7 +114,8 @@ public class InsipirationFragment extends Fragment {
                 System.out.println(t);
                 //ADD INGREDIENT TO ADAPTER
                 if (t != null) {
-                    adaptor.add(new IngredientDTO(t, getIngredientFromDataBase(Integer.parseInt(t)).getName()));
+                    //adaptor.add(new IngredientDTO(t, getIngredientFromDataBase(t).getName()));
+                    getIngredientFromDataBase(t);
                     adaptor.notifyDataSetChanged();
                 }
             }
@@ -126,27 +134,27 @@ public class InsipirationFragment extends Fragment {
         return listToReturn;
     }
 
-    private IngredientDTO getIngredientFromDataBase(int ingredientID) {
-        IngredientDTO ingredientToReturn = null;
+    private void getIngredientFromDataBase(final String ingredientID) {
+
 
         //GETTING THE INGREDIENT ONLINE!
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("ingredients");
+
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                ingredientToReturn = dataSnapshot.child(ingredientID).getValue(IngredientDTO.class);
+                adaptor.add(ingredientToReturn);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        mDatabase.addListenerForSingleValueEvent(postListener);
 
 
-
-        //FAKING DATA
-        if (ingredientID == 0) {
-            ingredientToReturn = new IngredientDTO("0", "Appel");
-        } else if (ingredientID == 1) {
-            ingredientToReturn = new IngredientDTO("1", "Orange");
-        } else if (ingredientID == 2) {
-            ingredientToReturn = new IngredientDTO("2", "Pineappel");
-        }
-
-        //Returning the object
-        if (ingredientToReturn != null) {
-            return ingredientToReturn;
-        } else {
-            return null;
-        }
     }
 }
