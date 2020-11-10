@@ -4,12 +4,12 @@
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\line.png"
     },
     {
-        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable_lort.png.flat",
-        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable\\lort.png"
-    },
-    {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icons8_pocket_watch_30.png.flat",
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable\\icons8_pocket_watch_30.png"
+    },
+    {
+        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable_lort.png.flat",
+        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable\\lort.png"
     },
     {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_home_black_24dp.png.flat",
@@ -32,16 +32,16 @@
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_notifications_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icons8_star_24.png.flat",
-        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable\\icons8_star_24.png"
-    },
-    {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_notifications_black_24dp.png.flat",
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_notifications_black_24dp.png"
     },
     {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icons8_star_24.png.flat",
+        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable\\icons8_star_24.png"
     },
     {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_plus_sign.png.flat",
@@ -156,12 +156,12 @@
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\layout\\activity_add_ingredient.xml"
     },
     {
-        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_dashboard_black_24dp.png.flat",
-        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_dashboard_black_24dp.png"
-    },
-    {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icons8_us_dollar_24.png.flat",
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable\\icons8_us_dollar_24.png"
+    },
+    {
+        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_dashboard_black_24dp.png.flat",
+        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_dashboard_black_24dp.png"
     },
     {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\layout_gridview_recipe_object.xml.flat",
