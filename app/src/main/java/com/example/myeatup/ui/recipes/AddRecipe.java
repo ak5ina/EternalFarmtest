@@ -160,6 +160,7 @@ public class AddRecipe extends AppCompatActivity {
                     recipe.setSteps(overWrite);
                     stepAdapter.notifyDataSetChanged();
                     mDatabase.child("recipies").child("3").setValue(recipe);
+
                 }
                 else{
                     stepAdapter.notifyDataSetChanged();
@@ -174,6 +175,12 @@ public class AddRecipe extends AppCompatActivity {
                     recipe.setSteps(stepStrings);
                     recipe.setID(key);
                     mDatabase.child("recipies").child(key).setValue(recipe);
+
+                    for (int i = 0;i < recipe.getIngredientList().size();i++){
+
+                        mDatabase.child("ingredients").child(recipe.getIngredientList().get(i)).child("recipeUses").push().setValue(recipe.getID());
+                    }
+
                 }
                 if (upload.getText().equals("Confirm")) {
                     finish();
