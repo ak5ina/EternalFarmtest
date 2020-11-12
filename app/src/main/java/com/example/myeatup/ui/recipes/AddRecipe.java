@@ -30,6 +30,7 @@ import android.widget.Toast;
 import com.example.myeatup.R;
 import com.example.myeatup.firebasedata.IngredientDTO;
 import com.example.myeatup.firebasedata.RecipieDTO;
+import com.example.myeatup.firebasedata.Storage;
 import com.example.myeatup.firebasedata.UnitDTO;
 import com.example.myeatup.ui.AddIngredient;
 import com.example.myeatup.ui.UnitSpinnerAdapter;
@@ -61,6 +62,7 @@ public class AddRecipe extends AppCompatActivity {
     private ImageView imageView;
     private ImageButton photoButton;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
+    private Bitmap photo;
 
 
 
@@ -219,6 +221,8 @@ public class AddRecipe extends AppCompatActivity {
                         mDatabase.child("ingredients").child(recipe.getIngredientList().get(i)).child("recipeUses").push().setValue(recipe.getID());
                     }
 
+
+
                 }
                 if (upload.getText().equals("Confirm")) {
                     finish();
@@ -323,8 +327,9 @@ public class AddRecipe extends AppCompatActivity {
 
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
         {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            photo = (Bitmap) data.getExtras().get("data");
             photoButton.setImageBitmap(photo);
+
         }
 
     }

@@ -1,5 +1,6 @@
 package com.example.myeatup.firebasedata;
 
+import android.graphics.Bitmap;
 import android.net.Uri;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -10,12 +11,12 @@ import java.io.IOException;
 public class Storage {
 
 
-    public void upload(String pathName, String pathChild) {
+    public void upload(String pathName, String pathChild, Bitmap photo) {
 
         StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
-        Uri file = Uri.fromFile(new File(pathName));
+
         StorageReference fileRef = mStorageRef.child(pathChild);
-        fileRef.putFile(file);
+        //fileRef.putBytes(photo);
 
 
     }
