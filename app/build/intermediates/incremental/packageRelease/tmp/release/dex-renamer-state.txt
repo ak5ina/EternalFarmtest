@@ -1,0 +1,4 @@
+#Sun Oct 25 14:02:50 CET 2020
+base.0=C\:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
