@@ -29,7 +29,7 @@ public class GridviewAdapter extends ArrayAdapter<IngredientDTO> {
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.gridview_single_object, parent, false);
             final TextView ingredientName = convertView.findViewById(R.id.gridview_name);
-            System.out.println(ingredientList.get(position).getName());
+            //System.out.println(ingredientList.get(position).getName());
             ingredientName.setText(ingredientList.get(position).getName());
 
             convertView.isClickable();
@@ -37,7 +37,7 @@ public class GridviewAdapter extends ArrayAdapter<IngredientDTO> {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent();
-                    System.out.println(ingredientList.get(position).getID());
+                    //System.out.println(ingredientList.get(position).getID());
                     intent.putExtra("ingredientID", ingredientList.get(position).getID());
                     ((Activity)getContext()).setResult(Activity.RESULT_OK, intent);
                     ((Activity)getContext()).finish();

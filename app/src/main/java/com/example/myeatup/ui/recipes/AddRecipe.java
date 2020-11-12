@@ -1,10 +1,17 @@
 package com.example.myeatup.ui.recipes;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +20,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myeatup.R;
 import com.example.myeatup.firebasedata.IngredientDTO;
@@ -47,7 +57,10 @@ public class AddRecipe extends AppCompatActivity {
     private int btn_id;
     private String key = "";
     private IngredientDTO ingredientToReturn = null;
-
+    private static final int CAMERA_REQUEST = 1888;
+    private ImageView imageView;
+    private ImageButton photoButton;
+    private static final int MY_CAMERA_PERMISSION_CODE = 100;
 
 
 
@@ -64,6 +77,31 @@ public class AddRecipe extends AppCompatActivity {
 
             }
         };
+
+        //this.imageView = (ImageView)this.findViewById(R.id.image_recipe);
+        photoButton = (ImageButton) this.findViewById(R.id.btn_image);
+        photoButton.setOnClickListener(new View.OnClickListener()
+        {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View v)
+            {
+                if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+                {
+                    requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_PERMISSION_CODE);
+                }
+                else
+                {
+                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                }
+            }
+        });
+
+
+
+
+
 
         getSupportActionBar().hide();
 
@@ -271,7 +309,7 @@ public class AddRecipe extends AppCompatActivity {
             if(resultCode == this.RESULT_OK){
 
                 String t = data.getStringExtra("ingredientID");
-                System.out.println(t);
+                //System.out.println(t);
                 //ADD INGREDIENT TO ADAPTER
                 if (t != null) {
                     //IngredientDTO ingredientDTO = new IngredientDTO(t, getIngredientFromDataBase(t).getName());
@@ -282,6 +320,13 @@ public class AddRecipe extends AppCompatActivity {
                 }
             }
         }
+
+        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
+        {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            photoButton.setImageBitmap(photo);
+        }
+
     }
 
     private void getIngredientFromDataBase(final String ingredientID) {
@@ -307,7 +352,36 @@ public class AddRecipe extends AppCompatActivity {
             }
         };
         mDatabase.addListenerForSingleValueEvent(postListener);
-
-
     }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+    {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == MY_CAMERA_PERMISSION_CODE)
+        {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+            }
+            else
+            {
+                Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    /*@Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
+        {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            imageView.setImageBitmap(photo);
+        }
+    }*/
+
 }

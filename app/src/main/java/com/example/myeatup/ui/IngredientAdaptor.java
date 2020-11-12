@@ -34,7 +34,7 @@ public class IngredientAdaptor extends ArrayAdapter<IngredientDTO> {
         }
 
         if (ingredientList.size() == 1){
-            System.out.println(ingredientList.get(position).getName());
+            //System.out.println(ingredientList.get(position).getName());
 
             ImageView closeBtn = convertView.findViewById(R.id.inspiration_listview_object_closebtn);
             closeBtn.setVisibility(View.INVISIBLE);
