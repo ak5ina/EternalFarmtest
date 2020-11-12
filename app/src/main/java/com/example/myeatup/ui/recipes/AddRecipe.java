@@ -1,8 +1,10 @@
 package com.example.myeatup.ui.recipes;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,14 +18,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.myeatup.R;
+import com.example.myeatup.firebasedata.IngredientDTO;
 import com.example.myeatup.firebasedata.RecipieDTO;
+import com.example.myeatup.firebasedata.UnitDTO;
+import com.example.myeatup.ui.AddIngredient;
 import com.example.myeatup.ui.UnitSpinnerAdapter;
 import com.example.myeatup.ui.AddIngredientAdapter;
 import com.example.myeatup.ui.RecipeIngredient;
 import com.example.myeatup.ui.StepAdapter;
 import com.example.myeatup.ui.Steps;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.ArrayList;
@@ -34,6 +42,11 @@ public class AddRecipe extends AppCompatActivity {
     private int counterSteps;
     private int counterIngredients;
     private DatabaseReference mDatabase;
+    private ArrayList<RecipeIngredient> ingredientObjects = new ArrayList();
+    private AddIngredientAdapter ingredientAdapter;
+    private int btn_id;
+    private String key = "";
+    private IngredientDTO ingredientToReturn = null;
 
 
 
@@ -43,6 +56,7 @@ public class AddRecipe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_recipe);
+
 
         final ViewGroup viewGroup = new ViewGroup(getBaseContext()) {
             @Override
@@ -57,7 +71,7 @@ public class AddRecipe extends AppCompatActivity {
         final EditText recipeName = findViewById(R.id.edit_recipe_name);
 
 
-        Button add_step = findViewById(R.id.btn_add_step);
+        final Button add_step = findViewById(R.id.btn_add_step);
         final ArrayList<Steps> stepObjects = new ArrayList();
         final StepAdapter stepAdapter = new StepAdapter(this, R.layout.adapter_steps, stepObjects);
         final ListView list_step = findViewById(R.id.list_steps);
@@ -66,8 +80,8 @@ public class AddRecipe extends AppCompatActivity {
 
 
         Button add_ingredient = findViewById(R.id.btn_add_ingrident);
-        final ArrayList ingredientObjects = new ArrayList();
-        final AddIngredientAdapter ingredientAdapter = new AddIngredientAdapter(this, R.layout.adapter_ingrediens, ingredientObjects);
+
+        ingredientAdapter = new AddIngredientAdapter(this, R.layout.adapter_ingrediens, ingredientObjects);
         final ListView list_ingredint = findViewById(R.id.list_add_ingridient);
         list_ingredint.setAdapter(ingredientAdapter);
 
@@ -89,7 +103,7 @@ public class AddRecipe extends AppCompatActivity {
         spinner.setAdapter(spinAdapter);
 
 
-        Button upload = findViewById(R.id.btn_upload);
+        final Button upload = findViewById(R.id.btn_upload);
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -98,26 +112,77 @@ public class AddRecipe extends AppCompatActivity {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mDatabase = FirebaseDatabase.getInstance().getReference();
 
                 RecipieDTO recipe = new RecipieDTO();
-                recipe.setID("3");
+
+
                 recipe.setName(recipeName.getText().toString());
-                //stepAdapter.notifyDataSetChanged();
-                ArrayList<String> stepStrings = new ArrayList<>();
-                for (int i = 0;i < stepObjects.size();i++) {
-                    stepStrings.add(stepAdapter.getItem(i).getStepText());
 
+
+                ArrayList<String> ingreUp = new ArrayList<>();
+                for (int i = 0;i < ingredientObjects.size();i++) {
+                    ingreUp.add(ingredientObjects.get(i).getId());
                 }
+                recipe.setIngredientList(ingreUp);
 
-                recipe.setSteps(stepStrings);
-                //stepAdapter.getStepText();
 
-                mDatabase.child("recipies").child("3").setValue(recipe);
+                ingredientAdapter.notifyDataSetChanged();
+                ArrayList<String> amount = new ArrayList<>();
+                for (int i = 0;i < ingredientObjects.size();i++){
+                    amount.add(ingredientObjects.get(i).getAmount());
+                }
+                recipe.setUnitAmount(amount);
 
+
+
+                ArrayList<String> units = new ArrayList<>();
+                for (int i = 0;i < ingredientObjects.size();i++){
+                    units.add(ingredientObjects.get(i).getUnit());
+                }
+                recipe.setUnitList(units);
+
+
+
+                if (upload.getText().equals("Upload")){
+
+                    stepAdapter.notifyDataSetChanged();
+
+                    key = mDatabase.child("recipies").push().getKey();
+
+
+                    ArrayList<String> overWrite = new ArrayList<>();
+                    for (int i = 0; i < stepObjects.size();i++) {
+                        overWrite.add(stepObjects.get(i).getStepText());
+
+                    }
+                    stepAdapter.notifyDataSetChanged();
+                    recipe.setSteps(overWrite);
+                    stepAdapter.notifyDataSetChanged();
+                    mDatabase.child("recipies").child("3").setValue(recipe);
+                }
+                else{
+                    stepAdapter.notifyDataSetChanged();
+                    ArrayList<String> stepStrings = new ArrayList<>();
+                    recipe.setSteps(stepStrings);
+                    stepAdapter.notifyDataSetChanged();
+                    for (int i = 0;i < stepObjects.size();i++) {
+                        //stepStrings.add(stepObjects.get(i).getStepText());
+                        stepAdapter.notifyDataSetChanged();
+                        stepStrings.add(stepAdapter.getList().get(i).getStepText());
+                    }
+                    recipe.setSteps(stepStrings);
+                    recipe.setID(key);
+                    mDatabase.child("recipies").child(key).setValue(recipe);
+                }
+                if (upload.getText().equals("Confirm")) {
+                    finish();
+                }
+                else {
+                    upload.setText("Confirm");
+                }
             }
         });
-
-
 
 
 
@@ -146,15 +211,15 @@ public class AddRecipe extends AppCompatActivity {
                 params.height = 130 * counterSteps;
                 list_step.setLayoutParams(params);
 
-                Steps step = new Steps();
+                Steps step = new Steps("test");
 
-                stepObjects.add(step);
+                //stepObjects.add(step);
 
-
-
-                stepAdapter.add(stepObjects.get(counterSteps - 1));
-                //step.setStepText(stepAdapter.setEditView(view, viewGroup));
                 stepAdapter.notifyDataSetChanged();
+                stepAdapter.add(step);
+                stepAdapter.notifyDataSetChanged();
+                //step.setStepText(stepAdapter.setEditView(view, viewGroup));
+                //stepAdapter.notifyDataSetChanged();
             }
         });
 
@@ -168,7 +233,7 @@ public class AddRecipe extends AppCompatActivity {
                 params.height = 130 * counterIngredients;
                 list_ingredint.setLayoutParams(params);
 
-                ingredientAdapter.add(new RecipeIngredient("Ingredient", 0, "unit"));
+                ingredientAdapter.add(new RecipeIngredient("0","Ingredient", "0", "unit"));
                 ingredientAdapter.notifyDataSetChanged();
 
             }
@@ -176,7 +241,65 @@ public class AddRecipe extends AppCompatActivity {
 
 
 
+        final Button btn_add_ingre = findViewById(R.id.recipe_btn_add_ingredient);
+        btn_add_ingre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn_id = Integer.parseInt(btn_add_ingre.getText().toString());
+                Intent intent = new Intent(AddRecipe.this, AddIngredient.class);
+                startActivityForResult(intent,1);
 
+            }
+
+        });
+
+
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            if(resultCode == this.RESULT_OK){
+
+                String t = data.getStringExtra("ingredientID");
+                System.out.println(t);
+                //ADD INGREDIENT TO ADAPTER
+                if (t != null) {
+                    //IngredientDTO ingredientDTO = new IngredientDTO(t, getIngredientFromDataBase(t).getName());
+                    getIngredientFromDataBase(t);
+
+
+
+                }
+            }
+        }
+    }
+
+    private void getIngredientFromDataBase(final String ingredientID) {
+
+
+        //GETTING THE INGREDIENT ONLINE!
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("ingredients");
+
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                ingredientToReturn = dataSnapshot.child(ingredientID).getValue(IngredientDTO.class);
+                //adaptor.add(ingredientToReturn);
+                ingredientObjects.get(btn_id).setIngredient(ingredientToReturn.getName());
+                ingredientObjects.get(btn_id).setId(ingredientToReturn.getID());
+                ingredientAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        mDatabase.addListenerForSingleValueEvent(postListener);
 
 
     }

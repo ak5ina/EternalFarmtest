@@ -10,7 +10,7 @@ public class InspirationViewModel extends ViewModel {
 
     public InspirationViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {

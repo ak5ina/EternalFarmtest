@@ -1,6 +1,8 @@
 package com.example.myeatup.firebasedata;
 
 
+import com.example.myeatup.ui.Steps;
+
 import java.util.ArrayList;
 
 public class RecipieDTO implements IRecipieDTO {
@@ -15,8 +17,8 @@ public class RecipieDTO implements IRecipieDTO {
     private ArrayList<String> voteProfiles;
     private ArrayList<Integer> voteList;
     private ArrayList<String> unknownIngredients;
-    private ArrayList<UnitDTO> unitList;
-    private ArrayList<Integer> unitAmount;
+    private ArrayList<String> unitList;
+    private ArrayList<String> unitAmount;
 
     public RecipieDTO(){
 
@@ -112,11 +114,11 @@ public class RecipieDTO implements IRecipieDTO {
         this.voteList = voteList;
     }
 
-    public ArrayList<UnitDTO> getUnitList() {
+    public ArrayList<String> getUnitList() {
         return unitList;
     }
 
-    public void setUnitList(ArrayList<UnitDTO> unitList) {
+    public void setUnitList(ArrayList<String> unitList) {
         this.unitList = unitList;
     }
 
@@ -128,11 +130,11 @@ public class RecipieDTO implements IRecipieDTO {
         this.unknownIngredients = unknownIngredients;
     }
 
-    public ArrayList<Integer> getUnitAmount() {
+    public ArrayList<String> getUnitAmount() {
         return unitAmount;
     }
 
-    public void setUnitAmount(ArrayList<Integer> unitAmount) {
+    public void setUnitAmount(ArrayList<String> unitAmount) {
         this.unitAmount = unitAmount;
     }
 }

@@ -3,18 +3,33 @@ package com.example.myeatup.ui;
 public class RecipeIngredient {
 
     String ingredient;
-    int amount;
+    String amount;
     String unit;
+    String id;
 
-    public RecipeIngredient(String ingredient, int amount, String unit){
 
+    public RecipeIngredient(){
+
+    }
+
+    public RecipeIngredient(String id,  String ingredient, String amount, String unit){
+
+        this.id = id;
         this.ingredient = ingredient;
         this.amount = amount;
         this.unit = unit;
 
     }
 
-    public void setAmount(int amount) {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
@@ -26,7 +41,7 @@ public class RecipeIngredient {
         this.unit = unit;
     }
 
-    public int getAmount() {
+    public String getAmount() {
         return amount;
     }
 

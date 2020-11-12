@@ -6,9 +6,9 @@ import android.widget.EditText;
 public class Steps {
 
     private String stepNum;
-    private Editable stepText;
+    private String stepText;
 
-    public Steps(Editable stepText){
+    public Steps(String stepText){
 
         //this.stepNum = stepNum;
         this.stepText = stepText;
@@ -29,10 +29,10 @@ public class Steps {
     }
 
     public String getStepText() {
-        return stepText.toString();
+        return stepText;
     }
 
-    public void setStepText(Editable stepText) {
+    public void setStepText(String stepText) {
         this.stepText = stepText;
     }
 
