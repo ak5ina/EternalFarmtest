@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myeatup"
+    package="com.scrippy2.myeatup"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -25,10 +25,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.myeatup.ui.AddIngredient" />
-        <activity android:name="com.example.myeatup.ui.recipes.AddRecipe" />
+        <activity android:name="com.scrippy2.myeatup.ui.AddIngredient" />
+        <activity android:name="com.scrippy2.myeatup.ui.recipes.AddRecipe" />
         <activity
-            android:name="com.example.myeatup.MainActivity"
+            android:name="com.scrippy2.myeatup.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -125,7 +125,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.example.myeatup.firebaseinitprovider"
+            android:authorities="com.scrippy2.myeatup.firebaseinitprovider"
             android:directBootAware="true"
             android:exported="false"
             android:initOrder="100" />
@@ -157,7 +157,7 @@
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-            android:authorities="com.example.myeatup.lifecycle-process"
+            android:authorities="com.scrippy2.myeatup.lifecycle-process"
             android:exported="false"
             android:multiprocess="true" />
 
