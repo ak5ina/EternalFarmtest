@@ -212,6 +212,11 @@ public class AddRecipe extends AppCompatActivity {
                         stepAdapter.notifyDataSetChanged();
                         stepStrings.add(stepAdapter.getList().get(i).getStepText());
                     }
+
+
+                    Storage storage = new Storage();
+                    storage.upload(key, photo);
+
                     recipe.setSteps(stepStrings);
                     recipe.setID(key);
                     mDatabase.child("recipies").child(key).setValue(recipe);
@@ -220,6 +225,7 @@ public class AddRecipe extends AppCompatActivity {
 
                         mDatabase.child("ingredients").child(recipe.getIngredientList().get(i)).child("recipeUses").push().setValue(recipe.getID());
                     }
+
 
 
 
