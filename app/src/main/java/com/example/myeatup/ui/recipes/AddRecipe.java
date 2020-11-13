@@ -369,10 +369,10 @@ public class AddRecipe extends AppCompatActivity {
 
     public boolean tjek(){
         boolean tjek = true;
-        if (recipeName == null){
+        if (recipeName.getText() == null){
             tjek = false;
         }
-        if (stepAdapter == null){
+        if (stepAdapter.getList() == null){
             tjek = false;
         }
         for (int i = 0;i < stepAdapter.getList().size();i++){
@@ -380,16 +380,16 @@ public class AddRecipe extends AppCompatActivity {
                 tjek = false;
             }
         }
-        if (ingredientAdapter == null){
+        if (ingredientAdapter.getCount() == 0){
             tjek = false;
         }
         for (int i = 0;i < ingredientAdapter.getCount();i++){
-            if (ingredientAdapter.getItem(i).getId() == null){
+            if (ingredientAdapter.getItem(i).getId().equals("")){
                 tjek = false;
             }
         }
         for (int i = 0;i < ingredientAdapter.getCount();i++){
-            if (ingredientAdapter.getItem(i).getAmount() == null){
+            if (ingredientAdapter.getItem(i).getAmount().equals("")){
                 tjek = false;
             }
         }
