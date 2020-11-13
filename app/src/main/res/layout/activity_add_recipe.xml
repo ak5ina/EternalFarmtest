@@ -74,10 +74,11 @@
 
                 <ImageButton
                     android:id="@+id/btn_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_margin="30dp"
-                    android:background="@drawable/btn_image"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/icon_camera_grey"
                     >
 
                 </ImageButton>
@@ -231,6 +232,57 @@
                     android:layout_height="30dp"
                     >
                 </Space>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time"
+                    android:textSize="20sp"
+                    >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/edit_time"
+                    android:layout_width="100dp"
+                    android:hint="minutter"
+                    android:text=""
+                    android:layout_height="50dp"
+                    android:layout_marginRight="10dp"
+                    android:imeOptions="actionDone"
+                    android:digits="0123456789"
+                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    >
+                </EditText>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    android:textSize="20sp"
+                    >
+                </TextView>
+
+                <Spinner
+                    android:id="@+id/spin_price"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="left"
+                    android:minWidth="70dp"
+                    android:entries="@array/price_array"
+                    android:layout_weight="1"
+                    >
+                </Spinner>
 
 
             </LinearLayout>

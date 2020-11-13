@@ -10,8 +10,8 @@ public class RecipieDTO implements IRecipieDTO {
 
     private String ID;
     private String name;
-    private int time;
-    private int price;
+    private String time;
+    private String price;
     private ArrayList<String> ingredientList;
     private ArrayList<String> steps;
     private ArrayList<String> voteProfiles;
@@ -25,7 +25,7 @@ public class RecipieDTO implements IRecipieDTO {
     }
 
 
-    public RecipieDTO(String ID, String name, int time, int price){
+    public RecipieDTO(String ID, String name, String time, String price){
 
         this.ID = ID;
         this.name = name;
@@ -63,22 +63,22 @@ public class RecipieDTO implements IRecipieDTO {
     }
 
     @Override
-    public int getTime() {
+    public String getTime() {
         return time;
     }
 
-    @Override
-    public void setTime(int time) {
+
+    public void setTime(String time) {
         this.time = time;
     }
 
-    @Override
-    public int getPrice() {
+
+    public String getPrice() {
         return price;
     }
 
-    @Override
-    public void setPrice(int price) {
+
+    public void setPrice(String price) {
         this.price = price;
     }
 

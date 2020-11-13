@@ -56,6 +56,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array price_array
 array unit_array
 attr action
 attr actionBarDivider
@@ -1625,6 +1626,8 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
+drawable icon_camera
+drawable icon_camera_grey
 drawable icon_cooking
 drawable icon_ingredient
 drawable icon_lightbulb
@@ -1831,6 +1834,7 @@ id easeOut
 id edit_adapt_ingredient_amount
 id edit_query
 id edit_recipe_name
+id edit_time
 id end
 id enterAlways
 id enterAlwaysCollapsed
@@ -2028,6 +2032,7 @@ id snap
 id snapMargins
 id spacer
 id spin_adapt_ingredient_unit
+id spin_price
 id spline
 id split_action_bar
 id spread

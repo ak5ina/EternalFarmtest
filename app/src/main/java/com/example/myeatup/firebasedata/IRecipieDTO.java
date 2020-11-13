@@ -10,13 +10,13 @@ interface IRecipieDTO {
 
     void setName(String name);
 
-    int getTime();
+    String getTime();
 
-    void setTime(int time);
+    void setTime(String time);
 
-    int getPrice();
+    String getPrice();
 
-    void setPrice(int price);
+    void setPrice(String price);
 
 
 

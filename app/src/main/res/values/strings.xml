@@ -7,10 +7,17 @@
     <string name="Todo">Todo</string>
     <string name="RecipeName">Recipe Name</string>
     <string-array name="unit_array">
-        <item>dL</item>
-        <item>g</item>
         <item>Stk</item>
+        <item>g</item>
+        <item>dL</item>
         <item>spsk</item>
         <item>tsk</item>
+    </string-array>
+    <string-array name="price_array">
+        <item>$</item>
+        <item>$$</item>
+        <item>$$$</item>
+        <item>$$$$</item>
+        <item>$$$$$</item>
     </string-array>
 </resources>
