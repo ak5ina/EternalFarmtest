@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.scrippy2.myeatup.MainActivity;
 import com.scrippy2.myeatup.R;
 import com.scrippy2.myeatup.firebasedata.IngredientDTO;
 import com.scrippy2.myeatup.firebasedata.RecipieDTO;
@@ -114,11 +115,15 @@ public class InsipirationFragment extends Fragment {
         if (requestCode == 1){
             if(resultCode == getActivity().RESULT_OK){
 
-                String t = data.getStringExtra("ingredientID");
+                int b = data.getIntExtra("ingredientID", 0);
+                String t = Integer.toString(b);
                 //ADD INGREDIENT TO ADAPTER
                 if (t != null) {
                     //adaptor.add(new IngredientDTO(t, getIngredientFromDataBase(t).getName()));
-                    getIngredientFromDataBase(t);
+//                    MainActivity.INGREDIENTLIST
+//                    getIngredientFromDataBase(t);
+                    System.out.println(t);
+                    adaptorForIngredients.add(MainActivity.INGREDIENTLIST.get(Integer.parseInt(t)));
                     adaptorForIngredients.notifyDataSetChanged();
                     GetRecipyBasedOnIngredient();
                 }
