@@ -43,7 +43,7 @@ public class InsipirationFragment extends Fragment {
     private GridviewAdapter_Recipy adaptorForRecipy;
     private DatabaseReference mDatabase;
     private IngredientDTO ingredientToReturn = null;
-    private ArrayList<String> recipyIDarray;
+    private ArrayList<String> recipyIDarray, acceptableID;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -69,6 +69,7 @@ public class InsipirationFragment extends Fragment {
         arraylistForGridviewIngredient = new ArrayList<>();
         arraylistForGridviewRecipe = new ArrayList<>();
         recipyIDarray = new ArrayList<>();
+        acceptableID = new ArrayList<>();
 
         adaptorForIngredients = new IngredientAdaptor(getActivity().getApplicationContext(), R.layout.gridview_single_object2, arraylistForGridviewIngredient);
         gridView.setAdapter(adaptorForIngredients);
@@ -117,6 +118,9 @@ public class InsipirationFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1){
             if(resultCode == getActivity().RESULT_OK){
+                adaptorForRecipy.clear();
+                recipyIDarray.clear();
+                acceptableID.clear();
 
                 int b = data.getIntExtra("ingredientID", 0);
                 String t = Integer.toString(b);
@@ -128,44 +132,66 @@ public class InsipirationFragment extends Fragment {
                     adaptorForIngredients.add(ingredientAdded);
                     adaptorForIngredients.notifyDataSetChanged();
 
-                    if (ingredientAdded.getRecipies() != null) {
-                        for (String recipyID : ingredientAdded.getRecipies()) {
+                    for (int i = 1; i < adaptorForIngredients.getCount(); i++){
+                        if (adaptorForIngredients.getItem(i).getRecipies() != null) {
+                            for (String recipyID : adaptorForIngredients.getItem(i).getRecipies()) {
 
-                            recipyIDarray.add(recipyID);
+                                recipyIDarray.add(recipyID);
 
+                            }
                         }
                     }
 
                     Collections.sort(recipyIDarray);
 
+                    String lastID = "bliverSatSennere", currentID;
+                    int idCounter = 0;
+
                     for (int i = 0; i < recipyIDarray.size(); i++) {
-                        System.out.println(recipyIDarray.get(i));
+                        currentID = recipyIDarray.get(i);
+                        System.out.println("TEST1");
+
+                        if(lastID.contentEquals(currentID)){
+                            System.out.println("TEST2");
+                            idCounter++;
+                            lastID = currentID;
+                        } else {
+                            System.out.println("TEST4");
+                            idCounter = 1;
+                            lastID = currentID;
+                        }
+
+
+                        if (idCounter == adaptorForIngredients.getCount()-1){
+                            System.out.println("TEST3");
+                            System.out.println(currentID + " | " + idCounter);
+                            acceptableID.add(currentID);
+                        }
+
+                        System.out.println("Recipy id | " + recipyIDarray.get(i));
                     }
+
+                    AddToRecipyGridview(acceptableID);
 
                 }
             }
         }
     }
 
-    private void AddIngredientsRecipe(String recipyID) {
+    private void AddToRecipyGridview(final ArrayList<String> recipyID) {
 
-
-
-
-    }
-
-    private void AddToRecipyGridview(String recipyID) {
-
-            mDatabase = FirebaseDatabase.getInstance().getReference("recipies").child(recipyID);
-            mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            DatabaseReference mDatabase2 = FirebaseDatabase.getInstance().getReference("recipies");
+            mDatabase2.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                    RecipieDTO newRecipy = snapshot.getValue(RecipieDTO.class);
-                    arraylistForGridviewRecipe.add(newRecipy);
-
-                    System.out.println("HEJEHJ " + newRecipy.getName() + " | " + arraylistForGridviewRecipe.size());
-
+                    for (DataSnapshot childSnap : snapshot.getChildren()){
+                        for (int i = 0; i < recipyID.size(); i++) {
+                            if (childSnap.getKey().contentEquals(recipyID.get(i))) {
+                                adaptorForRecipy.add(childSnap.getValue(RecipieDTO.class));
+                            }
+                        }
+                    }
                 }
 
                 @Override

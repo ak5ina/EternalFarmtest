@@ -25,7 +25,7 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.gridview_single_object, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.gridview_recipe_object, parent, false);
             TextView tvTime = convertView.findViewById(R.id.gridview_time_recipy);
             TextView tvPrice = convertView.findViewById(R.id.gridview_price_recipy);
             TextView tvRating = convertView.findViewById(R.id.gridview_rating_recipy);
@@ -35,17 +35,17 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
             double avargaRating = 0;
             double combinedValue = 0;
 
-            for (int i = 0; i < recipyList.get(position).getVoteList().size(); i++){
-                combinedValue = combinedValue += Double.parseDouble(recipyList.get(position).getVoteList().get(i).toString());
-            }
-
-            if (combinedValue > 0){
-                avargaRating = (combinedValue/recipyList.get(position).getVoteList().size());
-            }
+//            for (int i = 0; i < recipyList.get(position).getVoteList().size(); i++){
+//                combinedValue = combinedValue += Double.parseDouble(recipyList.get(position).getVoteList().get(i).toString());
+//            }
+//
+//            if (combinedValue > 0){
+//                avargaRating = (combinedValue/recipyList.get(position).getVoteList().size());
+//            }
 
             tvTime.setText(recipyList.get(position).getTime());
             tvPrice.setText(recipyList.get(position).getPrice());
-            tvRating.setText(Double.toString(avargaRating));
+//            tvRating.setText(Double.toString(avargaRating));
             tvName.setText(recipyList.get(position).getName());
 
             convertView.isClickable();
