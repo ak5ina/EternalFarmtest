@@ -30,18 +30,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class InsipirationFragment extends Fragment {
 
     private InspirationViewModel inspirationViewModel;
     private ArrayList<IngredientDTO> arraylistForGridviewIngredient;
     private ArrayList<RecipieDTO> arraylistForGridviewRecipe;
-    private ListView listView;
     private GridView gridView, gridViewRecipy;
     private IngredientAdaptor adaptorForIngredients;
     private GridviewAdapter_Recipy adaptorForRecipy;
     private DatabaseReference mDatabase;
     private IngredientDTO ingredientToReturn = null;
+    private ArrayList<String> recipyIDarray;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -66,6 +68,7 @@ public class InsipirationFragment extends Fragment {
         //Array med ingrediens objekter (SKIFT NAVN)
         arraylistForGridviewIngredient = new ArrayList<>();
         arraylistForGridviewRecipe = new ArrayList<>();
+        recipyIDarray = new ArrayList<>();
 
         adaptorForIngredients = new IngredientAdaptor(getActivity().getApplicationContext(), R.layout.gridview_single_object2, arraylistForGridviewIngredient);
         gridView.setAdapter(adaptorForIngredients);
@@ -128,14 +131,27 @@ public class InsipirationFragment extends Fragment {
                     if (ingredientAdded.getRecipies() != null) {
                         for (String recipyID : ingredientAdded.getRecipies()) {
 
-                            AddToRecipyGridview(recipyID);
+                            recipyIDarray.add(recipyID);
 
                         }
+                    }
+
+                    Collections.sort(recipyIDarray);
+
+                    for (int i = 0; i < recipyIDarray.size(); i++) {
+                        System.out.println(recipyIDarray.get(i));
                     }
 
                 }
             }
         }
+    }
+
+    private void AddIngredientsRecipe(String recipyID) {
+
+
+
+
     }
 
     private void AddToRecipyGridview(String recipyID) {
