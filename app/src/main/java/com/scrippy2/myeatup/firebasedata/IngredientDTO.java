@@ -12,6 +12,7 @@ public class IngredientDTO implements IIngredientDTO {
 
     public IngredientDTO(){
 
+        recipies = new ArrayList<>();
     }
 
     public IngredientDTO(String ID, String name){
@@ -19,6 +20,7 @@ public class IngredientDTO implements IIngredientDTO {
         this.name = name;
         recipies = new ArrayList<>();
     }
+
 
 
     public String getID(){ return ID; }

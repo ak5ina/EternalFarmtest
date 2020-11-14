@@ -60,8 +60,13 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
 
                     IngredientDTO ingre = postSnapshot.getValue(IngredientDTO.class);
+
+                    for (DataSnapshot secoundChild: postSnapshot.child("recipeUses").getChildren()){
+                        ingre.getRecipies().add(secoundChild.getValue().toString());
+                    }
+
                     INGREDIENTLIST.add(ingre);
-                    System.out.println(ingre.getName());
+                    System.out.println(ingre.getRecipies().size());
 
                 }
             }

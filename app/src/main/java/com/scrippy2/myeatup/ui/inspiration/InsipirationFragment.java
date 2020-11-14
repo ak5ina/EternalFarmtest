@@ -30,18 +30,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class InsipirationFragment extends Fragment {
 
     private InspirationViewModel inspirationViewModel;
     private ArrayList<IngredientDTO> arraylistForGridviewIngredient;
     private ArrayList<RecipieDTO> arraylistForGridviewRecipe;
-    private ListView listView;
     private GridView gridView, gridViewRecipy;
     private IngredientAdaptor adaptorForIngredients;
     private GridviewAdapter_Recipy adaptorForRecipy;
     private DatabaseReference mDatabase;
     private IngredientDTO ingredientToReturn = null;
+    private ArrayList<String> recipyIDarray;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -66,6 +68,7 @@ public class InsipirationFragment extends Fragment {
         //Array med ingrediens objekter (SKIFT NAVN)
         arraylistForGridviewIngredient = new ArrayList<>();
         arraylistForGridviewRecipe = new ArrayList<>();
+        recipyIDarray = new ArrayList<>();
 
         adaptorForIngredients = new IngredientAdaptor(getActivity().getApplicationContext(), R.layout.gridview_single_object2, arraylistForGridviewIngredient);
         gridView.setAdapter(adaptorForIngredients);
@@ -119,69 +122,60 @@ public class InsipirationFragment extends Fragment {
                 String t = Integer.toString(b);
                 //ADD INGREDIENT TO ADAPTER
                 if (t != null) {
-                    //adaptor.add(new IngredientDTO(t, getIngredientFromDataBase(t).getName()));
-//                    MainActivity.INGREDIENTLIST
-//                    getIngredientFromDataBase(t);
-                    System.out.println(t);
-                    adaptorForIngredients.add(MainActivity.INGREDIENTLIST.get(Integer.parseInt(t)));
+
+                    IngredientDTO ingredientAdded = MainActivity.INGREDIENTLIST.get(Integer.parseInt(t));
+
+                    adaptorForIngredients.add(ingredientAdded);
                     adaptorForIngredients.notifyDataSetChanged();
-                    GetRecipyBasedOnIngredient();
+
+                    if (ingredientAdded.getRecipies() != null) {
+                        for (String recipyID : ingredientAdded.getRecipies()) {
+
+                            recipyIDarray.add(recipyID);
+
+                        }
+                    }
+
+                    Collections.sort(recipyIDarray);
+
+                    for (int i = 0; i < recipyIDarray.size(); i++) {
+                        System.out.println(recipyIDarray.get(i));
+                    }
+
                 }
             }
         }
     }
 
-    private ArrayList<IngredientDTO> getIngredientListFromDataBase() {
-        ArrayList<IngredientDTO> listToReturn = new ArrayList<>();
+    private void AddIngredientsRecipe(String recipyID) {
 
 
-        //TEST OBJEKTER.
-        listToReturn.add(new IngredientDTO("1","Appel"));
-        listToReturn.add(new IngredientDTO("2","Orange"));
-        listToReturn.add(new IngredientDTO("3","Pineappel"));
-
-        return listToReturn;
-    }
-
-    private void getIngredientFromDataBase(final String ingredientID) {
-
-
-        //GETTING THE INGREDIENT ONLINE!
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("ingredients").child(ingredientID);
-
-        ValueEventListener postListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                ingredientToReturn = dataSnapshot.getValue(IngredientDTO.class);
-                adaptorForIngredients.add(ingredientToReturn);
-                
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-        mDatabase.addListenerForSingleValueEvent(postListener);
 
 
     }
 
-    private void GetRecipyBasedOnIngredient() {
+    private void AddToRecipyGridview(String recipyID) {
 
-        System.out.println("HEJ");
-        System.out.println(adaptorForIngredients.getCount());
-        //FIRST INGREDIENT
-        if (adaptorForRecipy.getCount() == 0){
-            System.out.println("TEST");
-        }
-        //SECOND INGREDIENT
-        else {
+            mDatabase = FirebaseDatabase.getInstance().getReference("recipies").child(recipyID);
+            mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-            System.out.println("TEST2");
-        }
+                    RecipieDTO newRecipy = snapshot.getValue(RecipieDTO.class);
+                    arraylistForGridviewRecipe.add(newRecipy);
+
+                    System.out.println("HEJEHJ " + newRecipy.getName() + " | " + arraylistForGridviewRecipe.size());
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
 
     }
+
 }
