@@ -1,6 +1,8 @@
 package com.scrippy2.myeatup.firebasedata;
 
 
+import com.scrippy2.myeatup.ui.RecipeIngredient;
+
 import java.util.ArrayList;
 
 public class IngredientDTO implements IIngredientDTO {
@@ -19,6 +21,13 @@ public class IngredientDTO implements IIngredientDTO {
         this.ID = ID;
         this.name = name;
         recipies = new ArrayList<>();
+    }
+
+    public RecipeIngredient toRecipeIngregient(){
+        RecipeIngredient recipeIngredient = new RecipeIngredient();
+        recipeIngredient.setId(this.ID);
+        recipeIngredient.setIngredient(this.name);
+        return recipeIngredient;
     }
 
 

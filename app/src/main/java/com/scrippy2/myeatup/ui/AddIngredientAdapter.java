@@ -21,9 +21,9 @@ import java.util.ArrayList;
 
 public class AddIngredientAdapter extends ArrayAdapter<RecipeIngredient> {
 
-    Activity activity;
 
     private ArrayList<RecipeIngredient> listIngredients;
+    private EditText ingredientAmount;
 
 
     @NonNull
@@ -40,7 +40,7 @@ public class AddIngredientAdapter extends ArrayAdapter<RecipeIngredient> {
         TextView ingredientName = convertView.findViewById(R.id.text_adapt_ingredient_name);
         ingredientName.setText(listIngredients.get(position).getIngredient());
 
-        EditText ingredientAmount = convertView.findViewById(R.id.edit_adapt_ingredient_amount);
+        ingredientAmount = convertView.findViewById(R.id.edit_adapt_ingredient_amount);
         listIngredients.get(position).setAmount(ingredientAmount.getEditableText().toString());
 
         Spinner unitSpin = convertView.findViewById(R.id.spin_adapt_ingredient_unit);
@@ -57,28 +57,22 @@ public class AddIngredientAdapter extends ArrayAdapter<RecipeIngredient> {
                 btn.setText("" + position);
                 btn.callOnClick();
 
-
-
             }
         });
-
-
 
         return convertView;
     }
 
 
 
-
-
-
-
-
-
     public AddIngredientAdapter(@NonNull Context context, int resource, ArrayList<RecipeIngredient> listIngredients) {
         super(context, resource, listIngredients);
         this.listIngredients = listIngredients;
+    }
 
+
+    public void setAdaptTextAmount(int position){
+        listIngredients.get(position).setAmount(ingredientAmount.getEditableText().toString());
     }
 
 

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class StepAdapter extends ArrayAdapter<Steps> {
 
-    private TextView stepText;
+    private TextView stepTextView;
 
     private ArrayList<Steps> listSteps;
 
@@ -29,14 +29,14 @@ public class StepAdapter extends ArrayAdapter<Steps> {
         }
 
         TextView stepNum = convertView.findViewById(R.id.text_adapt_step_num);
-        stepText = convertView.findViewById(R.id.text_adapt_step_text);
-        listSteps.set(position, new Steps(stepText.getEditableText().toString()));
+        stepTextView = convertView.findViewById(R.id.text_adapt_step_text);
+        listSteps.set(position, new Steps(stepTextView.getEditableText().toString()));
 
 
 
         stepNum.setText("Step: " + (position + 1));
 
-        //stepText.setText(stepText.getEditableText());
+        listSteps.get(position).setStepText(stepTextView.getEditableText().toString());
 
 
 
@@ -53,34 +53,9 @@ public class StepAdapter extends ArrayAdapter<Steps> {
         return this.listSteps;
     }
 
-    /*
-    public Editable getStepText() {
-        return stepText.getEditableText();
+    public void setAdaptText(int position){
+        listSteps.get(position).setStepText(stepTextView.getEditableText().toString());
     }
-*/
-
-    public View update (int position, @Nullable View convertView, @NonNull final ViewGroup parent){
 
 
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.adapter_steps, parent, false);
-        }
-
-        //TextView stepNum = convertView.findViewById(R.id.text_adapt_step_num);
-        stepText = convertView.findViewById(R.id.text_adapt_step_text);
-
-        //position = position + 1;
-        //-------------------------------------------------------------------------------------
-        //stepNum.setText("Step: " + position);
-        listSteps.set(position, new Steps(stepText.getEditableText().toString()));
-        //listSteps.set(position - 1, new Steps(stepText.getEditableText().toString()));
-
-
-        return convertView;
-    }
-/*
-    public getArrayList (){
-        return listSteps;
-    }
-*/
 }
