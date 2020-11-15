@@ -1884,6 +1884,7 @@ id image
 id image_adapt_ingredient
 id info
 id inspiration_btn_add_ingridiant
+id inspiration_btn_resetrecipylist
 id inspiration_header_line
 id inspiration_header_text
 id inspiration_listview_object_closebtn

@@ -91,7 +91,13 @@ public class InsipirationFragment extends Fragment {
 
 
 
-
+        Button btn_resetlist = root.findViewById(R.id.inspiration_btn_resetrecipylist);
+        btn_resetlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                test();
+            }
+        });
 
 
         //ADD TO LIST VIEW BTN
@@ -202,6 +208,55 @@ public class InsipirationFragment extends Fragment {
 
 
 
+    }
+
+    public void test(){
+
+
+        adaptorForRecipy.clear();
+        recipyIDarray.clear();
+        acceptableID.clear();
+        
+        for (int i = 1; i < adaptorForIngredients.getCount(); i++){
+            if (adaptorForIngredients.getItem(i).getRecipies() != null) {
+                for (String recipyID : adaptorForIngredients.getItem(i).getRecipies()) {
+
+                    recipyIDarray.add(recipyID);
+
+                }
+            }
+        }
+
+        Collections.sort(recipyIDarray);
+
+        String lastID = "bliverSatSennere", currentID;
+        int idCounter = 0;
+
+        for (int i = 0; i < recipyIDarray.size(); i++) {
+            currentID = recipyIDarray.get(i);
+            System.out.println("TEST1");
+
+            if(lastID.contentEquals(currentID)){
+                System.out.println("TEST2");
+                idCounter++;
+                lastID = currentID;
+            } else {
+                System.out.println("TEST4");
+                idCounter = 1;
+                lastID = currentID;
+            }
+
+
+            if (idCounter == adaptorForIngredients.getCount()-1){
+                System.out.println("TEST3");
+                System.out.println(currentID + " | " + idCounter);
+                acceptableID.add(currentID);
+            }
+
+            System.out.println("Recipy id | " + recipyIDarray.get(i));
+        }
+
+        AddToRecipyGridview(acceptableID);
     }
 
 }

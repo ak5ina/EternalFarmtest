@@ -45,7 +45,6 @@ public class IngredientAdaptor extends ArrayAdapter<IngredientDTO> {
 
                     Button btn = parent.getRootView().findViewById(R.id.inspiration_btn_add_ingridiant);
                     btn.callOnClick();
-//
 //                    Intent intent = new Intent(getContext(), AddIngredient.class);
 //                    ((Activity)con).startActivityForResult(intent, 1);
 
@@ -67,6 +66,10 @@ public class IngredientAdaptor extends ArrayAdapter<IngredientDTO> {
                 public void onClick(View view) {
                     ingredientList.remove(position);
                     notifyDataSetChanged();
+
+                    Button btn = parent.getRootView().findViewById(R.id.inspiration_btn_resetrecipylist);
+                    btn.callOnClick();
+
                 }
             });
 

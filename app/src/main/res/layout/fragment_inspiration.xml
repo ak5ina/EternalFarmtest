@@ -47,6 +47,21 @@
 
     </Button>
 
+    <Button
+        android:id="@+id/inspiration_btn_resetrecipylist"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/btn_add_ingridient"
+        android:drawableTop="@drawable/icon_plus_sign"
+        android:padding="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inspiration_header_line"
+        android:layout_marginRight="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
