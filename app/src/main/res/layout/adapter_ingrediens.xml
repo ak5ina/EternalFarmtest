@@ -15,53 +15,67 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             >
-
-            <ImageButton
-                android:id="@+id/image_adapt_ingredient"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/icon_ingredient"
-
-                >
-            </ImageButton>
-
-            <TextView
-                android:id="@+id/text_adapt_ingredient_name"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:text="Ingredient"
-                android:minWidth="50dp"
-                android:layout_height="50dp"
-                android:gravity="left"
-                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:layout_weight="200"
                 >
-            </TextView>
+                <ImageButton
+                    android:id="@+id/image_adapt_ingredient"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/icon_ingredient"
 
-            <EditText
-                android:id="@+id/edit_adapt_ingredient_amount"
+                    >
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/text_adapt_ingredient_name"
+                    android:layout_width="wrap_content"
+                    android:text="Ingredient"
+                    android:minWidth="50dp"
+                    android:maxWidth="200dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    >
+                </TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:hint="0,0"
-                android:text=""
-                android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:imeOptions="actionDone"
-                android:digits="0123456789,"
-                android:inputType="number"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:layout_gravity="left"
                 >
-            </EditText>
+                <EditText
+                    android:id="@+id/edit_adapt_ingredient_amount"
+                    android:layout_width="wrap_content"
+                    android:hint="0,0"
+                    android:text=""
+                    android:layout_height="50dp"
+                    android:layout_marginRight="10dp"
+                    android:imeOptions="actionDone"
+                    android:digits="0123456789,"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:layout_gravity="right"
+                    >
+                </EditText>
 
-            <Spinner
-                android:id="@+id/spin_adapt_ingredient_unit"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:gravity="right"
-                android:minWidth="70dp"
-                android:entries="@array/unit_array"
-                android:layout_weight="1"
-                >
-            </Spinner>
+                <Spinner
+                    android:id="@+id/spin_adapt_ingredient_unit"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:minWidth="70dp"
+                    android:entries="@array/unit_array"
+                    >
+                </Spinner>
+            </LinearLayout>
+
 
         </LinearLayout>
 
