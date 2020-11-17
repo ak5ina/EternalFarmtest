@@ -112,10 +112,7 @@ public class AddRecipe extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (!tjek()){
-
-                }
-                else{
+                if (tjek()){
 
                     mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -193,6 +190,7 @@ public class AddRecipe extends AppCompatActivity {
                         }
                     }
                     if (upload.getText().equals("Confirm")) {
+                        Toast.makeText(getApplicationContext(), "Recipe uploaded", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                     else {
@@ -230,12 +228,6 @@ public class AddRecipe extends AppCompatActivity {
                 {
                     Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(cameraIntent, CAMERA_REQUEST);
-
-                    //final Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    //Uri pictureUri = Uri.EMPTY;
-                    //takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,pictureUri);
-                    //startActivityForResult(takePictureIntent,  CAMERA_REQUEST);
-
                 }
             }
         });
