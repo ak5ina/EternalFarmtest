@@ -74,11 +74,11 @@
 
                 <ImageButton
                     android:id="@+id/btn_image"
-                    android:layout_width="40dp"
-                    android:layout_height="50dp"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
-                    android:background="@drawable/icon_camera_grey"
+                    android:background="@drawable/icon_camera_big"
                     >
 
                 </ImageButton>

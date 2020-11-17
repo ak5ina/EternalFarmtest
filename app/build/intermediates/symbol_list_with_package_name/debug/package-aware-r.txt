@@ -1627,6 +1627,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
 drawable icon_camera
+drawable icon_camera_big
 drawable icon_camera_grey
 drawable icon_cooking
 drawable icon_ingredient
@@ -1865,6 +1866,7 @@ id gridview_name_recipy
 id gridview_pic
 id gridview_pic_recipy
 id gridview_price_recipy
+id gridview_profile
 id gridview_rating_recipy
 id gridview_time_recipy
 id gridview_wholeobject

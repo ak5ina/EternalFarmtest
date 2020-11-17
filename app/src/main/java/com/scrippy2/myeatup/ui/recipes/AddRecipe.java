@@ -10,8 +10,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,8 +39,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.ArrayList;
+
+import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
 
 public class AddRecipe extends AppCompatActivity {
 
@@ -231,6 +236,12 @@ public class AddRecipe extends AppCompatActivity {
                 {
                     Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(cameraIntent, CAMERA_REQUEST);
+
+                    //final Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    //Uri pictureUri = Uri.EMPTY;
+                    //takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,pictureUri);
+                    //startActivityForResult(takePictureIntent,  CAMERA_REQUEST);
+
                 }
             }
         });
@@ -299,9 +310,16 @@ public class AddRecipe extends AppCompatActivity {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
         {
             photo = (Bitmap) data.getExtras().get("data");
+            //photoButton.setImageBitmap(bitmap);
+            //Uri tempUri = getImageUri(getApplicationContext(), bitmap);
+            //photo = tempUri;
+            //photoButton.setImageURI(null);
+            photo = Bitmap.createScaledBitmap(photo,(photo.getWidth()*2), (photo.getHeight()*2), true);
+
             photoButton.setImageBitmap(photo);
         }
     }
+
 
 
 
