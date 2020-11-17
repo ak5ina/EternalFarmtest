@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import com.scrippy2.myeatup.R;
 public class ProfileFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;
+    GridView gridView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +32,12 @@ public class ProfileFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        gridView = root.findViewById(R.id.gridview_profile);
+
+
+
+
         return root;
     }
 }

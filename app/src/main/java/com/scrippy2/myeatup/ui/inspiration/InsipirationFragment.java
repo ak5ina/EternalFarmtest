@@ -216,7 +216,7 @@ public class InsipirationFragment extends Fragment {
         adaptorForRecipy.clear();
         recipyIDarray.clear();
         acceptableID.clear();
-        
+
         for (int i = 1; i < adaptorForIngredients.getCount(); i++){
             if (adaptorForIngredients.getItem(i).getRecipies() != null) {
                 for (String recipyID : adaptorForIngredients.getItem(i).getRecipies()) {
