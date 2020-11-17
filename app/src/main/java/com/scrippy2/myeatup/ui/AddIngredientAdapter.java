@@ -1,6 +1,5 @@
 package com.scrippy2.myeatup.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +23,7 @@ public class AddIngredientAdapter extends ArrayAdapter<RecipeIngredient> {
 
     private ArrayList<RecipeIngredient> listIngredients;
     private EditText ingredientAmount;
+    private boolean newClick;
 
 
     @NonNull
@@ -60,6 +60,13 @@ public class AddIngredientAdapter extends ArrayAdapter<RecipeIngredient> {
             }
         });
 
+        if (newClick){
+            Button btn = parent.getRootView().findViewById(R.id.recipe_btn_add_ingredient);
+            btn.setText("" + (listIngredients.size() - 1));
+            btn.callOnClick();
+            newClick = false;
+        }
+
         return convertView;
     }
 
@@ -75,6 +82,7 @@ public class AddIngredientAdapter extends ArrayAdapter<RecipeIngredient> {
         listIngredients.get(position).setAmount(ingredientAmount.getEditableText().toString());
     }
 
-
-
+    public void setNewClick(boolean newClick) {
+        this.newClick = newClick;
+    }
 }
