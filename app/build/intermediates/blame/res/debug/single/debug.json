@@ -80,6 +80,10 @@
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_dashboard_black_24dp.xml"
     },
     {
+        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_transpa_background.xml.flat",
+        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable-v24\\transpa_background.xml"
+    },
+    {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
@@ -138,6 +142,10 @@
     {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_ingredient.png.flat",
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable-v24\\icon_ingredient.png"
+    },
+    {
+        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
@@ -316,6 +324,10 @@
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_home_black_24dp.png"
     },
     {
+        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_create_account.xml.flat",
+        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\layout\\activity_create_account.xml"
+    },
+    {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_notifications_black_24dp.png.flat",
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_notifications_black_24dp.png"
     },
@@ -330,6 +342,10 @@
     {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_notifications_black_24dp.png.flat",
         "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_notifications_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_transpa_background_edittext.xml.flat",
+        "source": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\src\\main\\res\\drawable-v24\\transpa_background_edittext.xml"
     },
     {
         "merged": "C:\\Users\\spoul\\AndroidStudioProjects\\EternalFarm\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_home_black_24dp.xml.flat",

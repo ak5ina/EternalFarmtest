@@ -1675,6 +1675,8 @@ drawable notify_panel_notification_icon_bg
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable transpa_background
+drawable transpa_background_edittext
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -1768,7 +1770,9 @@ id bounce
 id btn_add_ingrident
 id btn_add_recipie
 id btn_add_step
+id btn_create_account
 id btn_image
+id btn_login
 id btn_upload
 id buttonPanel
 id cancel_button
@@ -1838,6 +1842,11 @@ id edit_time
 id end
 id enterAlways
 id enterAlwaysCollapsed
+id et_login_email
+id et_login_password
+id et_signup_mail
+id et_signup_name
+id et_signup_password
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1865,6 +1874,7 @@ id gridview_name_recipy
 id gridview_pic
 id gridview_pic_recipy
 id gridview_price_recipy
+id gridview_profile
 id gridview_rating_recipy
 id gridview_time_recipy
 id gridview_wholeobject
@@ -1906,6 +1916,7 @@ id listMode
 id list_add_ingridient
 id list_item
 id list_steps
+id listview_background_shape
 id masked
 id mealAll
 id mealBreakfast
@@ -2102,6 +2113,8 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_create_account
+id tv_signup
 id unchecked
 id uniform
 id unlabeled
@@ -2180,6 +2193,8 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_ingredient
 layout activity_add_recipe
+layout activity_create_account
+layout activity_login
 layout activity_main
 layout adapter_ingrediens
 layout adapter_steps

@@ -1,5 +1,7 @@
 package com.scrippy2.myeatup;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.GridView;
 
@@ -12,6 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.scrippy2.myeatup.firebasedata.IngredientDTO;
 import com.scrippy2.myeatup.ui.GridviewAdapter;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -83,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 
 

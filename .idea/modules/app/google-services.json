@@ -71,6 +71,43 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081091420575:android:d3d642fd8e26bfc44a8daa",
+        "android_client_info": {
+          "package_name": "com.scrippy2.myeatup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081091420575-t6didmm2nd3am641c2q97lpjool66v40.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.scrippy2.myeatup",
+            "certificate_hash": "dda0448da5c3490107ec3f35871593550e89eba0"
+          }
+        },
+        {
+          "client_id": "1081091420575-sgptjt3b7iv9554r350k7dtcbrbh3mq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBE1qvht-xRiMYIrWRadaqIeVxRbFpbCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081091420575-sgptjt3b7iv9554r350k7dtcbrbh3mq0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

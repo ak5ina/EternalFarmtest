@@ -15,6 +15,10 @@ public class UserDTO implements IUserDTO {
 
     }
 
+    public UserDTO(String email){
+        this.email = email;
+    }
+
 
     public UserDTO(String name, String email){
         this.name = name;
