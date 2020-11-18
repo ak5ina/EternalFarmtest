@@ -129,6 +129,41 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="My recipes"
+                android:textSize="30sp"
+                >
+            </TextView>
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                >
+            </Space>
+
+            <Button
+                android:id="@+id/btn_add_recipe_profile"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_add_ingridient"
+                android:text="+"
+                android:textSize="30sp"
+
+                >
+            </Button>
+
+        </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

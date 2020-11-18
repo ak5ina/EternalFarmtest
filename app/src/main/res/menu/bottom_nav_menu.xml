@@ -5,13 +5,13 @@
         android:id="@+id/navigation_inspiration"
         android:icon="@drawable/icon_lightbulb"
         android:title="@string/title_inspiration" />
-
+<!--
     <item
         android:id="@+id/navigation_recipe"
         android:icon="@drawable/icon_cooking"
         android:title="@string/title_recipe"
         />
-
+-->
 
     <item
         android:id="@+id/navigation_profile"

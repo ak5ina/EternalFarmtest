@@ -4,7 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,7 +21,7 @@ import java.util.ArrayList;
 public class StepAdapter extends ArrayAdapter<Steps> {
 
     private TextView stepTextView;
-
+    private boolean newClick;
     private ArrayList<Steps> listSteps;
 
     @NonNull
@@ -30,15 +34,12 @@ public class StepAdapter extends ArrayAdapter<Steps> {
 
         TextView stepNum = convertView.findViewById(R.id.text_adapt_step_num);
         stepTextView = convertView.findViewById(R.id.text_adapt_step_text);
+
         listSteps.set(position, new Steps(stepTextView.getEditableText().toString()));
-
-
-
         stepNum.setText("Step: " + (position + 1));
-
         listSteps.get(position).setStepText(stepTextView.getEditableText().toString());
 
-
+        //stepTextView.requestFocus();
 
         return convertView;
     }
@@ -57,5 +58,13 @@ public class StepAdapter extends ArrayAdapter<Steps> {
         listSteps.get(position).setStepText(stepTextView.getEditableText().toString());
     }
 
+    public void setNewClick(boolean newClick) {
+        this.newClick = newClick;
+    }
 
+    public void getEditTextField(View view){
+        EditText latest = view.findViewById(R.id.text_adapt_step_text);
+        //latest.requestFocus();
+
+    }
 }
