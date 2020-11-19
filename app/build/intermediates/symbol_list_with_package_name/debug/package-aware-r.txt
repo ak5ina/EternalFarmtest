@@ -1627,6 +1627,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
 drawable icon_camera
+drawable icon_camera_big
 drawable icon_camera_grey
 drawable icon_cooking
 drawable icon_ingredient

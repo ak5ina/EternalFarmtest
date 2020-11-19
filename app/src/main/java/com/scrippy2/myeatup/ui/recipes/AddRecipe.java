@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,7 +36,6 @@ import com.scrippy2.myeatup.ui.StepAdapter;
 import com.scrippy2.myeatup.ui.Steps;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 
 
 import java.util.ArrayList;
@@ -113,10 +113,7 @@ public class AddRecipe extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (!tjek()){
-
-                }
-                else{
+                if (tjek()){
 
                     mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -194,6 +191,7 @@ public class AddRecipe extends AppCompatActivity {
                         }
                     }
                     if (upload.getText().equals("Confirm")) {
+                        Toast.makeText(getApplicationContext(), "Recipe uploaded", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                     else {
@@ -235,6 +233,12 @@ public class AddRecipe extends AppCompatActivity {
             }
         });
 
+        final ViewGroup viewGroup = new ViewGroup(getBaseContext()) {
+            @Override
+            protected void onLayout(boolean b, int i, int i1, int i2, int i3) {
+
+            }
+        };
 
 
         add_step.setOnClickListener(new View.OnClickListener() {
@@ -248,8 +252,20 @@ public class AddRecipe extends AppCompatActivity {
                 stepAdapter.notifyDataSetChanged();
                 stepAdapter.add(step);
                 stepAdapter.notifyDataSetChanged();
+                //stepAdapter.setNewClick(true);
+                //View latest = list_step.getChildAt(stepAdapter.getCount() - 1);
+                //System.out.println(latest.findViewById(R.id.text_adapt_step_text));
+                //list_step.findViewById(R.id.text_adapt_step_text);
+                //latest.findViewById(R.id.text_adapt_step_text);
+                // latest.requestFocus();
+                //boolean i = stepAdapter.getView(0, view, viewGroup).findViewById(R.id.text_adapt_step_text).requestFocus();
+                //stepAdapter.getEditTextField(view);
+                InputMethodManager imm = (InputMethodManager)getSystemService(view.getContext().INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
             }
         });
+
+
 
 
 
@@ -262,6 +278,7 @@ public class AddRecipe extends AppCompatActivity {
                 list_ingredint.setLayoutParams(params);
                 ingredientAdapter.add(new RecipeIngredient("0","Ingredient", "0", "unit"));
                 ingredientAdapter.notifyDataSetChanged();
+                ingredientAdapter.setNewClick(true);
             }
         });
 
@@ -299,9 +316,12 @@ public class AddRecipe extends AppCompatActivity {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
         {
             photo = (Bitmap) data.getExtras().get("data");
+            photo = Bitmap.createScaledBitmap(photo,(photo.getWidth()*2), (photo.getHeight()*2), true);
             photoButton.setImageBitmap(photo);
+            photoButton.setBackground(null);
         }
     }
+
 
 
 

@@ -34,11 +34,14 @@
             android:gravity="left"
             android:textSize="20sp"
             android:hint="@string/Todo"
-            android:imeOptions="actionDone"
-            android:inputType="textImeMultiLine"
+            android:inputType="text"
             android:text=""
-            >
+            android:imeOptions="actionDone"
+
+        >
         </EditText>
+        <!--android:digits="0123456789,abcdefghijklmnopqrstuvwxyzæøå
+        ABCDEFGHIJKLMNOPQRSTUVWWXYZØÆÅ "-->
 
 
 
