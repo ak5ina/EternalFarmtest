@@ -150,14 +150,14 @@ public class AddRecipe extends AppCompatActivity {
 
                         key = mDatabase.child("recipies").push().getKey();
 
-                        ArrayList<String> overWrite = new ArrayList<>();
-                        for (int i = 0; i < stepObjects.size();i++) {
-                            overWrite.add(stepObjects.get(i).getStepText());
-
-                        }
+//                        ArrayList<String> overWrite = new ArrayList<>();
+//                        for (int i = 0; i < stepObjects.size();i++) {
+//                            overWrite.add(stepObjects.get(i).getStepText());
+//
+//                        }
 
                         stepAdapter.notifyDataSetChanged();
-                        recipe.setSteps(overWrite);
+                       // recipe.setSteps(overWrite);
                         stepAdapter.notifyDataSetChanged();
                         mDatabase.child("recipies").child(key).setValue(recipe);
 

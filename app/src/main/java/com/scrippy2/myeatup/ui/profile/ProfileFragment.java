@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.scrippy2.myeatup.Login;
 import com.scrippy2.myeatup.R;
+import com.scrippy2.myeatup.ui.recipes.AddRecipe;
+import com.scrippy2.myeatup.ui.recipes.ViewRecipe;
 
 public class ProfileFragment extends Fragment {
 
@@ -54,6 +56,15 @@ public class ProfileFragment extends Fragment {
         });
 
         gridView = root.findViewById(R.id.gridview_profile);
+
+        Button btn_add_recipe = root.findViewById(R.id.btn_add_recipe_profile);
+        btn_add_recipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AddRecipe.class);
+                startActivity(intent);
+            }
+        });
 
         return root;
 
