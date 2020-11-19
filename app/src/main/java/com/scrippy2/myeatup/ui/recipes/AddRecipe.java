@@ -243,7 +243,7 @@ public class AddRecipe extends AppCompatActivity {
             public void onClick(View view) {
                 counterSteps = counterSteps + 1;
                 ViewGroup.LayoutParams params = list_step.getLayoutParams();
-                params.height = 130 * counterSteps;
+                params.height = 100 * counterSteps;
                 list_step.setLayoutParams(params);
                 Steps step = new Steps("test");
                 stepAdapter.notifyDataSetChanged();
@@ -261,7 +261,7 @@ public class AddRecipe extends AppCompatActivity {
             public void onClick(View view) {
                 counterIngredients = counterIngredients + 1;
                 ViewGroup.LayoutParams params = list_ingredint.getLayoutParams();
-                params.height = 130 * counterIngredients;
+                params.height = 140 * counterIngredients;
                 list_ingredint.setLayoutParams(params);
                 ingredientAdapter.add(new RecipeIngredient("0","Ingredient", "0", "unit"));
                 ingredientAdapter.notifyDataSetChanged();

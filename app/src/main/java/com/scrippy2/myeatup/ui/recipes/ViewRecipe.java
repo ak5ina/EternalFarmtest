@@ -3,6 +3,7 @@ package com.scrippy2.myeatup.ui.recipes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -55,9 +56,13 @@ public class ViewRecipe extends AppCompatActivity {
         stepAdapter = new ViewStepAdapter(this, R.layout.adapter_steps_view, stepObjects);
         list_step.setAdapter(stepAdapter);
 
+
+
         list_ingredint = findViewById(R.id.list_add_ingridient_view);
         ingredientAdapter = new ViewIngredientAdapter(this, R.layout.adapter_view_ingredient, ingredientObjects);
         list_ingredint.setAdapter(ingredientAdapter);
+
+
 
 
 
@@ -67,8 +72,6 @@ public class ViewRecipe extends AppCompatActivity {
                 id = getIntent().getStringExtra("Recipe");
                 System.out.println(id + "---------------");
                 recipieDTO = dataSnapshot.child("recipies").child(id).getValue(RecipieDTO.class);
-
-
 
 
                 recipeName.setText(recipieDTO.getName());
@@ -90,6 +93,14 @@ public class ViewRecipe extends AppCompatActivity {
                 for (int i = 0;i < recipieDTO.getSteps().size();i++){
                     stepObjects.add(new Steps(recipieDTO.getSteps().get(i)));
                 }
+
+                ViewGroup.LayoutParams paramsStep = list_step.getLayoutParams();
+                paramsStep.height = 100 * stepAdapter.getCount();
+                list_step.setLayoutParams(paramsStep);
+
+                ViewGroup.LayoutParams paramsIngre = list_ingredint.getLayoutParams();
+                paramsIngre.height = 140 * ingredientAdapter.getCount();
+                list_ingredint.setLayoutParams(paramsIngre);
 
             }
             @Override
