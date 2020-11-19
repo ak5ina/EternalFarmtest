@@ -34,6 +34,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.scrippy2.myeatup.ui.recipes.ViewRecipe" />
         <activity android:name="com.scrippy2.myeatup.CreateAccount" />
         <activity android:name="com.scrippy2.myeatup.Login" />
         <activity android:name="com.scrippy2.myeatup.ui.AddIngredient" />

@@ -8,12 +8,12 @@
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_home_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
-    },
-    {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_dashboard_black_24dp.png.flat",
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_dashboard_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
     },
     {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_plus_sign.png.flat",
@@ -74,6 +74,10 @@
     {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_notifications_black_24dp.png.flat",
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_notifications_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_steps_view.xml.flat",
+        "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\layout\\adapter_steps_view.xml"
     },
     {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
@@ -256,6 +260,10 @@
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\layout\\activity_add_recipe.xml"
     },
     {
+        "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_view_recipe.xml.flat",
+        "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\layout\\activity_view_recipe.xml"
+    },
+    {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_notifications_black_24dp.png.flat",
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_notifications_black_24dp.png"
     },
@@ -330,6 +338,10 @@
     {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_view_ingredient.xml.flat",
+        "source": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\src\\main\\res\\layout\\adapter_view_ingredient.xml"
     },
     {
         "merged": "C:\\Users\\MailT\\IdeaProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icons8_pocket_watch_30.png.flat",

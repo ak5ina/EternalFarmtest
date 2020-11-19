@@ -1,6 +1,7 @@
 package com.scrippy2.myeatup.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.scrippy2.myeatup.R;
 import com.scrippy2.myeatup.firebasedata.RecipieDTO;
+import com.scrippy2.myeatup.ui.recipes.ViewRecipe;
 
 import java.util.ArrayList;
 
@@ -52,7 +54,8 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    //Intent intent = new Intent(getActivity(), ViewRecipe.class);
+                    //startActivity(intent);
                     System.out.println(recipyList.get(position).getName());
 
                 }

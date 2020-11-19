@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-35:12
+ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-36:12
 MERGED from [androidx.navigation:navigation-ui:2.3.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\b3f7665184d7c7d7de29fe37496a9bca\navigation-ui-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\e3d42411480b308eee6703ed19cb1cb7\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\611ecadd1a0b295c551ca255ea0c666a\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
@@ -73,20 +73,20 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\MailT\.gradle\ca
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\f2fb255de8257732d0591539eaabaae9\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\7dd61416b50faaf987c85099cbd5b2a1\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\d4ad50739d2e8f9fc08294be6ee15b55\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-36:12
 	package
 		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:2:11-69
@@ -109,7 +109,7 @@ ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManif
 	android:name
 		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:11:22-78
 application
-ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:13:5-33:19
+ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:13:5-34:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\e3d42411480b308eee6703ed19cb1cb7\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\e3d42411480b308eee6703ed19cb1cb7\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\MailT\.gradle\caches\transforms-2\files-2.1\611ecadd1a0b295c551ca255ea0c666a\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
@@ -180,38 +180,42 @@ MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\
 		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:14:9-35
 	android:theme
 		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:19:9-40
+activity#com.scrippy2.myeatup.ui.recipes.ViewRecipe
+ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:20:9-68
+	android:name
+		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:20:19-56
 activity#com.scrippy2.myeatup.CreateAccount
-ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:20:9-60
+ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:21:9-51
 	android:name
-		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:20:19-48
+		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:21:19-48
 activity#com.scrippy2.myeatup.Login
-ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:21:9-43
+ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:22:9-43
 	android:name
-		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:21:19-40
+		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:22:19-40
 activity#com.scrippy2.myeatup.ui.AddIngredient
-ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:22:9-54
+ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:23:9-54
 	android:name
-		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:22:19-51
+		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:23:19-51
 activity#com.scrippy2.myeatup.ui.recipes.AddRecipe
-ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:23:9-58
+ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:24:9-58
 	android:name
-		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:23:19-55
+		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:24:19-55
 activity#com.scrippy2.myeatup.MainActivity
-ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:24:9-32:20
+ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:25:9-33:20
 	android:label
-		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:26:13-45
+		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:27:13-45
 	android:name
-		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:25:13-41
+		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:26:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:27:13-31:29
+ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:28:13-32:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:28:17-69
+ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:29:17-69
 	android:name
-		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:28:25-66
+		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:29:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:30:17-77
+ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:31:17-77
 	android:name
-		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:30:27-74
+		ADDED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml:31:27-74
 uses-sdk
 INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\MailT\IdeaProjects\EternalFarmtest\app\src\main\AndroidManifest.xml
