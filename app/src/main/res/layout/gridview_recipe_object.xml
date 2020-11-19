@@ -35,21 +35,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="time (30)"
-            android:textSize="10dp" />
+            android:textSize="12dp" />
 
         <TextView
             android:id="@+id/gridview_price_recipy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="price (High)"
-            android:textSize="10dp" />
+            android:textSize="12dp" />
 
         <TextView
             android:id="@+id/gridview_rating_recipy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="rating (4.6)"
-            android:textSize="10dp" />
+            android:textSize="12dp" />
 
 
     </LinearLayout>
