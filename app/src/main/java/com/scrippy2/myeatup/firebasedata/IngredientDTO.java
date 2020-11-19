@@ -1,7 +1,7 @@
 package com.scrippy2.myeatup.firebasedata;
 
 
-import com.scrippy2.myeatup.ui.RecipeIngredient;
+import com.scrippy2.myeatup.ui.recipes.RecipeIngredient;
 
 import java.util.ArrayList;
 

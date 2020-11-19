@@ -29,11 +29,6 @@ import com.scrippy2.myeatup.firebasedata.IngredientDTO;
 import com.scrippy2.myeatup.firebasedata.RecipieDTO;
 import com.scrippy2.myeatup.firebasedata.Storage;
 import com.scrippy2.myeatup.ui.AddIngredient;
-import com.scrippy2.myeatup.ui.UnitSpinnerAdapter;
-import com.scrippy2.myeatup.ui.AddIngredientAdapter;
-import com.scrippy2.myeatup.ui.RecipeIngredient;
-import com.scrippy2.myeatup.ui.StepAdapter;
-import com.scrippy2.myeatup.ui.Steps;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

@@ -1776,6 +1776,7 @@ id btn_create_account
 id btn_image
 id btn_login
 id btn_upload
+id btn_view_recipe_frag
 id buttonPanel
 id cancel_button
 id category1
@@ -1921,6 +1922,7 @@ id list_add_ingridient
 id list_add_ingridient_view
 id list_item
 id list_steps
+id list_steps_view
 id listview_background_shape
 id masked
 id mealAll
@@ -1992,7 +1994,6 @@ id percent
 id pin
 id position
 id postLayout
-id price_view
 id profile_btn_editprofile
 id profile_btn_saved_recipes
 id profile_btn_your_recipes
@@ -2080,6 +2081,7 @@ id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
+id test_price_view
 id test_radiobutton_android_button_tint
 id test_radiobutton_app_button_tint
 id text
@@ -2102,6 +2104,7 @@ id text_input_end_icon
 id text_input_start_icon
 id text_notifications
 id text_recipe_name_view
+id text_time_view
 id textinput_counter
 id textinput_error
 id textinput_helper_text

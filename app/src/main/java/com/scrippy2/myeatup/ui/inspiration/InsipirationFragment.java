@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,7 +30,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.scrippy2.myeatup.ui.recipes.ViewRecipe;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class InsipirationFragment extends Fragment {
@@ -117,7 +115,17 @@ public class InsipirationFragment extends Fragment {
         });
 
 
-
+        final Button btn_view_recipe = root.findViewById(R.id.btn_view_recipe_frag);
+        btn_view_recipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("_______");
+                Intent intent = new Intent(InsipirationFragment.this.getContext(), ViewRecipe.class);
+                System.out.println(btn_view_recipe.getText().toString() + "__________________");
+                intent.putExtra("Recipe", btn_view_recipe.getText().toString());
+                startActivity(intent);
+            }
+        });
 
 
 

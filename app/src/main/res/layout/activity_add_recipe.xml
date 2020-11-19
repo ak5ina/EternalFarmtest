@@ -245,7 +245,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Time"
+                    android:text="Time: "
                     android:textSize="20sp"
                     >
                 </TextView>
@@ -261,7 +261,7 @@
                     android:digits="0123456789"
                     android:inputType="number"
                     android:layout_weight="1"
-                    android:gravity="right"
+                    android:gravity="left"
                     >
                 </EditText>
 

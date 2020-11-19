@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 
 import com.scrippy2.myeatup.R;
 import com.scrippy2.myeatup.firebasedata.RecipieDTO;
+import com.scrippy2.myeatup.ui.recipes.RecipeFragment;
 import com.scrippy2.myeatup.ui.recipes.ViewRecipe;
 
 import java.util.ArrayList;
@@ -21,10 +23,11 @@ import java.util.ArrayList;
 public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
     private  ArrayList<RecipieDTO> recipyList;
     private Context con;
+    private RecipieDTO viewID;
 
     @NonNull
     @Override
-    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull final ViewGroup parent) {
 
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.gridview_recipe_object, parent, false);
@@ -54,10 +57,11 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Intent intent = new Intent(getActivity(), ViewRecipe.class);
-                    //startActivity(intent);
+                    Button btn_view_reciep = parent.getRootView().findViewById(R.id.btn_view_recipe_frag);
                     System.out.println(recipyList.get(position).getName());
-
+                    viewID = recipyList.get(position);
+                    btn_view_reciep.setText(viewID.getID());
+                    btn_view_reciep.callOnClick();
                 }
             });
         }
@@ -71,5 +75,17 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
         this.con = context;
         this.recipyList = ingredientList;
 
+    }
+
+    public GridviewAdapter_Recipy(@NonNull Context context, int resource, ArrayList<RecipieDTO> ingredientList, RecipieDTO recipieDTO) {
+        super(context, resource, ingredientList);
+        this.con = context;
+        this.recipyList = ingredientList;
+        this.viewID = recipieDTO;
+
+    }
+
+    public RecipieDTO getViewRecipe(){
+        return viewID;
     }
 }

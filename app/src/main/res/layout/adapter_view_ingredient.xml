@@ -22,13 +22,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="200"
                 >
-                <Image
+                <ImageView
                     android:id="@+id/image_adapt_ingredient_view"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/icon_ingredient"
                     >
-                </Image>
+                </ImageView>
 
                 <TextView
                     android:id="@+id/text_adapt_ingredient_name"

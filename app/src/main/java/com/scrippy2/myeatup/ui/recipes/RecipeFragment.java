@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.scrippy2.myeatup.R;
+import com.scrippy2.myeatup.ui.GridviewAdapter_Recipy;
 
 public class RecipeFragment extends Fragment {
 
@@ -44,13 +45,12 @@ public class RecipeFragment extends Fragment {
                 //textView.setText(s);
             }
         });
+
+
+
+
+
         return root;
 
-
-
-
     }
-
-
-
 }

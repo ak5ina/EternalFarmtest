@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
+
         >
 
 
@@ -28,9 +28,10 @@
                 >
 
                 <TextView
+                    android:id="@+id/text_recipe_name_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Recipe"
+                    android:text="Recipe name"
                     android:textSize="40sp"
                     android:gravity="center"
                     android:layout_weight="1"
@@ -46,33 +47,10 @@
                     >
                 </ImageView>
 
-                <TextView
-                    android:id="@+id/text_recipe_name_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:hint="@string/RecipeName"
-                    android:imeOptions="actionDone"
-                    android:inputType="textImeMultiLine"
-                    android:textSize="20sp"
-                    android:gravity="center"
-                    android:background="@null"
-                    android:layout_weight="1"
-                    >
-                </TextView>
+
+
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@drawable/line"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="0.5"
-                    >
-                </ImageView>
-
-                <Image
                     android:id="@+id/image_view"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
@@ -81,7 +59,7 @@
                     android:background="@drawable/icon_camera_big"
                     >
 
-                </Image>
+                </ImageView>
 
 
 
@@ -159,6 +137,7 @@
                     android:id="@+id/list_add_ingridient_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:isScrollContainer="false"
 
                     >
                 </ListView>
@@ -194,7 +173,7 @@
                 >
 
                 <ListView
-                    android:id="@+id/list_steps"
+                    android:id="@+id/list_steps_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:isScrollContainer="false"
@@ -214,41 +193,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:padding="5dp"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Time"
+                    android:text="Time: "
                     android:textSize="20sp"
                     >
                 </TextView>
 
                 <TextView
-                    android:id="@+id/edit_time"
+                    android:id="@+id/text_time_view"
                     android:layout_width="100dp"
-                    android:hint="minutes"
                     android:text=""
                     android:layout_height="50dp"
                     android:layout_marginRight="10dp"
-                    android:imeOptions="actionDone"
-                    android:digits="0123456789"
-                    android:inputType="number"
                     android:layout_weight="1"
-                    android:gravity="right"
+                    android:gravity="left"
                     >
                 </TextView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Price"
+                    android:text="Price: "
                     android:textSize="20sp"
                     >
                 </TextView>
 
                 <TextView
-                    android:id="@+id/price_view"
+                    android:id="@+id/test_price_view"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:gravity="left"
