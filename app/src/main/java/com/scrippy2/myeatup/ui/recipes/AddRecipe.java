@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,7 @@ public class AddRecipe extends AppCompatActivity {
     private UnitSpinnerAdapter spinAdapter;
     private EditText time;
     private Spinner price;
+    private Button upload;
 
 
 
@@ -98,7 +100,7 @@ public class AddRecipe extends AppCompatActivity {
         spinner.setAdapter(spinAdapter);
 
 
-        final Button upload = findViewById(R.id.btn_upload);
+        upload = findViewById(R.id.btn_upload);
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -247,16 +249,6 @@ public class AddRecipe extends AppCompatActivity {
                 stepAdapter.notifyDataSetChanged();
                 stepAdapter.add(step);
                 stepAdapter.notifyDataSetChanged();
-                //stepAdapter.setNewClick(true);
-                //View latest = list_step.getChildAt(stepAdapter.getCount() - 1);
-                //System.out.println(latest.findViewById(R.id.text_adapt_step_text));
-                //list_step.findViewById(R.id.text_adapt_step_text);
-                //latest.findViewById(R.id.text_adapt_step_text);
-                // latest.requestFocus();
-                //boolean i = stepAdapter.getView(0, view, viewGroup).findViewById(R.id.text_adapt_step_text).requestFocus();
-                //stepAdapter.getEditTextField(view);
-                InputMethodManager imm = (InputMethodManager)getSystemService(view.getContext().INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
             }
         });
 
@@ -343,6 +335,8 @@ public class AddRecipe extends AppCompatActivity {
 
     public boolean tjek(){
         boolean tjek = true;
+
+
         if (recipeName.getText().toString().equals("")){
             tjek = false;
             Toast.makeText(getApplicationContext(), "Give the recipe a name", Toast.LENGTH_SHORT).show();
@@ -351,13 +345,14 @@ public class AddRecipe extends AppCompatActivity {
             tjek = false;
             Toast.makeText(getApplicationContext(), "Add some steps", Toast.LENGTH_SHORT).show();
         }
-        for (int i = 0;i < stepObjects.size();i++){
-            stepAdapter.setAdaptText(i);
-            if (stepObjects.get(i).getStepText().equals("")){
-                tjek = false;
-                Toast.makeText(getApplicationContext(), "Fill out all steps", Toast.LENGTH_SHORT).show();
-            }
-        }
+//        for (int i = 0;i < stepObjects.size();i++){
+//            stepAdapter.setAdaptText(stepAdapter.getCount() - 1);
+//            if (stepObjects.get(i).getStepText().equals("")){
+//                System.out.println(i + "s!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//                tjek = false;
+//                Toast.makeText(getApplicationContext(), "Fill out all steps", Toast.LENGTH_SHORT).show();
+//            }
+//        }
         if (ingredientAdapter.getCount() == 0){
             tjek = false;
             Toast.makeText(getApplicationContext(), "Add some ingredients", Toast.LENGTH_SHORT).show();
@@ -368,16 +363,17 @@ public class AddRecipe extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Choose ingredients", Toast.LENGTH_SHORT).show();
             }
         }
-        for (int i = 0;i < ingredientAdapter.getCount();i++){
-            ingredientAdapter.setAdaptTextAmount(i);
-            if (ingredientAdapter.getItem(i).getAmount().equals("")){
-                tjek = false;
-                Toast.makeText(getApplicationContext(), "Fill out ingredient amounts", Toast.LENGTH_SHORT).show();
-            }
-        }
+//        for (int i = 0;i < ingredientObjects.size();i++){
+//            ingredientAdapter.setAdaptTextAmount(ingredientAdapter.getCount() -1 );
+//            if (ingredientObjects.get(i).getAmount().equals("")){
+//                System.out.println(i + "i!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//                tjek = false;
+//                Toast.makeText(getApplicationContext(), "Fill out ingredient amounts", Toast.LENGTH_SHORT).show();
+//            }
+//        }
         if (time.getEditableText().toString().equals("")){
             tjek = false;
-            Toast.makeText(getApplicationContext(), "Write how long this recipe takes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Write how long this recipe takes to make", Toast.LENGTH_SHORT).show();
         }
         if (photo == null){
             tjek = false;

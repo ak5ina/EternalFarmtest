@@ -41,7 +41,7 @@ public class AddIngredientAdapter extends ArrayAdapter<RecipeIngredient> {
         ingredientName.setText(listIngredients.get(position).getIngredient());
 
         ingredientAmount = convertView.findViewById(R.id.edit_adapt_ingredient_amount);
-        listIngredients.get(position).setAmount(ingredientAmount.getEditableText().toString());
+        listIngredients.get(position).setAmount(this.ingredientAmount.getEditableText().toString());
 
         Spinner unitSpin = convertView.findViewById(R.id.spin_adapt_ingredient_unit);
         listIngredients.get(position).setUnit(unitSpin.getSelectedItem().toString());
@@ -79,7 +79,7 @@ public class AddIngredientAdapter extends ArrayAdapter<RecipeIngredient> {
 
 
     public void setAdaptTextAmount(int position){
-        listIngredients.get(position).setAmount(ingredientAmount.getEditableText().toString());
+        listIngredients.get(position).setAmount(this.ingredientAmount.getEditableText().toString());
     }
 
     public void setNewClick(boolean newClick) {

@@ -34,9 +34,8 @@ public class StepAdapter extends ArrayAdapter<Steps> {
 
         listSteps.set(position, new Steps(stepTextView.getEditableText().toString()));
         stepNum.setText("Step: " + (position + 1));
-        listSteps.get(position).setStepText(stepTextView.getEditableText().toString());
+        listSteps.get(position).setStepText(this.stepTextView.getEditableText().toString());
 
-        //stepTextView.requestFocus();
 
         return convertView;
     }
@@ -52,16 +51,7 @@ public class StepAdapter extends ArrayAdapter<Steps> {
     }
 
     public void setAdaptText(int position){
-        listSteps.get(position).setStepText(stepTextView.getEditableText().toString());
+        listSteps.get(position).setStepText(this.stepTextView.getEditableText().toString());
     }
 
-    public void setNewClick(boolean newClick) {
-        this.newClick = newClick;
-    }
-
-    public void getEditTextField(View view){
-        EditText latest = view.findViewById(R.id.text_adapt_step_text);
-        //latest.requestFocus();
-
-    }
 }
