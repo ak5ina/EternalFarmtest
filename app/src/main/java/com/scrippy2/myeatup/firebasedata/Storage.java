@@ -21,7 +21,7 @@ public class Storage {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         photo.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
-        photo.recycle();
+        //photo.recycle();
 
         fileRef.putBytes(byteArray);
     }

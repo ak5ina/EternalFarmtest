@@ -62,6 +62,8 @@ public class AddRecipe extends AppCompatActivity {
     private EditText time;
     private Spinner price;
     private Button upload;
+    private RecipieDTO recipe;
+    private boolean firstTjek = true;
 
 
 
@@ -105,94 +107,83 @@ public class AddRecipe extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-
+        //Uploads recipe to database**********************
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (tjek()){
+                mDatabase = FirebaseDatabase.getInstance().getReference();
 
-                    mDatabase = FirebaseDatabase.getInstance().getReference();
-
-                    RecipieDTO recipe = new RecipieDTO();
-
-
-                    recipe.setName(recipeName.getText().toString());
-                    recipe.setTime(time.getText().toString());
-                    recipe.setPrice(price.getSelectedItem().toString());
+                if (firstTjek){
+                    key = mDatabase.child("recipies").push().getKey();
+                }
+                recipe = new RecipieDTO();
 
 
-                    ArrayList<String> ingreUp = new ArrayList<>();
-                    for (int i = 0;i < ingredientObjects.size();i++) {
-                        ingreUp.add(ingredientObjects.get(i).getId());
-                    }
-                    recipe.setIngredientList(ingreUp);
+                recipe.setName(recipeName.getText().toString());
+                recipe.setTime(time.getText().toString());
+                recipe.setPrice(price.getSelectedItem().toString());
 
 
-                    ingredientAdapter.notifyDataSetChanged();
-                    ArrayList<String> amount = new ArrayList<>();
-                    for (int i = 0;i < ingredientObjects.size();i++){
-                        amount.add(ingredientObjects.get(i).getAmount());
-                    }
-                    recipe.setUnitAmount(amount);
+                ArrayList<String> ingreUp = new ArrayList<>();
+                for (int i = 0;i < ingredientObjects.size();i++) {
+                    ingreUp.add(ingredientObjects.get(i).getId());
+                }
+                recipe.setIngredientList(ingreUp);
 
 
-                    ArrayList<String> units = new ArrayList<>();
-                    for (int i = 0;i < ingredientObjects.size();i++){
-                        units.add(ingredientObjects.get(i).getUnit());
-                    }
-                    recipe.setUnitList(units);
+                ingredientAdapter.notifyDataSetChanged();
+                ArrayList<String> amount = new ArrayList<>();
+                for (int i = 0;i < ingredientObjects.size();i++){
+                    amount.add(ingredientObjects.get(i).getAmount());
+                }
+                recipe.setUnitAmount(amount);
 
 
-                    if (upload.getText().equals("Upload")){
+                ArrayList<String> units = new ArrayList<>();
+                for (int i = 0;i < ingredientObjects.size();i++){
+                    units.add(ingredientObjects.get(i).getUnit());
+                }
+                recipe.setUnitList(units);
 
-                        stepAdapter.notifyDataSetChanged();
 
-                        key = mDatabase.child("recipies").push().getKey();
+                ArrayList<String> stepStrings = new ArrayList<>();
+                recipe.setSteps(stepStrings);
 
-//                        ArrayList<String> overWrite = new ArrayList<>();
-//                        for (int i = 0; i < stepObjects.size();i++) {
-//                            overWrite.add(stepObjects.get(i).getStepText());
-//
-//                        }
 
-                        stepAdapter.notifyDataSetChanged();
-                       // recipe.setSteps(overWrite);
-                        stepAdapter.notifyDataSetChanged();
+
+                stepAdapter.notifyDataSetChanged();
+                for (int i = 0;i < stepAdapter.getCount();i++) {
+                    stepAdapter.notifyDataSetChanged();
+                    stepStrings.add(stepAdapter.getList().get(i).getStepText());
+                }
+                recipe.setSteps(stepStrings);
+
+                recipe.setID(key);
+                mDatabase.child("recipies").child(key).setValue(recipe);
+
+                if (firstTjek){
+                    firstTjek = false;
+                    tjek();
+                }
+                else{
+                    if (tjek()){
                         mDatabase.child("recipies").child(key).setValue(recipe);
-
-                    }
-                    else{
-
-                        stepAdapter.notifyDataSetChanged();
-                        ArrayList<String> stepStrings = new ArrayList<>();
-                        recipe.setSteps(stepStrings);
-                        stepAdapter.notifyDataSetChanged();
-
-                        for (int i = 0;i < stepObjects.size();i++) {
-                            stepAdapter.notifyDataSetChanged();
-                            stepStrings.add(stepAdapter.getList().get(i).getStepText());
-                        }
-
-
                         Storage storage = new Storage();
                         storage.upload(key, photo);
-
-                        recipe.setSteps(stepStrings);
-                        recipe.setID(key);
-                        mDatabase.child("recipies").child(key).setValue(recipe);
-
 
                         for (int i = 0;i < recipe.getIngredientList().size();i++){
                             mDatabase.child("ingredients").child(recipe.getIngredientList().get(i)).child("recipeUses").push().setValue(recipe.getID());
                         }
-                    }
-                    if (upload.getText().equals("Confirm")) {
-                        Toast.makeText(getApplicationContext(), "Recipe uploaded", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                    else {
+
+                        if (upload.getText().equals("Confirm")) {
+                            Toast.makeText(getApplicationContext(), "Recipe uploaded", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
                         upload.setText("Confirm");
+                    }
+                    else{
+                        upload.setText("Upload");
                     }
                 }
             }
@@ -200,6 +191,7 @@ public class AddRecipe extends AppCompatActivity {
 
 
 
+        //Unit seletor***********************
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -212,6 +204,7 @@ public class AddRecipe extends AppCompatActivity {
 
 
 
+        //Camera***********************
         photoButton.setOnClickListener(new View.OnClickListener()
         {
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -238,6 +231,7 @@ public class AddRecipe extends AppCompatActivity {
         };
 
 
+        //Add step to listview*****************************
         add_step.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -255,7 +249,7 @@ public class AddRecipe extends AppCompatActivity {
 
 
 
-
+        //Add ingredient to listview*************************
         add_ingredient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -271,6 +265,7 @@ public class AddRecipe extends AppCompatActivity {
 
 
 
+        //Open add ingredient activity to select an ingredient**************
         final Button btn_add_ingre = findViewById(R.id.recipe_btn_add_ingredient);
         btn_add_ingre.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -283,6 +278,7 @@ public class AddRecipe extends AppCompatActivity {
     }
 
 
+    //Gets results from add ingredient and camera
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -312,7 +308,7 @@ public class AddRecipe extends AppCompatActivity {
 
 
 
-
+    //Asks for permission to use camera**********
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
     {
@@ -333,51 +329,54 @@ public class AddRecipe extends AppCompatActivity {
     }
 
 
+    //Checks if everything has been filled out**************
     public boolean tjek(){
         boolean tjek = true;
 
 
-        if (recipeName.getText().toString().equals("")){
+        if (recipe.getName().equals("")){
             tjek = false;
             Toast.makeText(getApplicationContext(), "Give the recipe a name", Toast.LENGTH_SHORT).show();
-        }
-        if (stepAdapter.getList().size() == 0){
-            tjek = false;
-            Toast.makeText(getApplicationContext(), "Add some steps", Toast.LENGTH_SHORT).show();
-        }
-//        for (int i = 0;i < stepObjects.size();i++){
-//            stepAdapter.setAdaptText(stepAdapter.getCount() - 1);
-//            if (stepObjects.get(i).getStepText().equals("")){
-//                System.out.println(i + "s!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//                tjek = false;
-//                Toast.makeText(getApplicationContext(), "Fill out all steps", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-        if (ingredientAdapter.getCount() == 0){
-            tjek = false;
-            Toast.makeText(getApplicationContext(), "Add some ingredients", Toast.LENGTH_SHORT).show();
-        }
-        for (int i = 0;i < ingredientAdapter.getCount();i++){
-            if (ingredientAdapter.getItem(i).getId().equals("0")){
-                tjek = false;
-                Toast.makeText(getApplicationContext(), "Choose ingredients", Toast.LENGTH_SHORT).show();
-            }
-        }
-//        for (int i = 0;i < ingredientObjects.size();i++){
-//            ingredientAdapter.setAdaptTextAmount(ingredientAdapter.getCount() -1 );
-//            if (ingredientObjects.get(i).getAmount().equals("")){
-//                System.out.println(i + "i!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//                tjek = false;
-//                Toast.makeText(getApplicationContext(), "Fill out ingredient amounts", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-        if (time.getEditableText().toString().equals("")){
-            tjek = false;
-            Toast.makeText(getApplicationContext(), "Write how long this recipe takes to make", Toast.LENGTH_SHORT).show();
         }
         if (photo == null){
             tjek = false;
             Toast.makeText(getApplicationContext(), "Take a photo of the food", Toast.LENGTH_SHORT).show();
+        }
+        if (recipe.getIngredientList().size() == 0){
+            tjek = false;
+            Toast.makeText(getApplicationContext(), "Add some ingredients", Toast.LENGTH_SHORT).show();
+        }
+        if (recipe.getSteps().size() == 0){
+            tjek = false;
+            Toast.makeText(getApplicationContext(), "Add some steps", Toast.LENGTH_SHORT).show();
+        }
+        for (int i = 0;i < recipe.getIngredientList().size();i++){
+            if (recipe.getIngredientList().get(i).equals("0")){
+                tjek = false;
+                Toast.makeText(getApplicationContext(), "Choose ingredients", Toast.LENGTH_SHORT).show();
+            }
+        }
+        for (int i = 0;i < recipe.getIngredientList().size();i++){
+            if (recipe.getUnitAmount().get(i).equals("")){
+                tjek = false;
+                Toast.makeText(getApplicationContext(), "Fill out ingredient amounts", Toast.LENGTH_SHORT).show();
+            }
+        }
+        for (int i = 0;i < recipe.getIngredientList().size();i++){
+            if (recipe.getUnitList().get(i).equals("Unit")){
+                tjek = false;
+                Toast.makeText(getApplicationContext(), "Choose units for the ingredients", Toast.LENGTH_SHORT).show();
+            }
+        }
+        for (int i = 0;i < recipe.getSteps().size();i++){
+            if (recipe.getSteps().get(i).equals("")){
+                tjek = false;
+                Toast.makeText(getApplicationContext(), "Fill out all steps", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if (time.getEditableText().toString().equals("")){
+            tjek = false;
+            Toast.makeText(getApplicationContext(), "Write how long this recipe takes to make", Toast.LENGTH_SHORT).show();
         }
         return tjek;
     }

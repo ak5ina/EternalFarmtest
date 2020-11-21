@@ -7,6 +7,7 @@
     <string name="Todo">Todo</string>
     <string name="RecipeName">Recipe Name</string>
     <string-array name="unit_array">
+        <item>Unit</item>
         <item>Stk</item>
         <item>g</item>
         <item>dL</item>
@@ -14,6 +15,7 @@
         <item>tsk</item>
     </string-array>
     <string-array name="price_array">
+        <item>Choose</item>
         <item>$</item>
         <item>$$</item>
         <item>$$$</item>
