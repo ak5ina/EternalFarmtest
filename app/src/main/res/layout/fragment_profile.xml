@@ -137,6 +137,12 @@
             android:gravity="center"
             >
 
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                >
+            </Space>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -156,11 +162,22 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/btn_add_ingridient"
-                android:text="+"
-                android:textSize="30sp"
-
+                android:drawableTop="@drawable/icon_plus_sign"
+                android:padding="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="top"
                 >
             </Button>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add recipe"
+                >
+            </TextView>
+
 
         </LinearLayout>
 

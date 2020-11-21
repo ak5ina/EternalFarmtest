@@ -110,7 +110,13 @@
                     android:id="@+id/btn_add_ingrident"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/icon_plus_sign"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/btn_add_ingridient"
+                    android:drawableTop="@drawable/icon_plus_sign"
+                    android:padding="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
                     >
                 </Button>
 
@@ -199,7 +205,13 @@
                     android:id="@+id/btn_add_step"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/icon_plus_sign"
+                    android:background="@drawable/btn_add_ingridient"
+                    android:drawableTop="@drawable/icon_plus_sign"
+                    android:padding="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="10dp"
                     >
                 </Button>
 
@@ -242,6 +254,7 @@
                     android:layout_height="wrap_content"
                     android:text="Time: "
                     android:textSize="20sp"
+                    android:paddingLeft="10dp"
                     >
                 </TextView>
 
