@@ -164,7 +164,8 @@ public class AddRecipe extends AppCompatActivity {
 
                 if (firstTjek){
                     firstTjek = false;
-                    tjek();
+                    //tjek();
+                    Toast.makeText(getApplicationContext(), "Check that everything is correct", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     if (tjek()){
@@ -299,7 +300,8 @@ public class AddRecipe extends AppCompatActivity {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
         {
             photo = (Bitmap) data.getExtras().get("data");
-            photo = Bitmap.createScaledBitmap(photo,(photo.getWidth()*2), (photo.getHeight()*2), true);
+            //photo = Bitmap.createScaledBitmap(photo,(photo.getWidth()*2), (photo.getHeight()*2), true);
+            photo = Bitmap.createScaledBitmap(photo,200, 200, true);
             photoButton.setImageBitmap(photo);
             photoButton.setBackground(null);
         }

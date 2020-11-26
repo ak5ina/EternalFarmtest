@@ -24,10 +24,10 @@ public class Storage {
     private File localFile;
 
 
-    public void upload(String pathChild, Bitmap photo) {
+    public void upload(String id, Bitmap photo) {
 
         StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
-        StorageReference fileRef = mStorageRef.child(pathChild);
+        StorageReference fileRef = mStorageRef.child(id);
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         photo.compress(Bitmap.CompressFormat.PNG, 100, stream);
@@ -37,10 +37,10 @@ public class Storage {
         fileRef.putBytes(byteArray);
     }
 
-    public void download(String pathChild, final ImageView imageView) {
+    public void download(String id, final ImageView imageView) {
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        final StorageReference storageRef = storage.getReferenceFromUrl("gs://eatupdatabase-cbe42.appspot.com" + "/" + pathChild);
+        final StorageReference storageRef = storage.getReferenceFromUrl("gs://eatupdatabase-cbe42.appspot.com" + "/" + id);
         try {
             localFile = File.createTempFile("images", "png");
         } catch (IOException e) {
@@ -54,8 +54,5 @@ public class Storage {
                 imageView.setBackground(null);
             }
         });
-
-
-        //return returnUri;
     }
 }
