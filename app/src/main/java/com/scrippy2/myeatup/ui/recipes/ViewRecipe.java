@@ -1,22 +1,26 @@
 package com.scrippy2.myeatup.ui.recipes;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.scrippy2.myeatup.R;
 import com.scrippy2.myeatup.firebasedata.IngredientDTO;
 import com.scrippy2.myeatup.firebasedata.RecipieDTO;
-
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ViewRecipe extends AppCompatActivity {
@@ -35,6 +39,8 @@ public class ViewRecipe extends AppCompatActivity {
     private TextView time;
     private TextView price;
     private ImageView photo;
+    private Uri returnUri;
+    private File localFile;
 
 
     @Override
@@ -44,8 +50,7 @@ public class ViewRecipe extends AppCompatActivity {
         getSupportActionBar().hide();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-
-
+        id = getIntent().getStringExtra("Recipe");
         recipeName = findViewById(R.id.text_recipe_name_view);
         time = findViewById(R.id.text_time_view);
         price = findViewById(R.id.test_price_view);
@@ -64,12 +69,10 @@ public class ViewRecipe extends AppCompatActivity {
 
 
 
-
-
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                id = getIntent().getStringExtra("Recipe");
+
                 System.out.println(id + "---------------");
                 recipieDTO = dataSnapshot.child("recipies").child(id).getValue(RecipieDTO.class);
 
@@ -77,6 +80,8 @@ public class ViewRecipe extends AppCompatActivity {
                 recipeName.setText(recipieDTO.getName());
                 time.setText(recipieDTO.getTime() + " minutes");
                 price.setText(recipieDTO.getPrice());
+
+
                 for (int i = 0;i < recipieDTO.getIngredientList().size();i++) {
 
                     ingredientDTO = dataSnapshot.child("ingredients").child(recipieDTO.getIngredientList().get(i)).getValue(IngredientDTO.class);
@@ -102,12 +107,35 @@ public class ViewRecipe extends AppCompatActivity {
                 paramsIngre.height = 140 * ingredientAdapter.getCount();
                 list_ingredint.setLayoutParams(paramsIngre);
 
+
+                FirebaseStorage storage = FirebaseStorage.getInstance();
+                final StorageReference storageRef = storage.getReferenceFromUrl("gs://eatupdatabase-cbe42.appspot.com" + "/" + id);
+                try {
+                    localFile = File.createTempFile("images", "png");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                storageRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                        returnUri = Uri.fromFile(localFile);
+
+                        photo.setImageURI(null);
+                        photo.setImageURI(returnUri);
+                        photo.setBackground(null);
+                    }
+                });
+
+
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         };
         mDatabase.addListenerForSingleValueEvent(postListener);
+
 
 
     }

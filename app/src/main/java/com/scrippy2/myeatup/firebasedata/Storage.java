@@ -2,15 +2,25 @@ package com.scrippy2.myeatup.firebasedata;
 
 import android.graphics.Bitmap;
 import android.net.Uri;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
 import java.nio.ByteBuffer;
 
 
 public class Storage {
+    private Uri returnUri;
+    private File localFile;
 
 
     public void upload(String pathChild, Bitmap photo) {
@@ -26,20 +36,24 @@ public class Storage {
         fileRef.putBytes(byteArray);
     }
 
-    public Bitmap download(String pathChild) {
-        Bitmap photo = Bitmap.createBitmap(200,200,Bitmap.Config.ARGB_8888);
+    public Uri download(String pathChild) {
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
+        final StorageReference storageRef = storage.getReferenceFromUrl("gs://eatupdatabase-cbe42.appspot.com" + "/" + pathChild);
+        try {
+            localFile = File.createTempFile("images", "png");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        storageRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                returnUri = Uri.fromFile(localFile);
+                //Set image here
+            }
+        });
 
-        StorageReference storageRef = storage.getReference();
 
-        StorageReference pathReference = storageRef.child(pathChild);
-
-        ByteBuffer buffer = ByteBuffer.wrap(pathReference.getBytes(10000).getResult());
-
-        photo.copyPixelsFromBuffer(buffer);
-
-        return photo;
+        return returnUri;
     }
-
 }
