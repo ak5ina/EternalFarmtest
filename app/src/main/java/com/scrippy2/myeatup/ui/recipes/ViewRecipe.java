@@ -19,6 +19,8 @@ import com.google.firebase.storage.StorageReference;
 import com.scrippy2.myeatup.R;
 import com.scrippy2.myeatup.firebasedata.IngredientDTO;
 import com.scrippy2.myeatup.firebasedata.RecipieDTO;
+import com.scrippy2.myeatup.firebasedata.Storage;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,6 +41,7 @@ public class ViewRecipe extends AppCompatActivity {
     private TextView time;
     private TextView price;
     private ImageView photo;
+    private Storage storage = new Storage();
     private Uri returnUri;
     private File localFile;
 
@@ -51,10 +54,14 @@ public class ViewRecipe extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         id = getIntent().getStringExtra("Recipe");
+
+
+
         recipeName = findViewById(R.id.text_recipe_name_view);
         time = findViewById(R.id.text_time_view);
         price = findViewById(R.id.test_price_view);
         photo = findViewById(R.id.image_view);
+        storage.download(id, photo);
 
 
         list_step = findViewById(R.id.list_steps_view);
@@ -106,28 +113,6 @@ public class ViewRecipe extends AppCompatActivity {
                 ViewGroup.LayoutParams paramsIngre = list_ingredint.getLayoutParams();
                 paramsIngre.height = 140 * ingredientAdapter.getCount();
                 list_ingredint.setLayoutParams(paramsIngre);
-
-
-                FirebaseStorage storage = FirebaseStorage.getInstance();
-                final StorageReference storageRef = storage.getReferenceFromUrl("gs://eatupdatabase-cbe42.appspot.com" + "/" + id);
-                try {
-                    localFile = File.createTempFile("images", "png");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                storageRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                        returnUri = Uri.fromFile(localFile);
-
-                        photo.setImageURI(null);
-                        photo.setImageURI(returnUri);
-                        photo.setBackground(null);
-                    }
-                });
-
-
 
             }
             @Override

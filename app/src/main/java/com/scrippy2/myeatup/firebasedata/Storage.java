@@ -2,6 +2,7 @@ package com.scrippy2.myeatup.firebasedata;
 
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
@@ -36,7 +37,7 @@ public class Storage {
         fileRef.putBytes(byteArray);
     }
 
-    public Uri download(String pathChild) {
+    public void download(String pathChild, final ImageView imageView) {
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
         final StorageReference storageRef = storage.getReferenceFromUrl("gs://eatupdatabase-cbe42.appspot.com" + "/" + pathChild);
@@ -49,11 +50,12 @@ public class Storage {
             @Override
             public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                 returnUri = Uri.fromFile(localFile);
-                //Set image here
+                imageView.setImageURI(returnUri);
+                imageView.setBackground(null);
             }
         });
 
 
-        return returnUri;
+        //return returnUri;
     }
 }
