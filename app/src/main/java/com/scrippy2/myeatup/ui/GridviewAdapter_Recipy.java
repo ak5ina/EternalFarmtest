@@ -1,7 +1,6 @@
 package com.scrippy2.myeatup.ui;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.scrippy2.myeatup.R;
 import com.scrippy2.myeatup.firebasedata.RecipieDTO;
-import com.scrippy2.myeatup.ui.recipes.RecipeFragment;
-import com.scrippy2.myeatup.ui.recipes.ViewRecipe;
+import com.scrippy2.myeatup.firebasedata.Storage;
 
 import java.util.ArrayList;
 
@@ -24,6 +22,7 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
     private  ArrayList<RecipieDTO> recipyList;
     private Context con;
     private RecipieDTO viewID;
+
 
     @NonNull
     @Override
@@ -36,6 +35,8 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
             TextView tvRating = convertView.findViewById(R.id.gridview_rating_recipy);
             TextView tvName = convertView.findViewById(R.id.gridview_name_recipy);
             ImageView ivImage = convertView.findViewById(R.id.gridview_pic_recipy);
+            Storage storage = new Storage();
+            storage.download(recipyList.get(position).getID(), ivImage);
 
             double avargaRating = 0;
             double combinedValue = 0;

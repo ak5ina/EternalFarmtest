@@ -1,6 +1,8 @@
 package com.scrippy2.myeatup.firebasedata;
 
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 
 public class RecipieDTO implements IRecipieDTO {
@@ -38,7 +40,10 @@ public class RecipieDTO implements IRecipieDTO {
         unitAmount = new ArrayList<>();
 
 
+
     }
+
+
 
     @Override
     public String getID() {

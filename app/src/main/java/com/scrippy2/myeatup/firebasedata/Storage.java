@@ -16,6 +16,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 
 
@@ -52,7 +53,10 @@ public class Storage {
                 returnUri = Uri.fromFile(localFile);
                 imageView.setImageURI(returnUri);
                 imageView.setBackground(null);
+
             }
         });
+
     }
+
 }
