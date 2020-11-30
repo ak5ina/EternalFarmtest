@@ -27,22 +27,23 @@ public class GridviewAdapter extends ArrayAdapter<IngredientDTO> {
 
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.gridview_single_object, parent, false);
-            final TextView ingredientName = convertView.findViewById(R.id.gridview_name);
-            ingredientName.setText(ingredientList.get(position).getName());
-
-            convertView.isClickable();
-            convertView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent();
-//                    intent.putExtra("ingredientID", ingredientList.get(position).getID());
-                    intent.putExtra("ingredientID", position);
-                    ((Activity)getContext()).setResult(Activity.RESULT_OK, intent);
-                    ((Activity)getContext()).finish();
-
-                }
-            });
         }
+
+        final TextView ingredientName = convertView.findViewById(R.id.gridview_name);
+        ingredientName.setText(ingredientList.get(position).getName());
+
+        convertView.isClickable();
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+//                    intent.putExtra("ingredientID", ingredientList.get(position).getID());
+                intent.putExtra("ingredientID", position);
+                ((Activity)getContext()).setResult(Activity.RESULT_OK, intent);
+                ((Activity)getContext()).finish();
+
+            }
+        });
 
 //        ImageView ingredientImage = convertView.findViewById(R.id.inspiration_listview_object_pic);
 //        ImageView closeBtn = convertView.findViewById(R.id.inspiration_listview_object_closebtn);

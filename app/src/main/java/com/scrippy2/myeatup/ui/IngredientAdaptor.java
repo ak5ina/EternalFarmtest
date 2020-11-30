@@ -29,34 +29,6 @@ public class IngredientAdaptor extends ArrayAdapter<IngredientDTO> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.gridview_single_object2, parent, false);
         }
 
-        if (ingredientList.size() == 1){
-
-            ImageView closeBtn = convertView.findViewById(R.id.inspiration_listview_object_closebtn);
-            closeBtn.setVisibility(View.INVISIBLE);
-            TextView ingredientName = convertView.findViewById(R.id.gridview_name);
-            ingredientName.setText("Add Ingredient");
-            ImageView ingredientImage = convertView.findViewById(R.id.gridview_pic);
-            ingredientImage.setImageResource(R.drawable.icon_plus_sign);
-            ingredientImage.setPadding(20,20,20,20);
-            ingredientImage.setClickable(true);
-            ingredientImage.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Button btn = parent.getRootView().findViewById(R.id.inspiration_btn_add_ingridiant);
-                    btn.callOnClick();
-//                    Intent intent = new Intent(getContext(), AddIngredient.class);
-//                    ((Activity)con).startActivityForResult(intent, 1);
-
-
-
-
-
-                }
-
-            });
-
-        } else {
 
 //        ImageView ingredientImage = convertView.findViewById(R.id.inspiration_listview_object_pic);
             TextView ingredientName = convertView.findViewById(R.id.gridview_name);
@@ -75,7 +47,7 @@ public class IngredientAdaptor extends ArrayAdapter<IngredientDTO> {
 
 //        ingredientImage.setImageResource(ingredientList.get(position).getImageID());
             ingredientName.setText(ingredientList.get(position).getName());
-        }
+
 
 
         return convertView;
