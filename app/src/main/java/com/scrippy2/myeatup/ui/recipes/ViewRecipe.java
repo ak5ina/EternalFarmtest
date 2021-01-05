@@ -1,12 +1,18 @@
 package com.scrippy2.myeatup.ui.recipes;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,6 +43,7 @@ public class ViewRecipe extends AppCompatActivity {
     private TextView time;
     private TextView price;
     private ImageView photo;
+    private Button collection_btn;
     private Storage storage = new Storage();
     private Uri returnUri;
     private File localFile;
@@ -57,6 +64,7 @@ public class ViewRecipe extends AppCompatActivity {
         time = findViewById(R.id.text_time_view);
         price = findViewById(R.id.test_price_view);
         photo = findViewById(R.id.image_view);
+        collection_btn = findViewById(R.id.add_collect);
         storage.download(id, photo);
 
 
@@ -70,13 +78,38 @@ public class ViewRecipe extends AppCompatActivity {
         ingredientAdapter = new ViewIngredientAdapter(this, R.layout.adapter_view_ingredient, ingredientObjects);
         list_ingredint.setAdapter(ingredientAdapter);
 
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences.Editor editor = preferences.edit();
+        //editor.clear().apply();
+
+
+
+        collection_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (!preferences.contains(id)){
+
+                    editor.putString(id,"saved");
+
+                    editor.apply();
+                    Toast.makeText(getApplicationContext(), "Added recipe to your collection\nFind it in profile", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Recipe is allready in your collection", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
+
 
 
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                System.out.println(id + "---------------");
+                //System.out.println(id + "---------------");
                 recipieDTO = dataSnapshot.child("recipies").child(id).getValue(RecipieDTO.class);
 
 

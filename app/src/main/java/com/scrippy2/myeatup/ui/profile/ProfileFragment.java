@@ -2,7 +2,9 @@ package com.scrippy2.myeatup.ui.profile;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.proto.ProtoOutputStream;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,11 +27,15 @@ import com.scrippy2.myeatup.R;
 import com.scrippy2.myeatup.ui.recipes.AddRecipe;
 import com.scrippy2.myeatup.ui.recipes.ViewRecipe;
 
+import java.util.Map;
+
 public class ProfileFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;
-    GridView gridView;
+    private GridView gridView;
     private FirebaseAuth mAuth;
+    private Button savedRecipies;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -65,6 +71,23 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        savedRecipies = root.findViewById(R.id.profile_btn_saved_recipes);
+
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this.getContext());
+
+        savedRecipies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Map map = preferences.getAll();
+
+
+               System.out.println("Recipies " + map);
+
+
+            }
+        });
+
 
         return root;
 

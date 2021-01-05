@@ -1753,6 +1753,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_collect
 id adjust_height
 id adjust_width
 id alertTitle
@@ -2015,6 +2016,7 @@ id profile_user_email
 id progress_circular
 id progress_horizontal
 id radio
+id rating_bar
 id ratio
 id recipe_btn_add_ingredient
 id rectangles

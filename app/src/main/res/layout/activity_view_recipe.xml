@@ -195,6 +195,44 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rate this recipe"
+                    >
+
+                </TextView>
+
+                <RatingBar
+                    android:id="@+id/rating_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                </RatingBar>
+
+                <Button
+                    android:id="@+id/add_collect"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btn_upload"
+                    android:text="Add recipe to your collection"
+                    android:clickable="true"
+                    >
+
+                </Button>
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>
