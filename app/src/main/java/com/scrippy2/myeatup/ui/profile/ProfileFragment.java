@@ -22,19 +22,30 @@ import androidx.lifecycle.ViewModelProviders;
 import com.google.android.material.internal.NavigationMenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.scrippy2.myeatup.Login;
 import com.scrippy2.myeatup.R;
+import com.scrippy2.myeatup.firebasedata.RecipieDTO;
+import com.scrippy2.myeatup.ui.GridviewAdapter_Recipy;
 import com.scrippy2.myeatup.ui.recipes.AddRecipe;
 import com.scrippy2.myeatup.ui.recipes.ViewRecipe;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class ProfileFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;
-    private GridView gridView;
+    private GridView gridViewProflie;
     private FirebaseAuth mAuth;
     private Button savedRecipies;
+    private ArrayList<RecipieDTO> arraylistForGridviewRecipe;
+    private GridviewAdapter_Recipy adaptorForRecipy;
+    private DatabaseReference mDatabase;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -61,7 +72,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        gridView = root.findViewById(R.id.gridview_profile);
+        gridViewProflie = root.findViewById(R.id.gridview_profile);
 
         Button btn_add_recipe = root.findViewById(R.id.btn_add_recipe_profile);
         btn_add_recipe.setOnClickListener(new View.OnClickListener() {
@@ -76,13 +87,76 @@ public class ProfileFragment extends Fragment {
 
         final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this.getContext());
 
+        Map map = preferences.getAll();
+
+        System.out.println("Recipies " + map);
+        System.out.println(map.toString());
+        String mapalt = map.toString().replace("{", "").replace("}", "");
+        System.out.println(mapalt);
+        String mapalt2 = mapalt.replaceAll(" ", "");
+        System.out.println(mapalt2);
+        String[] prefRecipies = mapalt2.split(",");
+        final ArrayList<String> prefRecipies2 = new ArrayList<>();
+        for (int i = 0; i < prefRecipies.length;i++){
+            System.out.println(prefRecipies[i]);
+            prefRecipies2.add(prefRecipies[i]);
+        }
+
         savedRecipies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Map map = preferences.getAll();
 
 
-               System.out.println("Recipies " + map);
+
+                final ArrayList<String> prefRecSav =  prefRecipies2;
+
+                for (int i = 0;i < prefRecSav.size();i++){
+                    if (!prefRecSav.get(i).contains("=saved")){
+                        prefRecSav.set(i, "");
+
+                    }
+                    System.out.println(i + " " + prefRecSav.get(i));
+                }
+
+                for (int i = 0;i < prefRecSav.size();i++){
+                    if (prefRecSav.get(i).contains("=saved")){
+                        prefRecSav.set(i, prefRecSav.get(i).replace("=saved", ""));
+
+                    }
+                    System.out.println(prefRecSav.get(i));
+                }
+
+                mDatabase = FirebaseDatabase.getInstance().getReference();
+
+                ValueEventListener savedListener = new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        arraylistForGridviewRecipe = new ArrayList<>();
+                        for (int i = 0;i < prefRecSav.size();i++) {
+                            if (!prefRecSav.get(i).equals("")){
+                                RecipieDTO recipieDTO = snapshot.child("recipies").child(prefRecSav.get(i)).getValue(RecipieDTO.class);
+                                arraylistForGridviewRecipe.add(recipieDTO);
+
+                            }
+                        }
+
+                        adaptorForRecipy = new GridviewAdapter_Recipy(getActivity().getApplicationContext(), R.layout.gridview_recipe_object, arraylistForGridviewRecipe);
+                        gridViewProflie.setAdapter(adaptorForRecipy);
+                        adaptorForRecipy.notifyDataSetChanged();
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                };
+                mDatabase.addListenerForSingleValueEvent(savedListener);
+
+
+
 
 
             }
