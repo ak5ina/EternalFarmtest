@@ -81,6 +81,8 @@ public class AddIngredient extends AppCompatActivity {
         gvAdapter.clear();
 
         for (IngredientDTO ing : MainActivity.INGREDIENTLIST){
+            System.out.println(ing.getName().toLowerCase());
+            System.out.println(ing.getName().toLowerCase().startsWith(edittext.getText().toString().toLowerCase()));
             if (ing.getName().toLowerCase().startsWith(edittext.getText().toString().toLowerCase())){
                 gvAdapter.add(ing);
             }
