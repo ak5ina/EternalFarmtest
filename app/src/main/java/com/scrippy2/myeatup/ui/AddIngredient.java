@@ -14,6 +14,7 @@ import com.scrippy2.myeatup.firebasedata.IngredientDTO;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class AddIngredient extends AppCompatActivity {
 
@@ -21,6 +22,8 @@ public class AddIngredient extends AppCompatActivity {
     GridviewAdapter gvAdapter;
     private DatabaseReference mDatabase;
     private EditText edittext;
+    private ArrayList<IngredientDTO> listForIngre;
+    private ArrayList<IngredientDTO> listForIngre2;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -30,11 +33,6 @@ public class AddIngredient extends AppCompatActivity {
 
         getSupportActionBar().hide();
         edittext = findViewById(R.id.ingredient_search_bar);
-
-        final ArrayList<IngredientDTO> listToReturn = new ArrayList<>();
-
-
-
 
 
         //OPEN GRIDVIEW
@@ -62,7 +60,7 @@ public class AddIngredient extends AppCompatActivity {
                         System.out.println(e);
                     }
                 else {
-                    System.out.println("FUCK");
+                    UpdateGridView();
                 }
             }
         });
@@ -70,26 +68,31 @@ public class AddIngredient extends AppCompatActivity {
     }
 
     private void StartGridView(){
+        listForIngre = new ArrayList<IngredientDTO>(MainActivity.INGREDIENTLIST);
+        listForIngre2 = MainActivity.INGREDIENTLIST;
+
+
+
         dialogGridview = (GridView) findViewById(R.id.gridview);
-        gvAdapter = new GridviewAdapter(this,R.layout.gridview_single_object, MainActivity.INGREDIENTLIST);
+        gvAdapter = new GridviewAdapter(this,R.layout.gridview_single_object, listForIngre);
         dialogGridview.setAdapter(gvAdapter);
     }
 
     private void UpdateGridView(){
 
-
+        System.out.println(listForIngre2.size());
         gvAdapter.clear();
 
-        for (IngredientDTO ing : MainActivity.INGREDIENTLIST){
+        for (IngredientDTO ing : listForIngre2){
             System.out.println(ing.getName().toLowerCase());
             System.out.println(ing.getName().toLowerCase().startsWith(edittext.getText().toString().toLowerCase()));
-            if (ing.getName().toLowerCase().startsWith(edittext.getText().toString().toLowerCase())){
+            if (ing.getName().toLowerCase().startsWith(edittext.getText().toString().toLowerCase()) || edittext.toString().toLowerCase().length() == 0){
                 gvAdapter.add(ing);
             }
         }
 
         gvAdapter.notifyDataSetChanged();
-        System.out.println("HEJ");
+        System.out.println("HEJ fra updategridview");
 
     }
 }
