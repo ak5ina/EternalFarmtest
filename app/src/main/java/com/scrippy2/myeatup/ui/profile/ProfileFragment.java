@@ -31,6 +31,7 @@ import com.scrippy2.myeatup.Login;
 import com.scrippy2.myeatup.R;
 import com.scrippy2.myeatup.firebasedata.RecipieDTO;
 import com.scrippy2.myeatup.ui.GridviewAdapter_Recipy;
+import com.scrippy2.myeatup.ui.inspiration.InsipirationFragment;
 import com.scrippy2.myeatup.ui.recipes.AddRecipe;
 import com.scrippy2.myeatup.ui.recipes.ViewRecipe;
 
@@ -162,6 +163,17 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        final Button btn_view_recipe = root.findViewById(R.id.btn_view_recipe_frag);
+        btn_view_recipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("_______");
+                Intent intent = new Intent(ProfileFragment.this.getContext(), ViewRecipe.class);
+                System.out.println(btn_view_recipe.getText().toString() + "__________________");
+                intent.putExtra("Recipe", btn_view_recipe.getText().toString());
+                startActivity(intent);
+            }
+        });
 
         return root;
 

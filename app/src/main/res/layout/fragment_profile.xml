@@ -214,12 +214,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:columnWidth="100dp"
+            android:columnWidth="150dp"
             android:numColumns="auto_fit"
             android:verticalSpacing="20dp"
-            android:layout_marginTop="10dp"
-            android:stretchMode="spacingWidthUniform"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/inspiration_btn_add_ingridiant"
+            android:paddingBottom="140dp"
             />
+
+        <Button
+            android:id="@+id/btn_view_recipe_frag"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text=""
+            >
+        </Button>
 
     </LinearLayout>
 
