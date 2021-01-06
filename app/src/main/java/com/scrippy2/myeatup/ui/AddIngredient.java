@@ -3,6 +3,7 @@ package com.scrippy2.myeatup.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.GridView;
 
 import com.scrippy2.myeatup.MainActivity;
@@ -21,14 +22,16 @@ public class AddIngredient extends AppCompatActivity {
     GridView dialogGridview;
     GridviewAdapter gvAdapter;
     private DatabaseReference mDatabase;
+    private EditText edittext;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ingredient);
+        getWindow().setBackgroundDrawableResource(R.drawable.backgroundpic);
 
         getSupportActionBar().hide();
-
+        edittext = findViewById(R.id.ingredient_search_bar);
 
         final ArrayList<IngredientDTO> listToReturn = new ArrayList<>();
 
