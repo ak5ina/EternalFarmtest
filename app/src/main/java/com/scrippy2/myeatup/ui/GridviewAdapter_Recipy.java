@@ -55,6 +55,7 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
 
             }
 
+
             tvTime.setText(recipyList.get(position).getTime());
             tvPrice.setText(recipyList.get(position).getPrice());
             tvRating.setText(Double.toString(avargaRating));
