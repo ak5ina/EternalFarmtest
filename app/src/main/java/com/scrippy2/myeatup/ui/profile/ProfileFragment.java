@@ -103,21 +103,23 @@ public class ProfileFragment extends Fragment {
             prefRecipies2.add(prefRecipies[i]);
         }
 
+        final ArrayList<String> prefRecSav =  prefRecipies2;
+
+        for (int i = 0;i < prefRecSav.size();i++){
+            if (!prefRecSav.get(i).contains("=saved")){
+                prefRecSav.set(i, "");
+
+            }
+            System.out.println(i + " " + prefRecSav.get(i));
+        }
+
         savedRecipies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
 
-                final ArrayList<String> prefRecSav =  prefRecipies2;
 
-                for (int i = 0;i < prefRecSav.size();i++){
-                    if (!prefRecSav.get(i).contains("=saved")){
-                        prefRecSav.set(i, "");
-
-                    }
-                    System.out.println(i + " " + prefRecSav.get(i));
-                }
 
                 for (int i = 0;i < prefRecSav.size();i++){
                     if (prefRecSav.get(i).contains("=saved")){

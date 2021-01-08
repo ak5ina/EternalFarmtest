@@ -102,10 +102,10 @@ public class ViewRecipe extends AppCompatActivity {
                 }
                 else {
 
-                    String testuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                     if (recipieDTO.getVoteProfiles() == null) {
-                        profileIDs.add(testuser);
+                        profileIDs.add(currentUser);
                         recipieDTO.setVoteProfiles(profileIDs);
                         voteList.add(v);
                         recipieDTO.setVoteList(voteList);
@@ -116,7 +116,7 @@ public class ViewRecipe extends AppCompatActivity {
                         voteList = recipieDTO.getVoteList();
                         boolean fundID = false;
                         for (int i = 0;i < recipieDTO.getVoteProfiles().size();i++){
-                            if (recipieDTO.getVoteProfiles().get(i).equals(testuser)){
+                            if (recipieDTO.getVoteProfiles().get(i).equals(currentUser)){
                                 fundID = true;
                                 voteList.set(i, v);
                                 recipieDTO.setVoteList(voteList);
@@ -124,7 +124,7 @@ public class ViewRecipe extends AppCompatActivity {
                             }
                         }
                         if (!fundID){
-                            profileIDs.add(testuser);
+                            profileIDs.add(currentUser);
                             voteList.add(v);
                             recipieDTO.setVoteProfiles(profileIDs);
                             recipieDTO.setVoteList(voteList);
