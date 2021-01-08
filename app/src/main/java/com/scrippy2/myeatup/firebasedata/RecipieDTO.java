@@ -15,7 +15,7 @@ public class RecipieDTO implements IRecipieDTO {
     private ArrayList<String> ingredientList;
     private ArrayList<String> steps;
     private ArrayList<String> voteProfiles;
-    private ArrayList<Integer> voteList;
+    private ArrayList<Float> voteList;
     private ArrayList<String> unknownIngredients;
     private ArrayList<String> unitList;
     private ArrayList<String> unitAmount;
@@ -109,11 +109,11 @@ public class RecipieDTO implements IRecipieDTO {
         this.voteProfiles = voteProfiles;
     }
 
-    public ArrayList<Integer> getVoteList() {
+    public ArrayList<Float> getVoteList() {
         return voteList;
     }
 
-    public void setVoteList(ArrayList<Integer> voteList) {
+    public void setVoteList(ArrayList<Float> voteList) {
         this.voteList = voteList;
     }
 

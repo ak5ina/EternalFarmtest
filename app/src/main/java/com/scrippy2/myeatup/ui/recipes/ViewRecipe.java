@@ -1,5 +1,6 @@
 package com.scrippy2.myeatup.ui.recipes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
@@ -11,9 +12,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,6 +47,7 @@ public class ViewRecipe extends AppCompatActivity {
     private TextView price;
     private ImageView photo;
     private Button collection_btn;
+    private RatingBar ratingBar;
     private Storage storage = new Storage();
     private Uri returnUri;
     private File localFile;
@@ -64,6 +68,7 @@ public class ViewRecipe extends AppCompatActivity {
         time = findViewById(R.id.text_time_view);
         price = findViewById(R.id.test_price_view);
         photo = findViewById(R.id.image_view);
+        ratingBar = findViewById(R.id.rating_bar);
         collection_btn = findViewById(R.id.add_collect);
         storage.download(id, photo);
 
@@ -82,6 +87,57 @@ public class ViewRecipe extends AppCompatActivity {
         final SharedPreferences.Editor editor = preferences.edit();
         //editor.clear().apply();
 
+
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, final float v, boolean b) {
+
+                Toast.makeText(getApplicationContext(), "Rating " + v, Toast.LENGTH_SHORT).show();
+
+                ArrayList<String> profileIDs = new ArrayList<>();
+                ArrayList<Float> voteList = new ArrayList<>();
+
+                if (FirebaseAuth.getInstance().getCurrentUser().getUid() == null){
+                    Toast.makeText(getApplicationContext(), "You must login to rate recipes ", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    String testuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                    if (recipieDTO.getVoteProfiles() == null) {
+                        profileIDs.add(testuser);
+                        recipieDTO.setVoteProfiles(profileIDs);
+                        voteList.add(v);
+                        recipieDTO.setVoteList(voteList);
+                        Toast.makeText(getApplicationContext(), "First ", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        profileIDs = recipieDTO.getVoteProfiles();
+                        voteList = recipieDTO.getVoteList();
+                        boolean fundID = false;
+                        for (int i = 0;i < recipieDTO.getVoteProfiles().size();i++){
+                            if (recipieDTO.getVoteProfiles().get(i).equals(testuser)){
+                                fundID = true;
+                                voteList.set(i, v);
+                                recipieDTO.setVoteList(voteList);
+                                Toast.makeText(getApplicationContext(), "Second ", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        if (!fundID){
+                            profileIDs.add(testuser);
+                            voteList.add(v);
+                            recipieDTO.setVoteProfiles(profileIDs);
+                            recipieDTO.setVoteList(voteList);
+                            Toast.makeText(getApplicationContext(), "Third ", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    mDatabase.child("recipies").child(id).child("voteList").setValue(voteList);
+                    mDatabase.child("recipies").child(id).child("voteProfiles").setValue(profileIDs);
+                }
+
+            }
+        });
 
 
         collection_btn.setOnClickListener(new View.OnClickListener() {
