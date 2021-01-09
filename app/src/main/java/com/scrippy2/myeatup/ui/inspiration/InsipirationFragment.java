@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,7 +38,8 @@ public class InsipirationFragment extends Fragment {
     private InspirationViewModel inspirationViewModel;
     private ArrayList<IngredientDTO> arraylistForGridviewIngredient;
     private ArrayList<RecipieDTO> arraylistForGridviewRecipe;
-    private GridView gridView, gridViewRecipy;
+    private GridView gridViewRecipy;
+    private ListView listViewIngre;
     private IngredientAdaptor adaptorForIngredients;
     private GridviewAdapter_Recipy adaptorForRecipy;
     private DatabaseReference mDatabase;
@@ -62,7 +64,7 @@ public class InsipirationFragment extends Fragment {
 
 
         //Gridview for ingredienser
-        gridView = (GridView) root.findViewById(R.id.gridview_inspiration);
+        listViewIngre = (ListView) root.findViewById(R.id.gridview_inspiration);
         gridViewRecipy = (GridView) root.findViewById(R.id.gridview_inspiration_results);
         //Array med ingrediens objekter (SKIFT NAVN)
         arraylistForGridviewIngredient = new ArrayList<>();
@@ -71,14 +73,11 @@ public class InsipirationFragment extends Fragment {
         acceptableID = new ArrayList<>();
 
         adaptorForIngredients = new IngredientAdaptor(getActivity().getApplicationContext(), R.layout.gridview_single_object2, arraylistForGridviewIngredient);
-        gridView.setAdapter(adaptorForIngredients);
+        listViewIngre.setAdapter(adaptorForIngredients);
 
         adaptorForRecipy = new GridviewAdapter_Recipy(getActivity().getApplicationContext(), R.layout.gridview_recipe_object, arraylistForGridviewRecipe);
         gridViewRecipy.setAdapter(adaptorForRecipy);
 
-
-
-        adaptorForIngredients.add(new IngredientDTO("fake", "Add Ingredient"));
 
         //Gridview for recipies
 //        gridView = (GridView) root.findViewById(R.id.gridview_inspiration_results);
@@ -152,7 +151,7 @@ public class InsipirationFragment extends Fragment {
                     adaptorForIngredients.add(ingredientAdded);
                     adaptorForIngredients.notifyDataSetChanged();
 
-                    for (int i = 1; i < adaptorForIngredients.getCount(); i++){
+                    for (int i = 0; i < adaptorForIngredients.getCount(); i++){
                         if (adaptorForIngredients.getItem(i).getRecipies() != null) {
                             for (String recipyID : adaptorForIngredients.getItem(i).getRecipies()) {
 
@@ -177,7 +176,7 @@ public class InsipirationFragment extends Fragment {
                             lastID = currentID;
                         } else {
                             System.out.println("TEST4");
-                            idCounter = 1;
+                            idCounter = 0;
                             lastID = currentID;
                         }
 
@@ -231,7 +230,7 @@ public class InsipirationFragment extends Fragment {
         recipyIDarray.clear();
         acceptableID.clear();
 
-        for (int i = 1; i < adaptorForIngredients.getCount(); i++){
+        for (int i = 0; i < adaptorForIngredients.getCount(); i++){
             if (adaptorForIngredients.getItem(i).getRecipies() != null) {
                 for (String recipyID : adaptorForIngredients.getItem(i).getRecipies()) {
 
@@ -256,7 +255,7 @@ public class InsipirationFragment extends Fragment {
                 lastID = currentID;
             } else {
                 System.out.println("TEST4");
-                idCounter = 1;
+                idCounter = 0;
                 lastID = currentID;
             }
 
