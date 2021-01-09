@@ -109,7 +109,7 @@
 
 
             app:layout_constraintTop_toBottomOf="@+id/inspiration_btn_add_ingridiant"
-            android:paddingBottom="140dp"
+            android:paddingBottom="200dp"
             />
 
     <TextView
