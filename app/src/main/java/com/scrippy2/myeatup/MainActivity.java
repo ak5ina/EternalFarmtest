@@ -22,6 +22,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,6 +74,15 @@ public class MainActivity extends AppCompatActivity {
                     System.out.println(ingre.getRecipies().size());
 
                 }
+
+                Collections.sort(INGREDIENTLIST, new Comparator<IngredientDTO>() {
+                    @Override
+                    public int compare(IngredientDTO o1, IngredientDTO o2) {
+
+                        return o1.getName().toLowerCase().compareTo(o2.getName().toLowerCase());
+                    }
+                });
+
             }
 
             @Override

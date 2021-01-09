@@ -38,7 +38,7 @@ public class GridviewAdapter extends ArrayAdapter<IngredientDTO> {
             public void onClick(View v) {
                 Intent intent = new Intent();
 //                    intent.putExtra("ingredientID", ingredientList.get(position).getID());
-                intent.putExtra("ingredientID", position);
+                intent.putExtra("ingredientID", Integer.parseInt(ingredientList.get(position).getID()));
                 ((Activity)getContext()).setResult(Activity.RESULT_OK, intent);
                 ((Activity)getContext()).finish();
 

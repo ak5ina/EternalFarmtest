@@ -1908,6 +1908,7 @@ id image_adapt_ingredient
 id image_adapt_ingredient_view
 id image_view
 id info
+id ingredient_search_bar
 id inspiration_btn_add_ingridiant
 id inspiration_btn_resetrecipylist
 id inspiration_header_line

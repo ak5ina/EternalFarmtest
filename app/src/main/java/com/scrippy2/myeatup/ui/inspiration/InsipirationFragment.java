@@ -142,57 +142,66 @@ public class InsipirationFragment extends Fragment {
                 recipyIDarray.clear();
                 acceptableID.clear();
 
+
+                System.out.println("HER SKAL DU SE " + data.getIntExtra("ingredientID", 0));
                 int b = data.getIntExtra("ingredientID", 0);
+
                 String t = Integer.toString(b);
                 //ADD INGREDIENT TO ADAPTER
                 if (t != null) {
+                    IngredientDTO ingredientAdded = null;
 
-                    IngredientDTO ingredientAdded = MainActivity.INGREDIENTLIST.get(Integer.parseInt(t));
+                    for (IngredientDTO ing : MainActivity.INGREDIENTLIST){
+                        if (Integer.parseInt(ing.getID()) == Integer.parseInt(t)){
+                            ingredientAdded = ing;
+                        }
+                    }
 
-                    adaptorForIngredients.add(ingredientAdded);
-                    adaptorForIngredients.notifyDataSetChanged();
+                    if (ingredientAdded != null) {
+                        adaptorForIngredients.add(ingredientAdded);
+                        adaptorForIngredients.notifyDataSetChanged();
 
-                    for (int i = 0; i < adaptorForIngredients.getCount(); i++){
-                        if (adaptorForIngredients.getItem(i).getRecipies() != null) {
-                            for (String recipyID : adaptorForIngredients.getItem(i).getRecipies()) {
+                        for (int i = 0; i < adaptorForIngredients.getCount(); i++) {
+                            if (adaptorForIngredients.getItem(i).getRecipies() != null) {
+                                for (String recipyID : adaptorForIngredients.getItem(i).getRecipies()) {
 
-                                recipyIDarray.add(recipyID);
+                                    recipyIDarray.add(recipyID);
 
+                                }
                             }
                         }
-                    }
 
-                    Collections.sort(recipyIDarray);
+                        Collections.sort(recipyIDarray);
 
-                    String lastID = "bliverSatSennere", currentID;
-                    int idCounter = 0;
+                        String lastID = "bliverSatSennere", currentID;
+                        int idCounter = 0;
 
-                    for (int i = 0; i < recipyIDarray.size(); i++) {
-                        currentID = recipyIDarray.get(i);
-                        System.out.println("TEST1");
+                        for (int i = 0; i < recipyIDarray.size(); i++) {
+                            currentID = recipyIDarray.get(i);
+                            System.out.println("TEST1");
 
-                        if(lastID.contentEquals(currentID)){
-                            System.out.println("TEST2");
-                            idCounter++;
-                            lastID = currentID;
-                        } else {
-                            System.out.println("TEST4");
-                            idCounter = 0;
-                            lastID = currentID;
+                            if (lastID.contentEquals(currentID)) {
+                                System.out.println("TEST2");
+                                idCounter++;
+                                lastID = currentID;
+                            } else {
+                                System.out.println("TEST4");
+                                idCounter = 0;
+                                lastID = currentID;
+                            }
+
+
+                            if (idCounter == adaptorForIngredients.getCount() - 1) {
+                                System.out.println("TEST3");
+                                System.out.println(currentID + " | " + idCounter);
+                                acceptableID.add(currentID);
+                            }
+
+                            System.out.println("Recipy id | " + recipyIDarray.get(i));
                         }
 
-
-                        if (idCounter == adaptorForIngredients.getCount()-1){
-                            System.out.println("TEST3");
-                            System.out.println(currentID + " | " + idCounter);
-                            acceptableID.add(currentID);
-                        }
-
-                        System.out.println("Recipy id | " + recipyIDarray.get(i));
+                        AddToRecipyGridview(acceptableID);
                     }
-
-                    AddToRecipyGridview(acceptableID);
-
                 }
             }
         }
