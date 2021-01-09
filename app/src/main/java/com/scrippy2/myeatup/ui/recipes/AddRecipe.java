@@ -165,6 +165,7 @@ public class AddRecipe extends AppCompatActivity {
                 if (firstTjek){
                     firstTjek = false;
                     //tjek();
+
                     Toast.makeText(getApplicationContext(), "Check that everything is correct", Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -173,11 +174,11 @@ public class AddRecipe extends AppCompatActivity {
                         Storage storage = new Storage();
                         storage.upload(key, photo);
 
-                        for (int i = 0;i < recipe.getIngredientList().size();i++){
-                            mDatabase.child("ingredients").child(recipe.getIngredientList().get(i)).child("recipeUses").setValue(recipe.getID());
-                        }
 
                         if (upload.getText().equals("Confirm")) {
+                            for (int i = 0;i < recipe.getIngredientList().size();i++){
+                                mDatabase.child("ingredients").child(recipe.getIngredientList().get(i)).child("recipeUses").push().setValue(recipe.getID());
+                            }
                             Toast.makeText(getApplicationContext(), "Recipe uploaded", Toast.LENGTH_SHORT).show();
                             finish();
                         }
