@@ -174,7 +174,7 @@ public class AddRecipe extends AppCompatActivity {
                         storage.upload(key, photo);
 
                         for (int i = 0;i < recipe.getIngredientList().size();i++){
-                            mDatabase.child("ingredients").child(recipe.getIngredientList().get(i)).child("recipeUses").push().setValue(recipe.getID());
+                            mDatabase.child("ingredients").child(recipe.getIngredientList().get(i)).child("recipeUses").setValue(recipe.getID());
                         }
 
                         if (upload.getText().equals("Confirm")) {
