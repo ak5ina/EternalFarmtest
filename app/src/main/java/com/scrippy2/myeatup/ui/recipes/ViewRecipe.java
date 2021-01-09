@@ -92,7 +92,7 @@ public class ViewRecipe extends AppCompatActivity {
             @Override
             public void onRatingChanged(RatingBar ratingBar, final float v, boolean b) {
 
-                Toast.makeText(getApplicationContext(), "Rating " + v, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "You rated this recipe " + v + " stars", Toast.LENGTH_SHORT).show();
 
                 ArrayList<String> profileIDs = new ArrayList<>();
                 ArrayList<Float> voteList = new ArrayList<>();
@@ -109,7 +109,7 @@ public class ViewRecipe extends AppCompatActivity {
                         recipieDTO.setVoteProfiles(profileIDs);
                         voteList.add(v);
                         recipieDTO.setVoteList(voteList);
-                        Toast.makeText(getApplicationContext(), "First ", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "First ", Toast.LENGTH_SHORT).show();
                     }
                     else{
                         profileIDs = recipieDTO.getVoteProfiles();
@@ -120,7 +120,7 @@ public class ViewRecipe extends AppCompatActivity {
                                 fundID = true;
                                 voteList.set(i, v);
                                 recipieDTO.setVoteList(voteList);
-                                Toast.makeText(getApplicationContext(), "Second ", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(), "Second ", Toast.LENGTH_SHORT).show();
                             }
                         }
                         if (!fundID){
@@ -128,7 +128,7 @@ public class ViewRecipe extends AppCompatActivity {
                             voteList.add(v);
                             recipieDTO.setVoteProfiles(profileIDs);
                             recipieDTO.setVoteList(voteList);
-                            Toast.makeText(getApplicationContext(), "Third ", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(), "Third ", Toast.LENGTH_SHORT).show();
                         }
                     }
 

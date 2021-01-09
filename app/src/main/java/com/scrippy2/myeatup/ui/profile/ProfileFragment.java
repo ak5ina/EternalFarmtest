@@ -47,6 +47,7 @@ public class ProfileFragment extends Fragment {
     private ArrayList<RecipieDTO> arraylistForGridviewRecipe;
     private GridviewAdapter_Recipy adaptorForRecipy;
     private DatabaseReference mDatabase;
+    private TextView userName;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -58,6 +59,9 @@ public class ProfileFragment extends Fragment {
         profileViewModel =
                 ViewModelProviders.of(this).get(ProfileViewModel.class);
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        userName = root.findViewById(R.id.profile_user_email);
+
         final TextView textView = root.findViewById(R.id.text_notifications);
         profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -65,13 +69,18 @@ public class ProfileFragment extends Fragment {
                 if (mAuth.getUid() != null) {
                     textView.setText("");
 
+                    userName.setText("User: " + FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
                 } else {
-                    textView.setText("YOUR NOT LOGGED IN!");
+                    //textView.setText("YOUR NOT LOGGED IN!");
                     Intent intent = new Intent(getActivity(), Login.class);
                     startActivityForResult(intent, 69);
                 }
             }
         });
+
+
+
 
         gridViewProflie = root.findViewById(R.id.gridview_profile);
 
@@ -117,14 +126,9 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-
-
-
-
                 for (int i = 0;i < prefRecSav.size();i++){
                     if (prefRecSav.get(i).contains("=saved")){
                         prefRecSav.set(i, prefRecSav.get(i).replace("=saved", ""));
-
                     }
                     System.out.println(prefRecSav.get(i));
                 }
@@ -140,15 +144,11 @@ public class ProfileFragment extends Fragment {
                             if (!prefRecSav.get(i).equals("")){
                                 RecipieDTO recipieDTO = snapshot.child("recipies").child(prefRecSav.get(i)).getValue(RecipieDTO.class);
                                 arraylistForGridviewRecipe.add(recipieDTO);
-
                             }
                         }
-
                         adaptorForRecipy = new GridviewAdapter_Recipy(getActivity().getApplicationContext(), R.layout.gridview_recipe_object, arraylistForGridviewRecipe);
                         gridViewProflie.setAdapter(adaptorForRecipy);
                         adaptorForRecipy.notifyDataSetChanged();
-
-
                     }
 
                     @Override
@@ -157,11 +157,6 @@ public class ProfileFragment extends Fragment {
                     }
                 };
                 mDatabase.addListenerForSingleValueEvent(savedListener);
-
-
-
-
-
             }
         });
 
@@ -176,9 +171,7 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
         return root;
-
     }
 
     @Override
@@ -188,14 +181,11 @@ public class ProfileFragment extends Fragment {
             if (resultCode == Activity.RESULT_OK) {
                 UpdateAfterLogin();
                 System.out.println("LOGGED IN!! YEAY");
-
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
                 System.out.println("NO LOGIN WHY NOT!! WHY !!!");
-
             }
-
         }
     }
 
