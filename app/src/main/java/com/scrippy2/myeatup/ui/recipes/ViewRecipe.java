@@ -152,7 +152,7 @@ public class ViewRecipe extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Added recipe to your collection\nFind it in profile", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Recipe is allready in your collection", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Recipe is already in your collection", Toast.LENGTH_SHORT).show();
 
                 }
 

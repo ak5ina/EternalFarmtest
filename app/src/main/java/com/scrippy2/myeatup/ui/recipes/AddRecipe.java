@@ -8,10 +8,12 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.scrippy2.myeatup.MainActivity;
 import com.scrippy2.myeatup.R;
 import com.scrippy2.myeatup.firebasedata.IngredientDTO;
@@ -159,6 +163,7 @@ public class AddRecipe extends AppCompatActivity {
                 }
                 recipe.setSteps(stepStrings);
 
+                recipe.setAuther(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 recipe.setID(key);
                 mDatabase.child("recipies").child(key).setValue(recipe);
 
@@ -179,6 +184,14 @@ public class AddRecipe extends AppCompatActivity {
                             for (int i = 0;i < recipe.getIngredientList().size();i++){
                                 mDatabase.child("ingredients").child(recipe.getIngredientList().get(i)).child("recipeUses").push().setValue(recipe.getID());
                             }
+
+                            mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("uploadedRecipes").push().setValue(recipe.getID());
+
+                            final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                            final SharedPreferences.Editor editor = preferences.edit();
+                            editor.putString(recipe.getID(),"own");
+                            editor.apply();
+
                             Toast.makeText(getApplicationContext(), "Recipe uploaded", Toast.LENGTH_SHORT).show();
                             finish();
                         }

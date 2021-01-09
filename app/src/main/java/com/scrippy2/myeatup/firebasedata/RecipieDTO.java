@@ -9,6 +9,7 @@ public class RecipieDTO implements IRecipieDTO {
 
 
     private String ID;
+    private String auther;
     private String name;
     private String time;
     private String price;
@@ -25,9 +26,10 @@ public class RecipieDTO implements IRecipieDTO {
     }
 
 
-    public RecipieDTO(String ID, String name, String time, String price){
+    public RecipieDTO(String ID, String auther, String name, String time, String price){
 
         this.ID = ID;
+        this.auther = auther;
         this.name = name;
         this.time = time;
         this.price = price;
@@ -53,6 +55,14 @@ public class RecipieDTO implements IRecipieDTO {
     @Override
     public void setID(String ID) {
         this.ID = ID;
+    }
+
+    public String getAuther() {
+        return auther;
+    }
+
+    public void setAuther(String auther) {
+        this.auther = auther;
     }
 
     @Override
