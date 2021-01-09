@@ -291,7 +291,14 @@ public class AddRecipe extends AppCompatActivity {
                 System.out.println(t);
                 //ADD INGREDIENT TO ADAPTER
                 if (t != null) {
-                    IngredientDTO ingredientAdded = MainActivity.INGREDIENTLIST.get(Integer.parseInt(t));
+
+                    IngredientDTO ingredientAdded = null;
+                    for (IngredientDTO ing : MainActivity.INGREDIENTLIST){
+                        if (Integer.parseInt(ing.getID()) == Integer.parseInt(t)){
+                            ingredientAdded = ing;
+                        }
+                    }
+
                     ingredientObjects.get(btn_id).setIngredient(ingredientAdded.getName());
                     ingredientObjects.get(btn_id).setId(ingredientAdded.getID());
                     ingredientAdapter.notifyDataSetChanged();
