@@ -2013,8 +2013,6 @@ id profile_btn_saved_recipes
 id profile_btn_your_recipes
 id profile_header_line
 id profile_header_text
-id profile_recipy_upload_amount
-id profile_reviews_amount
 id profile_user_email
 id progress_circular
 id progress_horizontal
@@ -2031,6 +2029,7 @@ id rounded
 id row_index_key
 id save_non_transition_alpha
 id save_overlay_view
+id saveoruploaded
 id sawtooth
 id scale
 id screen

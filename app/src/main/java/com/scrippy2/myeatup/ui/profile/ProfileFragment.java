@@ -49,6 +49,7 @@ public class ProfileFragment extends Fragment {
     private TextView userName;
     private ArrayList<String> ownRecipes;
     private String[] prefRecipies;
+    TextView tvrecipytype;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -107,11 +108,12 @@ public class ProfileFragment extends Fragment {
         String mapalt2 = mapalt.replaceAll(" ", "");
         prefRecipies = mapalt2.split(",");
 
-
+        tvrecipytype = root.findViewById(R.id.saveoruploaded);
 
         btnsavedRecipies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tvrecipytype.setText("Saved recipes");
 
                 retriveRecipes("=saved");
             }
@@ -122,6 +124,7 @@ public class ProfileFragment extends Fragment {
         btnownRecipes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tvrecipytype.setText("My recipes");
 
                 retriveRecipes("=own");
             }
