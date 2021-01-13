@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize"
-    android:orientation="horizontal"
-    android:background="@drawable/backgroundpic">
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:hint="Email"
+            android:text="tester@dtu.test"
             android:inputType="textEmailAddress"
             android:paddingLeft="10dp"
             android:layout_margin="10dp"
@@ -48,6 +48,7 @@
             android:inputType="textPassword"
             android:layout_gravity="center_horizontal"
             android:hint="Password"
+            android:text="tester"
             android:paddingLeft="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"

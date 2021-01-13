@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/backgroundpic">
+    android:layout_height="match_parent">
 
 
     <ScrollView
@@ -35,6 +34,16 @@
                     android:layout_weight="1"
                     >
                 </TextView>
+
+                <TextView
+                    android:id="@+id/text_recipe_score_igen"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Recipe score"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -204,9 +213,11 @@
                 >
 
                 <TextView
+                    android:id="@+id/changeifnotloggedintorate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rate this recipe"
+                    android:layout_gravity="center"
                     >
 
                 </TextView>
@@ -216,6 +227,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:progressTint="#F5AB49"
+                    android:layout_gravity="center"
                     >
 
                 </RatingBar>
@@ -224,10 +236,10 @@
                     android:id="@+id/add_collect"
                     android:layout_width="300dp"
                     android:layout_height="50dp"
-                    android:layout_gravity="center"
                     android:background="@drawable/btn_upload"
                     android:text="Add recipe to your collection"
                     android:clickable="true"
+                    android:layout_gravity="center"
                     >
 
                 </Button>
