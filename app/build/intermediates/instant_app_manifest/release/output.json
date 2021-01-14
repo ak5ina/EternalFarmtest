@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "applicationId": "com.example.myeatup",
+  "applicationId": "com.scrippy2.myeatup",
   "variantType": "BASE_APK",
   "elements": [
     {
@@ -10,16 +10,16 @@
       "apkData": {
         "type": "MAIN",
         "splits": [],
-        "versionCode": 1,
-        "versionName": "1.0",
-        "outputFile": "app-release-unsigned.apk",
+        "versionCode": 3,
+        "versionName": "3.0",
+        "outputFile": "app-release.apk",
         "fullName": "release",
         "baseName": "release",
         "dirName": ""
       },
       "path": "AndroidManifest.xml",
       "properties": {
-        "packageId": "com.example.myeatup",
+        "packageId": "com.scrippy2.myeatup",
         "split": "",
         "minSdkVersion": "16"
       }

@@ -32,6 +32,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getWindow().setBackgroundDrawableResource(R.drawable.backgroundpic);
+        getSupportActionBar().hide();
 
         //FIREBASE
         mAuth = FirebaseAuth.getInstance();
@@ -68,7 +70,7 @@ public class Login extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
 //                            Toast.makeText(getApplicationContext(), "Login succeed", Toast.LENGTH_LONG).show();
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Toast.makeText(Login.this, user.getUid(), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Login.this, "Login succes", Toast.LENGTH_LONG).show();
                                     setResult(Activity.RESULT_OK);
                                     finish();
                                 } else {

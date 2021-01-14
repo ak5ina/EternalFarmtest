@@ -1623,6 +1623,7 @@ drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_dashboard_black_24dp
+drawable ic_eating_svgrepo_com
 drawable ic_home_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -1797,6 +1798,7 @@ id center_horizontal
 id center_vertical
 id chain
 id chains
+id changeifnotloggedintorate
 id checkbox
 id checked
 id chip
@@ -2011,8 +2013,6 @@ id profile_btn_saved_recipes
 id profile_btn_your_recipes
 id profile_header_line
 id profile_header_text
-id profile_recipy_upload_amount
-id profile_reviews_amount
 id profile_user_email
 id progress_circular
 id progress_horizontal
@@ -2029,6 +2029,7 @@ id rounded
 id row_index_key
 id save_non_transition_alpha
 id save_overlay_view
+id saveoruploaded
 id sawtooth
 id scale
 id screen
@@ -2118,6 +2119,7 @@ id text_input_end_icon
 id text_input_start_icon
 id text_notifications
 id text_recipe_name_view
+id text_recipe_score_igen
 id text_time_view
 id textinput_counter
 id textinput_error

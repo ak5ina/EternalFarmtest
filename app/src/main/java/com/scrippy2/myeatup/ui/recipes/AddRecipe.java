@@ -75,6 +75,8 @@ public class AddRecipe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_recipe);
+        getWindow().setBackgroundDrawableResource(R.drawable.backgroundpic);
+
 
         getSupportActionBar().hide();
         photoButton = (ImageButton) this.findViewById(R.id.btn_image);

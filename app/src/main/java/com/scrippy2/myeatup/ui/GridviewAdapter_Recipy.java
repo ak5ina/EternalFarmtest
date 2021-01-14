@@ -55,10 +55,14 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
 
             }
 
+            double avarage2 = Math.round(avargaRating*100);
+
+            System.out.println("HAHAHAHA HER ER DIT TAL : " + avarage2/100);
+
 
             tvTime.setText(recipyList.get(position).getTime());
             tvPrice.setText(recipyList.get(position).getPrice());
-            tvRating.setText(Double.toString(avargaRating));
+            tvRating.setText(Double.toString(avarage2/100));
             tvName.setText(recipyList.get(position).getName());
 
             convertView.isClickable();

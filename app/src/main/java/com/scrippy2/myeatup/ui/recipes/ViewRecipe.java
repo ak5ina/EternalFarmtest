@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -59,6 +60,8 @@ public class ViewRecipe extends AppCompatActivity {
         setContentView(R.layout.activity_view_recipe);
         getSupportActionBar().hide();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        getWindow().setBackgroundDrawableResource(R.drawable.backgroundpic);
+
 
         id = getIntent().getStringExtra("Recipe");
 
@@ -83,82 +86,93 @@ public class ViewRecipe extends AppCompatActivity {
         ingredientAdapter = new ViewIngredientAdapter(this, R.layout.adapter_view_ingredient, ingredientObjects);
         list_ingredint.setAdapter(ingredientAdapter);
 
+
         final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = preferences.edit();
         //editor.clear().apply();
 
 
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, final float v, boolean b) {
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+                @Override
+                public void onRatingChanged(RatingBar ratingBar, final float v, boolean b) {
 
-                Toast.makeText(getApplicationContext(), "You rated this recipe " + v + " stars", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "You rated this recipe " + v + " stars", Toast.LENGTH_SHORT).show();
 
-                ArrayList<String> profileIDs = new ArrayList<>();
-                ArrayList<Float> voteList = new ArrayList<>();
+                    ArrayList<String> profileIDs = new ArrayList<>();
+                    ArrayList<Float> voteList = new ArrayList<>();
 
-                if (FirebaseAuth.getInstance().getCurrentUser().getUid() == null){
-                    Toast.makeText(getApplicationContext(), "You must login to rate recipes ", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                    if (FirebaseAuth.getInstance().getCurrentUser().getUid() == null) {
+                        Toast.makeText(getApplicationContext(), "You must login to rate recipes ", Toast.LENGTH_SHORT).show();
+                    } else {
 
-                    String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                    if (recipieDTO.getVoteProfiles() == null) {
-                        profileIDs.add(currentUser);
-                        recipieDTO.setVoteProfiles(profileIDs);
-                        voteList.add(v);
-                        recipieDTO.setVoteList(voteList);
-                        //Toast.makeText(getApplicationContext(), "First ", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        profileIDs = recipieDTO.getVoteProfiles();
-                        voteList = recipieDTO.getVoteList();
-                        boolean fundID = false;
-                        for (int i = 0;i < recipieDTO.getVoteProfiles().size();i++){
-                            if (recipieDTO.getVoteProfiles().get(i).equals(currentUser)){
-                                fundID = true;
-                                voteList.set(i, v);
+                        if (recipieDTO.getVoteProfiles() == null) {
+                            profileIDs.add(currentUser);
+                            recipieDTO.setVoteProfiles(profileIDs);
+                            voteList.add(v);
+                            recipieDTO.setVoteList(voteList);
+                            //Toast.makeText(getApplicationContext(), "First ", Toast.LENGTH_SHORT).show();
+                        } else {
+                            profileIDs = recipieDTO.getVoteProfiles();
+                            voteList = recipieDTO.getVoteList();
+                            boolean fundID = false;
+                            for (int i = 0; i < recipieDTO.getVoteProfiles().size(); i++) {
+                                if (recipieDTO.getVoteProfiles().get(i).equals(currentUser)) {
+                                    fundID = true;
+                                    voteList.set(i, v);
+                                    recipieDTO.setVoteList(voteList);
+                                    //Toast.makeText(getApplicationContext(), "Second ", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            if (!fundID) {
+                                profileIDs.add(currentUser);
+                                voteList.add(v);
+                                recipieDTO.setVoteProfiles(profileIDs);
                                 recipieDTO.setVoteList(voteList);
-                                //Toast.makeText(getApplicationContext(), "Second ", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(), "Third ", Toast.LENGTH_SHORT).show();
                             }
                         }
-                        if (!fundID){
-                            profileIDs.add(currentUser);
-                            voteList.add(v);
-                            recipieDTO.setVoteProfiles(profileIDs);
-                            recipieDTO.setVoteList(voteList);
-                            //Toast.makeText(getApplicationContext(), "Third ", Toast.LENGTH_SHORT).show();
-                        }
+
+                        mDatabase.child("recipies").child(id).child("voteList").setValue(voteList);
+                        mDatabase.child("recipies").child(id).child("voteProfiles").setValue(profileIDs);
                     }
 
-                    mDatabase.child("recipies").child(id).child("voteList").setValue(voteList);
-                    mDatabase.child("recipies").child(id).child("voteProfiles").setValue(profileIDs);
                 }
+            });
+        } else {
+            ratingBar.setVisibility(View.GONE);
+            TextView tv = findViewById(R.id.changeifnotloggedintorate);
+            tv.setText("Log in to vote");
+        }
 
-            }
-        });
 
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            collection_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-        collection_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                    if (!preferences.contains(id)) {
 
-                if (!preferences.contains(id)){
+                        editor.putString(id, "saved");
 
-                    editor.putString(id,"saved");
+                        editor.apply();
+                        Toast.makeText(getApplicationContext(), "Added recipe to your collection\nFind it in profile", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Recipe is already in your collection", Toast.LENGTH_SHORT).show();
+                    }
 
-                    editor.apply();
-                    Toast.makeText(getApplicationContext(), "Added recipe to your collection\nFind it in profile", Toast.LENGTH_SHORT).show();
                 }
-                else {
-                    Toast.makeText(getApplicationContext(), "Recipe is already in your collection", Toast.LENGTH_SHORT).show();
-
+            });
+        } else {
+            collection_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getApplicationContext(), "Please login to save recipes", Toast.LENGTH_SHORT).show();
                 }
-
-            }
-        });
-
+            });
+        }
 
 
         ValueEventListener postListener = new ValueEventListener() {
@@ -184,7 +198,6 @@ public class ViewRecipe extends AppCompatActivity {
                              recipieDTO.getUnitList().get(i)));
                     //ingredientAdapter.setListIngredients(i);
                     System.out.println(recipieDTO.getUnitAmount().get(i) + "!!!!!!!!!");
-                    ingredientAdapter.notifyDataSetChanged();
 
                 }
                 for (int i = 0;i < recipieDTO.getSteps().size();i++){
@@ -199,6 +212,39 @@ public class ViewRecipe extends AppCompatActivity {
                 paramsIngre.height = 140 * ingredientAdapter.getCount();
                 list_ingredint.setLayoutParams(paramsIngre);
 
+                ingredientAdapter.notifyDataSetChanged();
+                UIUtils.setListViewHeightBasedOnItems(list_ingredint);
+
+                //SET RATING
+
+
+                double avargaRating = 0;
+                double combinedValue = 0;
+                TextView rating = findViewById(R.id.text_recipe_score_igen);
+
+                if (recipieDTO.getVoteList() == null){
+                    rating.setText("No rating");
+                }
+                else {
+                    for (int i = 0; i < recipieDTO.getVoteList().size(); i++){
+                        combinedValue = combinedValue += Double.parseDouble(recipieDTO.getVoteList().get(i).toString());
+                    }
+
+                    if (combinedValue > 0){
+                        avargaRating = (combinedValue/recipieDTO.getVoteList().size());
+                    }
+
+                }
+
+                double avarage2 = Math.round(avargaRating*100);
+
+                if (avarage2 > 0){
+                    rating.setText("Rating: " + avarage2 / 100);
+                } else {
+                    rating.setText("No rating");
+                }
+
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -209,4 +255,5 @@ public class ViewRecipe extends AppCompatActivity {
 
 
     }
+
 }

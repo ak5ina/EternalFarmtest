@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         INGREDIENTLIST = new ArrayList<>();
+        getWindow().setBackgroundDrawableResource(R.drawable.backgroundpic);
+
 
         //Storage storage = new Storage();
         //storage.upload("C:/Users/Andreas/Desktop/EUFBtest.PNG", "EUFBtest.PNG");
