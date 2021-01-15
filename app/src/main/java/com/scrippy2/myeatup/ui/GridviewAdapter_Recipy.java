@@ -28,7 +28,7 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull final ViewGroup parent) {
 
-        if(convertView == null){
+        if(convertView == null || true){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.gridview_recipe_object, parent, false);
             TextView tvTime = convertView.findViewById(R.id.gridview_time_recipy);
             TextView tvPrice = convertView.findViewById(R.id.gridview_price_recipy);

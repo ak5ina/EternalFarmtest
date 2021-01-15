@@ -977,6 +977,7 @@ color checkbox_themeable_attribute_color
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
+color color_bg_for_text
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled
@@ -1895,6 +1896,7 @@ id gridview_time_recipy
 id gridview_wholeobject
 id group_divider
 id groups
+id hejsa
 id hideable
 id home
 id homeAsUp
@@ -2099,6 +2101,7 @@ id test_checkbox_app_button_tint
 id test_price_view
 id test_radiobutton_android_button_tint
 id test_radiobutton_app_button_tint
+id testerforthewin
 id text
 id text2
 id textEnd

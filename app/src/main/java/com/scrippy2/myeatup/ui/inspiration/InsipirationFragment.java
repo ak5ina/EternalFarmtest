@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.scrippy2.myeatup.Login;
 import com.scrippy2.myeatup.MainActivity;
 import com.scrippy2.myeatup.R;
 import com.scrippy2.myeatup.firebasedata.IngredientDTO;
@@ -46,6 +48,7 @@ public class InsipirationFragment extends Fragment {
     private DatabaseReference mDatabase;
     private IngredientDTO ingredientToReturn = null;
     private ArrayList<String> recipyIDarray, acceptableID;
+    private ArrayList<String> recipyID2;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -62,6 +65,7 @@ public class InsipirationFragment extends Fragment {
         });
 
 
+        recipyID2 = new ArrayList<>();
 
 
         //Gridview for ingredienser
@@ -114,6 +118,8 @@ public class InsipirationFragment extends Fragment {
 
         });
 
+        Toast.makeText(getActivity(), "Click add ingredient to find inspiration.", Toast.LENGTH_LONG).show();
+
 
         final Button btn_view_recipe = root.findViewById(R.id.btn_view_recipe_frag);
         btn_view_recipe.setOnClickListener(new View.OnClickListener() {
@@ -137,77 +143,135 @@ public class InsipirationFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1){
-            if(resultCode == getActivity().RESULT_OK){
-                adaptorForRecipy.clear();
-                recipyIDarray.clear();
-                acceptableID.clear();
+            if(resultCode == getActivity().RESULT_OK) {
+
+                if (adaptorForIngredients.getCount() == 0) {
 
 
-                System.out.println("HER SKAL DU SE " + data.getIntExtra("ingredientID", 0));
-                int b = data.getIntExtra("ingredientID", 0);
+                    adaptorForRecipy.clear();
+                    recipyIDarray.clear();
+                    acceptableID.clear();
 
-                String t = Integer.toString(b);
-                //ADD INGREDIENT TO ADAPTER
-                if (t != null) {
-                    IngredientDTO ingredientAdded = null;
 
-                    for (IngredientDTO ing : MainActivity.INGREDIENTLIST){
-                        if (Integer.parseInt(ing.getID()) == Integer.parseInt(t)){
-                            ingredientAdded = ing;
+                    System.out.println("HER SKAL DU SE " + data.getIntExtra("ingredientID", 0));
+                    int b = data.getIntExtra("ingredientID", 0);
+
+                    String t = Integer.toString(b);
+                    //ADD INGREDIENT TO ADAPTER
+                    if (t != null) {
+                        IngredientDTO ingredientAdded = null;
+
+                        for (IngredientDTO ing : MainActivity.INGREDIENTLIST) {
+                            if (Integer.parseInt(ing.getID()) == Integer.parseInt(t)) {
+                                ingredientAdded = ing;
+                            }
                         }
-                    }
 
-                    if (ingredientAdded != null) {
-                        adaptorForIngredients.add(ingredientAdded);
-                        adaptorForIngredients.notifyDataSetChanged();
+                        if (ingredientAdded != null) {
+                            adaptorForIngredients.add(ingredientAdded);
+                            adaptorForIngredients.notifyDataSetChanged();
 
-                        for (int i = 0; i < adaptorForIngredients.getCount(); i++) {
-                            if (adaptorForIngredients.getItem(i).getRecipies() != null) {
-                                for (String recipyID : adaptorForIngredients.getItem(i).getRecipies()) {
+                            for (int i = 0; i < adaptorForIngredients.getCount(); i++) {
+                                if (adaptorForIngredients.getItem(i).getRecipies() != null) {
+                                    for (String recipyID : adaptorForIngredients.getItem(i).getRecipies()) {
+                                        System.out.println("her er id for opskriften " + recipyID);
+                                        recipyIDarray.add(recipyID);
 
-                                    recipyIDarray.add(recipyID);
-
+                                    }
                                 }
                             }
-                        }
 
-                        Collections.sort(recipyIDarray);
+                            System.out.println(recipyIDarray.size());
 
-                        String lastID = "bliverSatSennere", currentID;
-                        int idCounter = 0;
+                            Collections.sort(recipyIDarray);
 
-                        for (int i = 0; i < recipyIDarray.size(); i++) {
-                            currentID = recipyIDarray.get(i);
-                            System.out.println("TEST1");
+                            String lastID = "bliverSatSennere";
+                            String currentID;
+                            int idCounter = 0;
 
-                            if (lastID.contentEquals(currentID)) {
-                                System.out.println("TEST2");
-                                idCounter++;
-                                lastID = currentID;
-                            } else {
-                                System.out.println("TEST4");
-                                idCounter = 0;
-                                lastID = currentID;
+                            for (int i = 0; i < recipyIDarray.size(); i++) {
+                                currentID = recipyIDarray.get(i);
+                                System.out.println("TEST1");
+
+                                if (lastID.contentEquals(currentID)) {
+                                    System.out.println("TEST2");
+                                    idCounter++;
+                                    lastID = currentID;
+                                } else {
+                                    System.out.println("TEST4");
+                                    idCounter = 0;
+                                    lastID = currentID;
+                                }
+
+
+                                if (idCounter == adaptorForIngredients.getCount() - 1) {
+                                    System.out.println("TEST3");
+                                    System.out.println(currentID + " | " + idCounter);
+                                    acceptableID.add(currentID);
+    //                                addONEIng(currentID);
+                                }
+
+                                System.out.println("Recipy id | " + recipyIDarray.get(i));
                             }
-
-
-                            if (idCounter == adaptorForIngredients.getCount() - 1) {
-                                System.out.println("TEST3");
-                                System.out.println(currentID + " | " + idCounter);
-                                acceptableID.add(currentID);
-                            }
-
-                            System.out.println("Recipy id | " + recipyIDarray.get(i));
                         }
 
                         AddToRecipyGridview(acceptableID);
                     }
                 }
+
+                else {
+
+                    int b = data.getIntExtra("ingredientID", 0);
+                    String t = Integer.toString(b);
+
+                    if (t != null) {
+
+                        IngredientDTO ingredientAdded = null;
+
+                        for (IngredientDTO ing : MainActivity.INGREDIENTLIST) {
+                            if (Integer.parseInt(ing.getID()) == Integer.parseInt(t)) {
+                                ingredientAdded = ing;
+                            }
+                        }
+
+                        if (ingredientAdded != null) {
+                            adaptorForIngredients.add(ingredientAdded);
+                            adaptorForIngredients.notifyDataSetChanged();
+                        }
+
+                        RecipieDTO recipieDTOToLookAt = null;
+
+                        for (int i = 0; adaptorForRecipy.getCount() > i; i++){
+                            recipieDTOToLookAt = adaptorForRecipy.getItem(i);
+
+                            boolean includingID = false;
+
+                            for (String ingID : recipieDTOToLookAt.getIngredientList()){
+                                if (ingID.contains(t)){
+                                    includingID = true;
+                                }
+                            }
+
+                            if (!includingID){
+                                System.out.println(recipieDTOToLookAt.getName() + " dont include ID");
+                                adaptorForRecipy.remove(recipieDTOToLookAt);
+                                i--;
+                            }
+
+
+
+                        }
+                    }
+
+                }
             }
         }
     }
 
-    private void AddToRecipyGridview(final ArrayList<String> recipyID) {
+    private void AddToRecipyGridview(ArrayList<String> recipyID) {
+
+            recipyID2.clear();
+            recipyID2.addAll(recipyID);
 
             DatabaseReference mDatabase2 = FirebaseDatabase.getInstance().getReference("recipies");
             mDatabase2.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -215,12 +279,15 @@ public class InsipirationFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                     for (DataSnapshot childSnap : snapshot.getChildren()){
-                        for (int i = 0; i < recipyID.size(); i++) {
-                            if (childSnap.getKey().contentEquals(recipyID.get(i))) {
+                        for (int i = 0; i < recipyID2.size(); i++) {
+                            if (childSnap.getKey().contentEquals(recipyID2.get(i))) {
                                 adaptorForRecipy.add(childSnap.getValue(RecipieDTO.class));
+
+                                adaptorForRecipy.notifyDataSetChanged();
                             }
                         }
                     }
+
                 }
 
                 @Override
@@ -230,6 +297,24 @@ public class InsipirationFragment extends Fragment {
             });
 
 
+    }
+
+    public void addONEIng(String ingID){
+
+        DatabaseReference mDatabase2 = FirebaseDatabase.getInstance().getReference("recipies").child(ingID);
+        mDatabase2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                adaptorForRecipy.add(snapshot.getValue(RecipieDTO.class));
+                System.out.println(snapshot.getValue(RecipieDTO.class).getName());
+                adaptorForRecipy.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 

@@ -186,9 +186,9 @@ MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\
 	android:label
 		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:16:9-41
 	android:roundIcon
-		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:17:9-54
+		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:17:9-60
 	android:icon
-		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:15:9-43
+		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:15:9-55
 	android:allowBackup
 		ADDED from C:\Users\spoul\AndroidStudioProjects\EternalFarm\app\src\main\AndroidManifest.xml:14:9-35
 	android:theme
