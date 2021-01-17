@@ -61,6 +61,7 @@ public class InsipirationFragment extends Fragment {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
+
             }
         });
 
@@ -145,7 +146,10 @@ public class InsipirationFragment extends Fragment {
         if (requestCode == 1){
             if(resultCode == getActivity().RESULT_OK) {
 
+
+
                 if (adaptorForIngredients.getCount() == 0) {
+
 
 
                     adaptorForRecipy.clear();
@@ -215,14 +219,21 @@ public class InsipirationFragment extends Fragment {
                             }
                         }
 
+
                         AddToRecipyGridview(acceptableID);
                     }
+
+
                 }
+
 
                 else {
 
                     int b = data.getIntExtra("ingredientID", 0);
                     String t = Integer.toString(b);
+
+
+
 
                     if (t != null) {
 
@@ -261,8 +272,10 @@ public class InsipirationFragment extends Fragment {
 
 
                         }
+                        if (adaptorForRecipy.isEmpty()) {
+                            Toast.makeText(getContext(), "No recipe uses this combination of ingredients", Toast.LENGTH_SHORT).show();
+                        }
                     }
-
                 }
             }
         }

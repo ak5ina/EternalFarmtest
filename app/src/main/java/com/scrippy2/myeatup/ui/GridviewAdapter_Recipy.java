@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -60,9 +61,9 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
             System.out.println("HAHAHAHA HER ER DIT TAL : " + avarage2/100);
 
 
-            tvTime.setText(recipyList.get(position).getTime());
+            tvTime.setText(recipyList.get(position).getTime() + " min");
             tvPrice.setText(recipyList.get(position).getPrice());
-            tvRating.setText(Double.toString(avarage2/100));
+            tvRating.setText(Double.toString(avarage2/100) + " *");
             tvName.setText(recipyList.get(position).getName());
 
             convertView.isClickable();
@@ -79,6 +80,7 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
         }
 
 
+
         return convertView;
     }
 
@@ -86,6 +88,7 @@ public class GridviewAdapter_Recipy extends ArrayAdapter<RecipieDTO> {
         super(context, resource, ingredientList);
         this.con = context;
         this.recipyList = ingredientList;
+
 
     }
 

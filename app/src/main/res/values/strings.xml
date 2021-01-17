@@ -8,11 +8,11 @@
     <string name="RecipeName">Recipe Name</string>
     <string-array name="unit_array">
         <item>Unit</item>
-        <item>Stk</item>
+        <item>PCS</item>
         <item>g</item>
-        <item>dL</item>
-        <item>spsk</item>
-        <item>tsk</item>
+        <item>dl</item>
+        <item>tbsp</item>
+        <item>tsp</item>
     </string-array>
     <string-array name="price_array">
         <item>Choose</item>
