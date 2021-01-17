@@ -171,6 +171,11 @@ public class InsipirationFragment extends Fragment {
                             }
                         }
 
+                        if (!(ingredientAdded.getRecipies().size() > 0)) {
+                            Toast.makeText(getContext(), "No recipe uses this  ingredient", Toast.LENGTH_SHORT).show();
+                        }
+
+
                         if (ingredientAdded != null) {
                             adaptorForIngredients.add(ingredientAdded);
                             adaptorForIngredients.notifyDataSetChanged();
