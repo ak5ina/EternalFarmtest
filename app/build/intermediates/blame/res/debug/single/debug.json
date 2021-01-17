@@ -20,12 +20,12 @@
         "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\navigation_mobile_navigation.xml.flat",
-        "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
-    },
-    {
         "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\menu_bottom_nav_menu.xml.flat",
         "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\src\\main\\res\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
     },
     {
         "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\layout_gridview_single_object.xml.flat",
@@ -72,12 +72,12 @@
         "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_home_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_eating_svgrepo_com.png.flat",
-        "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_eating_svgrepo_com.png"
-    },
-    {
         "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_view_ingredient.xml.flat",
         "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\src\\main\\res\\layout\\adapter_view_ingredient.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_eating_svgrepo_com.png.flat",
+        "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_eating_svgrepo_com.png"
     },
     {
         "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_home_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_home_black_24dp.png.flat",
-        "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_home_black_24dp.png"
-    },
-    {
         "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icons8_star_24.png.flat",
         "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\src\\main\\res\\drawable\\icons8_star_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_home_black_24dp.png.flat",
+        "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_home_black_24dp.png"
     },
     {
         "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_add_ingridient.xml.flat",
@@ -152,12 +152,12 @@
         "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_dashboard_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_dashboard_black_24dp.png.flat",
-        "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_dashboard_black_24dp.png"
-    },
-    {
         "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_eating_svgrepo_com.xml.flat",
         "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_eating_svgrepo_com.xml"
+    },
+    {
+        "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_dashboard_black_24dp.png.flat",
+        "source": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_dashboard_black_24dp.png"
     },
     {
         "merged": "C:\\Users\\Andreas\\AndroidStudioProjects\\EternalFarmtest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",

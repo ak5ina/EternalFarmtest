@@ -22,7 +22,6 @@
             android:text="Step "
             android:textStyle="bold"
             android:textSize="20sp"
-            android:layout_weight="1"
             >
         </TextView>
 
@@ -30,10 +29,11 @@
             android:id="@+id/text_adapt_step_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
             android:gravity="left"
             android:textSize="20sp"
             android:text="@string/Todo"
+            android:layout_gravity="center_vertical"
+            android:foregroundGravity="right"
             >
         </TextView>
 

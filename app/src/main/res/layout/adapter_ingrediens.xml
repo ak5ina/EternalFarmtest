@@ -38,7 +38,8 @@
                     android:minWidth="50dp"
                     android:maxWidth="200dp"
                     android:layout_height="50dp"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="left"
                     >
                 </TextView>
             </LinearLayout>
